@@ -17,12 +17,10 @@ public class PluginContainer {
      * and the content of the tool window (CustomWebView)
      */
 
-    private Project project;
     private JFrame root;
     private JFXPanel panel;
 
     public PluginContainer(Project project) {
-        this.project = project;
         root = (JFrame) Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane().getParent();
         panel = new CustomWebView().getWebView();
 

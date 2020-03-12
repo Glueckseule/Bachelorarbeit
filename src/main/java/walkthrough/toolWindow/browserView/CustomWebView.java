@@ -22,7 +22,7 @@ public class CustomWebView extends JFXPanel {
      */
 
     private JFXPanel panel;
-    private static final String PATH = "C:\\Users\\Daniela\\Dropbox\\Bachelorarbeit\\05_Plugin\\basic_gradle_plugin\\src\\main\\java\\org\\intellij\\sdk\\toolWindow\\browserView\\browser\\index.html";
+    private static final String PATH = "C:\\Users\\Daniela\\Dropbox\\Bachelorarbeit\\05_Plugin\\walkthrough\\src\\main\\java\\walkthrough\\toolWindow\\browserView\\browser\\index.html";
     private URL url;
 
     public CustomWebView() {
