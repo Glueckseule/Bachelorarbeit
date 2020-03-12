@@ -17,22 +17,16 @@ public class CustomWebView extends JFXPanel {
      * The JS-App displayed here is located in the browse-folder
      * Use as content the files from the PATH defined below
      *
-     * TODO:   Find out how it works with relative path
-     * TODO:   Complete html-files with explanations
+     * TODO:   Complete html-files with explanations and extra wizard library
      */
 
     private JFXPanel panel;
-    private static final String PATH = "C:\\Users\\Daniela\\Dropbox\\Bachelorarbeit\\05_Plugin\\walkthrough\\src\\main\\java\\walkthrough\\toolWindow\\browserView\\browser\\index.html";
+    private static final String PATH = "/browser/index.html";
     private URL url;
 
     public CustomWebView() {
         panel = new JFXPanel();
-
-        try {
-            url = new File(PATH).toURI().toURL();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        url = getClass().getResource(PATH);
 
         Platform.runLater(new Runnable() {
             @Override
