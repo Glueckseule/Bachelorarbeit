@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>org.example.intellij_walkthrough</id>
+    <name>IntelliJ Walkthrough</name>
+    <vendor email="daniela.krapf@stud.uni-regensburg.de">Daniela Krapf</vendor>
+
+    <description><![CDATA[
+    This is an interactive walkthrough showing the basic steps
+    with the IntelliJ IDE
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Walkthrough durch IntelliJ" icon="/assets/unicorn.png" anchor="right"
+                    factoryClass="walkthrough.toolWindow.MyToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

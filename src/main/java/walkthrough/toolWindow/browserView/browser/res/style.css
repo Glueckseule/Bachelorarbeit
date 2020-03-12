@@ -1,0 +1,61 @@
+html {
+    height: 100%;
+}
+body {
+    height: 98%;
+    width: 98%;
+    font-size: 13px;
+    word-break: break-word;
+    margin: 1%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+main {
+    height: 100%;
+}
+h1 {
+    font-size: 14px;
+}
+button {
+    margin: 5px;
+    min-width: 100px;
+}
+iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+  
+#bar {
+    padding: 1%;
+    height: 2%;
+    margin-bottom: 1%;
+    text-align: center;
+    display: inline-flex;
+}
+
+#content {
+    height: 97%;
+}
+#iframe-container {
+    overflow: hidden;
+    height: 90%;
+    position: relative;
+}
+
+.p-dot {
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50px;
+
+    border: 1px solid black;    
+    background-color: rgb(228, 228, 228);
+    
+    margin: 0 8px;
+}
+.p-dot.progress {    
+    background-color: rgb(240, 174, 33);
+}
