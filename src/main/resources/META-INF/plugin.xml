@@ -13,8 +13,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Walkthrough durch IntelliJ" icon="/assets/unicorn.png" anchor="right"
-                    factoryClass="walkthrough.toolWindow.MyToolWindowFactory"/>
+        <toolWindow id="Walkthrough durch IntelliJ" icon="/assets/unicorn.png" anchor="right" secondary="true"
+                    factoryClass="walkthrough.toolWindow.MyToolWindowFactory" />
     </extensions>
 
     <actions>

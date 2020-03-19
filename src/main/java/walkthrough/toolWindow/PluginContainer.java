@@ -1,7 +1,9 @@
 package walkthrough.toolWindow;
 
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.WindowManager;
+import com.intellij.ui.content.ContentManager;
 import javafx.embed.swing.JFXPanel;
 import walkthrough.toolWindow.browserView.CustomWebView;
 import walkthrough.toolWindow.highlighting.HighlightWindow;

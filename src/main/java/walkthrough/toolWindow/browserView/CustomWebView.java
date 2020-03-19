@@ -1,12 +1,14 @@
 package walkthrough.toolWindow.browserView;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.concurrent.Worker;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import org.w3c.dom.Document;
 
-import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CustomWebView extends JFXPanel {
@@ -22,7 +24,10 @@ public class CustomWebView extends JFXPanel {
 
     private JFXPanel panel;
     private static final String PATH = "/browser/index.html";
+    private String currentSite;
     private URL url;
+
+    private WebEngine engine;
 
     public CustomWebView() {
         panel = new JFXPanel();
@@ -41,10 +46,46 @@ public class CustomWebView extends JFXPanel {
         panel.setScene(scene);
     }
 
+    /**
+     * It provides access  to the document model of the current page,
+     * and enables two-way communication between a Java application and JavaScript code of the page.
+     */
     private Scene createScene() {
+        //Create a WebView
         WebView browser = new WebView();
-        browser.getEngine().load(url.toExternalForm());
-        return new Scene(browser);
+        //Get WebEngine for this WebView
+        engine = browser.getEngine();
+        //load the URL
+        engine.load(url.toExternalForm());
+
+        engine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+            if (Worker.State.SUCCEEDED.equals(newValue)) {
+                Document doc = engine.getDocument();
+                engine.setJavaScriptEnabled(true);
+                Integer step = (Integer) engine.executeScript("App.getCurrentStep()");
+            }
+        });
+
+        Scene scene = new Scene(browser);
+        return scene;
+    }
+
+    /**
+     * Create a method to listen to changes in the webview
+     * When the site is changed, write the current url to currentSite,
+     * so that the status might be recreated after closing of the ToolWindow
+     */
+    private void listenToStatusChange(){
+        String href= engine.locationProperty().toString();
+        currentSite = "/browser/"+getFileString(href);
+    }
+
+    private String getFileString(String href) {
+        String[] parts = href.split("/");
+        String site = parts[parts.length-1];
+        site = site.substring(0, site.length()-1);
+
+        return site;
     }
 
     public JFXPanel getWebView() {
