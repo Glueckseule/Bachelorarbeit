@@ -1,11 +1,12 @@
 package walkthrough.toolWindow.browserView;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
 import javafx.concurrent.Worker;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
 import org.w3c.dom.Document;
 
@@ -33,11 +34,8 @@ public class CustomWebView extends JFXPanel {
         panel = new JFXPanel();
         url = getClass().getResource(PATH);
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                initFX();
-            }
+        Platform.runLater(() -> {
+            initFX();
         });
     }
 
@@ -58,16 +56,7 @@ public class CustomWebView extends JFXPanel {
         //load the URL
         engine.load(url.toExternalForm());
 
-        engine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
-            if (Worker.State.SUCCEEDED.equals(newValue)) {
-                Document doc = engine.getDocument();
-                engine.setJavaScriptEnabled(true);
-                Integer step = (Integer) engine.executeScript("App.getCurrentStep()");
-            }
-        });
-
-        Scene scene = new Scene(browser);
-        return scene;
+        return new Scene(browser);
     }
 
     /**
@@ -76,13 +65,21 @@ public class CustomWebView extends JFXPanel {
      * so that the status might be recreated after closing of the ToolWindow
      */
     private void listenToStatusChange(){
+        engine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+            if (Worker.State.SUCCEEDED.equals(newValue)) {
+                Document doc = engine.getDocument();
+                engine.setJavaScriptEnabled(true);
+                Integer step = (Integer) engine.executeScript("App.getCurrentStep()");
+            }
+        });
+
         String href= engine.locationProperty().toString();
         currentSite = "/browser/"+getFileString(href);
     }
 
     private String getFileString(String href) {
         String[] parts = href.split("/");
-        String site = parts[parts.length-1];
+        String site = parts[parts.length - 1];
         site = site.substring(0, site.length()-1);
 
         return site;
