@@ -52,11 +52,7 @@ public class MyToolWindowFactory implements ToolWindowFactory {
             @Override
             public void stateChanged() {
                 if (toolWindow.isVisible()) {
-                    System.out.println("STATE CHANGED: Now here");
                     initResources();
-                    setContent();
-                } else {
-                    System.out.println("STATE CHANGED: gone");
                 }
             }
         });
@@ -64,13 +60,17 @@ public class MyToolWindowFactory implements ToolWindowFactory {
 
     /**
      * Create the container in toolWindow in which the the content will be loaded into.
+     * TODO find out why it is called 4 times!
      */
     private void initResources() {
         contentContainer = new ContentContainer(project);
+        if (toolWindow.getContentManager().getContents().length == 0) {
+            setContent();
+        }
     }
 
     private void setContent(){
-        Content webViewContent = ContentFactory.SERVICE.getInstance().createContent(contentContainer.getContent(), "", false);
+        Content webViewContent = ContentFactory.SERVICE.getInstance().createContent(contentContainer.getContent(), "Einstieg", false);
         toolWindow.getContentManager().addContent(webViewContent);
     }
 }
