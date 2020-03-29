@@ -44,10 +44,19 @@ App = (function () {
     }
 
     function addListeners() {
-        next.addEventListener("click", function(){  
+        next.addEventListener("click", function(){
+
+            if (prev.classList.contains("hidden")) {
+                prev.classList.remove("hidden");
+            }
+
             if (currentStep < totalSteps) {
-                prev.disabled = false;                
                 currentStep++;
+
+                if (currentStep > 1) {
+                    prev.disabled = false;
+                }
+
                 colorDots();
                 frame.src = "res/content/"+currentStep+".html";
 
@@ -67,9 +76,8 @@ App = (function () {
                     next.textContent = "Weiter";
                 }
 
-                if (currentStep === 1) {
+                if (currentStep === 2) {
                     prev.disabled = true;
-                    next.textContent = "Rundgang starten";
                 }
 
                 currentStep--;
