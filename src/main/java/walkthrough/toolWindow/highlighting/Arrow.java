@@ -7,9 +7,8 @@ import java.awt.geom.Path2D;
 public class Arrow extends Path2D.Double {
 
     /**
-     * Class representing an upwards arrow
-     * TODO:   Change, so that the arrow can be to every direction
-     * depending on the section explained
+     * Class representing an arrow
+     * depending on the section explained it points upwards or left
      */
 
     public Arrow() {

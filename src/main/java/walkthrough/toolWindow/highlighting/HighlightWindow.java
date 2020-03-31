@@ -14,22 +14,19 @@ public class HighlightWindow extends JFrame {
      * As soon as the IDE moves or is resized, the shadow does the same
      * The HighlightWindow is always in front and displays a marker to highlight
      * the content which is currently talked about in the CustomWebView
-     * <p>
+     *
      * This is done by the inherent paint-Method, so:
      * TODO:   reorganize the painting, so that it can be done from the controller
-     * every time the content of the CustomWebView changes
-     * <p>
+     *         every time the content of the CustomWebView changes
+     *
      * To emphasize the highlighting, the paint-Method also uses an Arrow, which is
-     * implemented as an own component
-     * <p>
-     * TODO:   reorganize the Arrow-Class, so that there can be an arrow-up
-     * and an arrow to the left, depending on the section highlighted
+     * implemented as an own component but drawn here
      */
 
     private JFrame basisFrame;
     private HighlightConstants hc = new HighlightConstants();
 
-    //here for testing, replace with real step later
+    //TODO: here for testing, replace with real step later
     int step = 2;
 
     public HighlightWindow(JFrame basis) {
@@ -76,16 +73,7 @@ public class HighlightWindow extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
 
-        int startingX;
-        int startingY;
-
-        if (hc.getArrowPos(step).equals(HighlightConstants.UPWARDS)) {
-            startingX = hc.getXPos(step) + hc.getWidth(step) / 2;
-            startingY = hc.getYPos(step) + hc.getHeight(step);
-        } else {
-            startingX = hc.getXPos(step) + hc.getWidth(step);
-            startingY = hc.getYPos(step) + hc.getHeight(step) / 2;
-        }
+        Point start = getArrowStart();
 
         Graphics2D g2D = (Graphics2D) g;
         g2D.setStroke(new BasicStroke(HighlightConstants.STROKE_WIDTH));
@@ -93,8 +81,22 @@ public class HighlightWindow extends JFrame {
         g2D.drawRect(hc.getXPos(step), hc.getYPos(step), hc.getWidth(step), hc.getHeight(step));
 
         Arrow arrow = new Arrow();
-        arrow.createArrow(startingX, startingY, hc.getArrowPos(step));
+        arrow.createArrow(start.x, start.y, hc.getArrowPos(step));
         g2D.draw(arrow);
+    }
+
+    private Point getArrowStart() {
+        Point startingPoint = new Point();
+
+        if (hc.getArrowPos(step).equals(HighlightConstants.UPWARDS)) {
+            startingPoint.x = hc.getXPos(step) + hc.getWidth(step) / 2;
+            startingPoint.y = hc.getYPos(step) + hc.getHeight(step);
+        } else {
+            startingPoint.x = hc.getXPos(step) + hc.getWidth(step);
+            startingPoint.y = hc.getYPos(step) + hc.getHeight(step) / 2;
+        }
+
+        return startingPoint;
     }
 
 }
