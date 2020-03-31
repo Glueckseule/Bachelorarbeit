@@ -9,7 +9,7 @@ public class Arrow extends Path2D.Double {
     /**
      * Class representing an upwards arrow
      * TODO:   Change, so that the arrow can be to every direction
-     *         depending on the section explained
+     * depending on the section explained
      */
 
     public Arrow() {
@@ -20,12 +20,12 @@ public class Arrow extends Path2D.Double {
         if (direction.equals(HighlightConstants.UPWARDS)) {
             startingY += HighlightConstants.PADDING;
 
-            moveTo(startingX,startingY+HighlightConstants.ARROW_LENGTH);
+            moveTo(startingX, startingY + HighlightConstants.ARROW_LENGTH);
             lineTo(startingX, startingY);
-            moveTo(startingX-HighlightConstants.ARM_WIDTH, startingY+HighlightConstants.ARM_LENGTH);
-            lineTo(startingX,startingY);
-            moveTo(startingX+HighlightConstants.ARM_WIDTH,startingY+HighlightConstants.ARM_LENGTH);
-            lineTo(startingX,startingY);
+            moveTo(startingX - HighlightConstants.ARM_WIDTH, startingY + HighlightConstants.ARM_LENGTH);
+            lineTo(startingX, startingY);
+            moveTo(startingX + HighlightConstants.ARM_WIDTH, startingY + HighlightConstants.ARM_LENGTH);
+            lineTo(startingX, startingY);
         } else {
             startingX += HighlightConstants.PADDING;
 
