@@ -19,14 +19,17 @@ public class ContentContainer {
 
     private JFrame root;
     private JFXPanel panel;
+    private HighlightWindow shadowFrame;
 
     public ContentContainer(Project project) {
         root = (JFrame) Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane().getParent();
         panel = new CustomWebView().getWebView();
+
+        initShadowing();
     }
 
     private void initShadowing() {
-        HighlightWindow shadowFrame = new HighlightWindow(root);
+        shadowFrame = new HighlightWindow(root);
         shadowFrame.setVisible(true);
     }
 

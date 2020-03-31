@@ -1,5 +1,7 @@
 package walkthrough.toolWindow.highlighting;
 
+import walkthrough.toolWindow.HighlightConstants;
+
 import java.awt.geom.Path2D;
 
 public class Arrow extends Path2D.Double {
@@ -10,22 +12,30 @@ public class Arrow extends Path2D.Double {
      *         depending on the section explained
      */
 
-    int arrowLength = 40;
-    int arrowArmWidth = 10;
-    int arrowArmLength = 16;
-    int paddingToHighlight = 20;
+    public Arrow() {
 
-    public Arrow(int startingPoint, int startingHeight) {
+    }
 
-        startingHeight += paddingToHighlight;
+    public void createArrow(int startingX, int startingY, String direction) {
+        if (direction.equals(HighlightConstants.UPWARDS)) {
+            startingY += HighlightConstants.PADDING;
 
-        moveTo(startingPoint,startingHeight+arrowLength);
-        lineTo(startingPoint, startingHeight);
-        moveTo(startingPoint-arrowArmWidth, startingHeight+arrowArmLength);
-        lineTo(startingPoint,startingHeight);
-        moveTo(startingPoint+arrowArmWidth,startingHeight+arrowArmLength);
-        lineTo(startingPoint,startingHeight);
+            moveTo(startingX,startingY+HighlightConstants.ARROW_LENGTH);
+            lineTo(startingX, startingY);
+            moveTo(startingX-HighlightConstants.ARM_WIDTH, startingY+HighlightConstants.ARM_LENGTH);
+            lineTo(startingX,startingY);
+            moveTo(startingX+HighlightConstants.ARM_WIDTH,startingY+HighlightConstants.ARM_LENGTH);
+            lineTo(startingX,startingY);
+        } else {
+            startingX += HighlightConstants.PADDING;
 
+            moveTo(startingX + HighlightConstants.ARROW_LENGTH, startingY);
+            lineTo(startingX, startingY);
+            moveTo(startingX + HighlightConstants.ARM_LENGTH, startingY + HighlightConstants.ARM_WIDTH);
+            lineTo(startingX, startingY);
+            moveTo(startingX + HighlightConstants.ARM_LENGTH, startingY - HighlightConstants.ARM_WIDTH);
+            lineTo(startingX, startingY);
+        }
     }
 
 }
