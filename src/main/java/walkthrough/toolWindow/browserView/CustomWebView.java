@@ -3,12 +3,13 @@ package walkthrough.toolWindow.browserView;
 import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.embed.swing.JFXPanel;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.events.Event;
+import org.w3c.dom.events.EventListener;
 
 import java.net.URL;
 
@@ -25,7 +26,6 @@ public class CustomWebView extends JFXPanel {
 
     private JFXPanel panel;
     private static final String PATH = "/browser/index.html";
-    private String currentSite;
     private URL url;
 
     private WebEngine engine;
@@ -55,26 +55,40 @@ public class CustomWebView extends JFXPanel {
         engine = browser.getEngine();
         //load the URL
         engine.load(url.toExternalForm());
+        listenToStatusChange();
 
         return new Scene(browser);
     }
 
     /**
-     * Create a method to listen to changes in the webview
-     * When the site is changed, write the current url to currentSite,
-     * so that the status might be recreated after closing of the ToolWindow
+     * Create a method to listen to changes in the WebView to highlight accordingly
+     *
      */
     private void listenToStatusChange(){
         engine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
             if (Worker.State.SUCCEEDED.equals(newValue)) {
+
+                EventListener listener = new EventListener() {
+                    @Override
+                    public void handleEvent(Event event) {
+                        String type = event.getType();
+                        if (type.equals("start")) {
+                            System.out.println("Jetzt gehts los");
+                        }
+                    }
+                };
+
                 Document doc = engine.getDocument();
                 engine.setJavaScriptEnabled(true);
-                Integer step = (Integer) engine.executeScript("App.getCurrentStep()");
+                //Integer step = (Integer) engine.executeScript("App.getCurrentStep()");
+
+                Node node = doc.getElementById("next");
             }
         });
 
+        //Always the same href, of course now because no listener for change
         String href= engine.locationProperty().toString();
-        currentSite = "/browser/"+getFileString(href);
+        String currentSite = "/browser/" + getFileString(href);
     }
 
     private String getFileString(String href) {
