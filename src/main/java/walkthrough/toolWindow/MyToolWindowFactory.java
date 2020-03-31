@@ -42,12 +42,9 @@ public class MyToolWindowFactory implements ToolWindowFactory {
     }
 
     /**
-     * TODO: Register the Tool Window to the manager, so we can handle all toolWindow things there
+     * TODO: Register listener on toolWindow shown/hidden
      */
     private void register() {
-        manager = ToolWindowManager.getInstance(project);
-        manager.getToolWindow(toolWindow.getTitle());
-
         project.getMessageBus().connect().subscribe(ToolWindowManagerListener.TOPIC, new ToolWindowManagerListener() {
             @Override
             public void stateChanged() {
@@ -59,7 +56,7 @@ public class MyToolWindowFactory implements ToolWindowFactory {
     }
 
     /**
-     * Create the container in toolWindow in which the the content will be loaded into.
+     * Create the container in toolWindow which the the content will be loaded into.
      * TODO find out why it is called 4 times!
      */
     private void initResources() {
