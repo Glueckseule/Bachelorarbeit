@@ -1,9 +1,7 @@
 package walkthrough.toolWindow;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.WindowManager;
-import com.intellij.ui.content.ContentManager;
 import javafx.embed.swing.JFXPanel;
 import walkthrough.toolWindow.browserView.CustomWebView;
 import walkthrough.toolWindow.highlighting.HighlightWindow;
@@ -11,7 +9,7 @@ import walkthrough.toolWindow.highlighting.HighlightWindow;
 import javax.swing.*;
 import java.util.Objects;
 
-public class PluginContainer {
+public class ContentContainer {
 
     /**
      * This class manages the plugin components:
@@ -21,8 +19,9 @@ public class PluginContainer {
 
     private JFrame root;
     private JFXPanel panel;
+    private HighlightWindow shadowFrame;
 
-    public PluginContainer(Project project) {
+    public ContentContainer(Project project) {
         root = (JFrame) Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane().getParent();
         panel = new CustomWebView().getWebView();
 
@@ -30,7 +29,7 @@ public class PluginContainer {
     }
 
     private void initShadowing() {
-        HighlightWindow shadowFrame = new HighlightWindow(root);
+        shadowFrame = new HighlightWindow(root);
         shadowFrame.setVisible(true);
     }
 

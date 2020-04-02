@@ -65,6 +65,10 @@ iframe {
     background-color: #5e2495;
 }
 
+.hidden {
+    display: none;
+}
+
 .p-dot {
     width: 10px;
     height: 10px;
