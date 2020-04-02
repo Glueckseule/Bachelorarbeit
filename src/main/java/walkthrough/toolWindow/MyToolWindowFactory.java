@@ -37,6 +37,7 @@ public class MyToolWindowFactory implements ToolWindowFactory {
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         this.project = project;
         this.toolWindow = toolWindow;
+
         initResources();
         register();
     }
@@ -49,7 +50,7 @@ public class MyToolWindowFactory implements ToolWindowFactory {
             @Override
             public void stateChanged() {
                 if (toolWindow.isVisible()) {
-                    initResources();
+                    updateResources();
                 }
             }
         });
@@ -57,13 +58,16 @@ public class MyToolWindowFactory implements ToolWindowFactory {
 
     /**
      * Create the container in toolWindow which the the content will be loaded into.
-     * TODO find out why it is called 4 times!
      */
     private void initResources() {
         contentContainer = new ContentContainer(project);
         if (toolWindow.getContentManager().getContents().length == 0) {
             setContent();
         }
+    }
+
+    private void updateResources() {
+        //TODO: find out how to load content back, DON'T CREATE AGAIN!
     }
 
     private void setContent(){

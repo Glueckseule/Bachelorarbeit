@@ -11,10 +11,6 @@ public class Arrow extends Path2D.Double {
      * depending on the section explained it points upwards or left
      */
 
-    public Arrow() {
-
-    }
-
     public void createArrow(int startingX, int startingY, String direction) {
         if (direction.equals(HighlightConstants.UPWARDS)) {
             startingY += HighlightConstants.PADDING;
@@ -24,7 +20,6 @@ public class Arrow extends Path2D.Double {
             moveTo(startingX - HighlightConstants.ARM_WIDTH, startingY + HighlightConstants.ARM_LENGTH);
             lineTo(startingX, startingY);
             moveTo(startingX + HighlightConstants.ARM_WIDTH, startingY + HighlightConstants.ARM_LENGTH);
-            lineTo(startingX, startingY);
         } else {
             startingX += HighlightConstants.PADDING;
 
@@ -33,8 +28,8 @@ public class Arrow extends Path2D.Double {
             moveTo(startingX + HighlightConstants.ARM_LENGTH, startingY + HighlightConstants.ARM_WIDTH);
             lineTo(startingX, startingY);
             moveTo(startingX + HighlightConstants.ARM_LENGTH, startingY - HighlightConstants.ARM_WIDTH);
-            lineTo(startingX, startingY);
         }
+        lineTo(startingX, startingY);
     }
 
 }
