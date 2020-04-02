@@ -1,5 +1,6 @@
 package walkthrough.toolWindow;
 
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
@@ -8,6 +9,9 @@ import com.intellij.openapi.wm.ex.ToolWindowManagerListener;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import org.jetbrains.annotations.NotNull;
+import walkthrough.toolWindow.tutorial.TutorialService;
+import walkthrough.toolWindow.utils.Event;
+import walkthrough.toolWindow.utils.Observer;
 
 /**
  * This is the entry point for the plugin.
@@ -18,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Daniela
  */
-public class MyToolWindowFactory implements ToolWindowFactory {
+public class MyToolWindowFactory implements ToolWindowFactory, Observer {
 
     private ToolWindowManager manager;
     private Project project;
@@ -37,6 +41,8 @@ public class MyToolWindowFactory implements ToolWindowFactory {
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
         this.project = project;
         this.toolWindow = toolWindow;
+        ServiceManager.getService(TutorialService.class).addListener(this);
+        ServiceManager.getService(TutorialService.class).initTutorialFromFile(null);
 
         initResources();
         register();
@@ -73,5 +79,10 @@ public class MyToolWindowFactory implements ToolWindowFactory {
     private void setContent(){
         Content webViewContent = ContentFactory.SERVICE.getInstance().createContent(contentContainer.getContent(), "Einstieg", false);
         toolWindow.getContentManager().addContent(webViewContent);
+    }
+
+    @Override
+    public void onEvent(Event event) {
+        System.out.println("Event occured: " + event.msg);
     }
 }

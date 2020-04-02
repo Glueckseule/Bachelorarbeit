@@ -1,0 +1,20 @@
+{
+  "title": "",
+  "description": "",
+  "author": "",
+  "number_of_steps": "",
+  "steps": [
+    {
+      "title": "",
+      "content": "",
+      "pos": "",
+      "target": "RUN_BUTTON"
+    },
+    {
+      "title": "",
+      "content": "",
+      "pos": "",
+      "target": ""
+    }
+  ]
+}
