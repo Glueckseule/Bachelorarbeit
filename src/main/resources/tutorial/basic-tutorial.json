@@ -1,14 +1,14 @@
 {
-  "title": "",
-  "description": "",
-  "author": "",
-  "number_of_steps": "",
+  "title": "Grundlagen IntelliJ für OOP",
+  "description": "Schön, dass du diesen interaktiven Rundgang mitmachen möchtest. Da du aber vermutlich gerade im Einsteigerkurs für Programmieranfänger (OOP) bist, möchte ich dir gerne einige Grundlagen von IntelliJ zeigen. Sobald du den Rundgang startest, gehen wir die grundlegenden Schritte durch, die dich im OOP-Kurs ganz einfach zu dem Punkt bringen, an dem du die Übungsaufgaben bearbeiten kannst. Im Gegensatz zum klassischen Editor bietet eine integrierte Entwicklungsumgebung (IDE) viele Vorteile. Die IDE IntelliJ ist daher auch ziemlich umfangreich, schließlich soll es vor allem bei der professionellen Entwicklung von Programmen helfen. Es gibt eine Vielzahl an Features, wie du als Entwickler deine Produktivität damit steigern kannst.",
+  "author": "Daniela Krapf",
+  "number_of_steps": "16",
   "steps": [
     {
-      "title": "",
-      "content": "",
-      "pos": "",
-      "target": "RUN_BUTTON"
+      "title": "Das Projekt",
+      "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Das Projekt repräsentiert die Software, an der du arbeitest und ist dabei der äußerste Container. Das Projekt-Werkzeugfenster (project tool window) zeigt dir die Struktur des Projekts. Hier kannst du auch neue Items erstellen, die meisten Funktionen findest du über das Kontextmenü. Klicke dazu hier mit der rechten Maustaste.",
+      "arrow": "LEFT",
+      "target": "PROJECT_TOOLWINDOW"
     },
     {
       "title": "",
