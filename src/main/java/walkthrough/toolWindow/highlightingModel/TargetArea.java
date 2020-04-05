@@ -1,4 +1,4 @@
-package walkthrough.toolWindow.highlighting;
+package walkthrough.toolWindow.highlightingModel;
 
 public class TargetArea {
 

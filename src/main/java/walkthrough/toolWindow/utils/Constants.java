@@ -1,10 +1,15 @@
-package walkthrough.toolWindow;
+package walkthrough.toolWindow.utils;
 
 import com.intellij.ui.JBColor;
 
 import java.awt.*;
 
-public final class HighlightConstants {
+public final class Constants {
+
+    //event messages
+    public static final String TUTORIAL_LOADED = "loaded";
+    public static final String NEXT_STEP = "next";
+    public static final String PREVIOUS_STEP = "previous";
 
     //for all windows
     public static final int STROKE_WIDTH = 5;
@@ -19,7 +24,12 @@ public final class HighlightConstants {
     public static final int ARM_LENGTH = 16;
     public static final int PADDING = 20;
 
-    //dimensions for each window
+
+    /**
+     * deprecated - gonna be changed
+     *
+     * dimensions for each window
+     */
     public static final int[] WIDTH = new int[16];
     public static final int[] HEIGHT = new int[16];
     public static final int[] X_POS = new int[16];

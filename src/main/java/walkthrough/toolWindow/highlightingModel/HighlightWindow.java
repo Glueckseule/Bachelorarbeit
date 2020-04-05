@@ -1,6 +1,6 @@
-package walkthrough.toolWindow.highlighting;
+package walkthrough.toolWindow.highlightingModel;
 
-import walkthrough.toolWindow.HighlightConstants;
+import walkthrough.toolWindow.utils.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,7 @@ public class HighlightWindow extends JFrame {
      */
 
     private JFrame basisFrame;
-    private HighlightConstants hc = new HighlightConstants();
+    private Constants hc = new Constants();
 
     //TODO: here for testing, replace with real step later
     int step = 2;
@@ -36,7 +36,7 @@ public class HighlightWindow extends JFrame {
         prepareShadowing();
 
         setUndecorated(true);
-        setBackground(HighlightConstants.TRANSPARENT);
+        setBackground(Constants.TRANSPARENT);
         setAlwaysOnTop(true);
     }
 
@@ -76,8 +76,8 @@ public class HighlightWindow extends JFrame {
         Point start = getArrowStart();
 
         Graphics2D g2D = (Graphics2D) g;
-        g2D.setStroke(new BasicStroke(HighlightConstants.STROKE_WIDTH));
-        g2D.setColor(HighlightConstants.HIGHLIGHT_COLOR);
+        g2D.setStroke(new BasicStroke(Constants.STROKE_WIDTH));
+        g2D.setColor(Constants.HIGHLIGHT_COLOR);
         g2D.drawRect(hc.getXPos(step), hc.getYPos(step), hc.getWidth(step), hc.getHeight(step));
 
         Arrow arrow = new Arrow();
@@ -88,7 +88,7 @@ public class HighlightWindow extends JFrame {
     private Point getArrowStart() {
         Point startingPoint = new Point();
 
-        if (hc.getArrowPos(step).equals(HighlightConstants.UPWARDS)) {
+        if (hc.getArrowPos(step).equals(Constants.UPWARDS)) {
             startingPoint.x = hc.getXPos(step) + hc.getWidth(step) / 2;
             startingPoint.y = hc.getYPos(step) + hc.getHeight(step);
         } else {
