@@ -15,8 +15,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="Walkthrough durch IntelliJ" icon="/assets/unicorn.png" anchor="right" secondary="true"
                     factoryClass="walkthrough.toolWindow.MyToolWindowFactory" />
-        <applicationService serviceImplementation="walkthrough.toolWindow.highlighting.HighlightingService"/>
-        <applicationService serviceImplementation="walkthrough.toolWindow.tutorial.TutorialService"/>
+        <applicationService serviceImplementation="walkthrough.toolWindow.highlightingModel.HighlightingService"/>
+        <applicationService serviceImplementation="walkthrough.toolWindow.tutorialModel.TutorialService"/>
     </extensions>
 
     <actions>
