@@ -12,12 +12,12 @@ public class TutorialStep {
 
     public TutorialStep(String title, int position, String content, String arrowDirection, String target, int totalSteps) {
         this.TITLE = title;
-        this.POSITION = position + "/" + totalSteps;
+        this.POSITION = position+1 + "/" + totalSteps;
         this.ARROW_DIRECTION = arrowDirection;
         this.TARGET = target;
         this.CONTENT = content;
 
-        this.PERCENTAGE_COMPLETED = (position * 100) / totalSteps;
+        this.PERCENTAGE_COMPLETED = ((position+1) * 100) / totalSteps;
     }
 
 

@@ -14,6 +14,9 @@ import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 /**
  * This is the entry point for the plugin.
  * It states that the essential component of the plugin is a tool window
@@ -51,8 +54,13 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
 
     //TODO: hand JSON file to TutorialService and create getter-Methods for values
     private void initServices() {
+        File file = new File(Constants.BASIC_TUTORIAL);
         tutorialService.addListener(this);
-        tutorialService.initTutorialFromFile(null);
+        try {
+            tutorialService.initTutorialFromFile(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     //TODO: replace type by value "type" from JSON - get value from tutorialService
@@ -72,20 +80,20 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         if (event.msg.equals(Constants.TUTORIAL_LOADED)) {
             //TODO init toolWindow with first step of tutorial
             System.out.println("Loaded");
-            step = tutorialService.getFirstStep();
+            //step = tutorialService.getFirstStep();
         }
         if (event.msg.equals(Constants.NEXT_STEP)) {
             //TODO get next step from TutorialService and tell TutorialView what to render
             System.out.println("Next");
-            step = tutorialService.onNextStepSelected();
+            //step = tutorialService.onNextStepSelected();
         }
         if (event.msg.equals(Constants.PREVIOUS_STEP)) {
             //TODO get previous step from TutorialService and tell TutorialView what to render
             System.out.println("Prev");
-            step = tutorialService.onPreviousStepSelected();
+            //step = tutorialService.onPreviousStepSelected();
         }
 
-        highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
-        tutorialView.setContent(step);
+        //highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
+        //tutorialView.setContent(step);
     }
 }

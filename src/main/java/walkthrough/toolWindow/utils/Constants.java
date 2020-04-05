@@ -6,6 +6,9 @@ import java.awt.*;
 
 public final class Constants {
 
+    //tutorial resources
+    public static final String BASIC_TUTORIAL = "C:\\Users\\Daniela\\Dropbox\\Bachelorarbeit\\05_Plugin\\walkthrough\\src\\main\\resources\\tutorial\\basic-tutorial.json";
+
     //event messages
     public static final String TUTORIAL_LOADED = "loaded";
     public static final String NEXT_STEP = "next";
