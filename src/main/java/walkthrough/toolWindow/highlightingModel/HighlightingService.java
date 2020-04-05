@@ -32,6 +32,7 @@ public class HighlightingService {
     }
 
     public void setHighlightForArea(int position) {
+        System.out.println(position);
         // Check if areaCode is in targetAreas
         // Highlight area on position
         removeCurrentHighlight();

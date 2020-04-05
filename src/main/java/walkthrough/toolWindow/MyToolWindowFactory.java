@@ -48,11 +48,10 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         this.project = project;
         this.toolWindow = toolWindow;
 
-        initServices();
         initView();
+        initServices();
     }
 
-    //TODO: hand JSON file to TutorialService and create getter-Methods for values
     private void initServices() {
         File file = new File(Constants.BASIC_TUTORIAL);
         tutorialService.addListener(this);
@@ -65,35 +64,27 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
 
     //TODO: replace type by value "type" from JSON - get value from tutorialService
     private void initView() {
-        tutorialView = new TutorialView("Kommt dann über das Model aus dem JSON");
+        tutorialView = new TutorialView(tutorialService.getTutorialType());
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(tutorialView.getContent(), "", false);
         toolWindow.getContentManager().addContent(content);
 
         tutorialView.setListener();
-        //TODO: hier den ersten Schritt = Intro-Screen setzen
-        //tutorialView.setContent(tutorialStep);
     }
 
     @Override
     public void onEvent(Event event) {
         if (event.msg.equals(Constants.TUTORIAL_LOADED)) {
-            //TODO init toolWindow with first step of tutorial
-            System.out.println("Loaded");
-            //step = tutorialService.getFirstStep();
+            step = tutorialService.getFirstStep();
         }
         if (event.msg.equals(Constants.NEXT_STEP)) {
-            //TODO get next step from TutorialService and tell TutorialView what to render
-            System.out.println("Next");
-            //step = tutorialService.onNextStepSelected();
+            step = tutorialService.onNextStepSelected();
         }
         if (event.msg.equals(Constants.PREVIOUS_STEP)) {
-            //TODO get previous step from TutorialService and tell TutorialView what to render
-            System.out.println("Prev");
-            //step = tutorialService.onPreviousStepSelected();
+            step = tutorialService.onPreviousStepSelected();
         }
 
-        //highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
-        //tutorialView.setContent(step);
+        highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
+        tutorialView.setContent(step);
     }
 }

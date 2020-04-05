@@ -2,6 +2,7 @@ package walkthrough.toolWindow.tutorialModel;
 
 import com.google.gson.*;
 import com.intellij.openapi.components.ServiceManager;
+import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observable;
 
@@ -14,6 +15,9 @@ public class TutorialService extends Observable {
 
     private int currentStep = 0;
 
+    private String tutorialType;
+    private int totalSteps;
+
     private ArrayList<TutorialStep> tutorialSteps;
 
     public static TutorialService getInstance() {
@@ -23,7 +27,7 @@ public class TutorialService extends Observable {
     public void initTutorialFromFile(File file) throws FileNotFoundException {
         tutorialSteps = new ArrayList<TutorialStep>();
         loadTutorialFromJSON(file);
-        notifyAll(new Event("Tutorial loaded"));
+        notifyAll(new Event(Constants.TUTORIAL_LOADED));
     }
 
     private void loadTutorialFromJSON(File file) throws FileNotFoundException {
@@ -31,7 +35,8 @@ public class TutorialService extends Observable {
         JsonObject tutorial = (JsonObject) parser.parse(new FileReader(file));
         JsonArray steps = (JsonArray) tutorial.get("steps");
 
-        int totalSteps = tutorial.get("number_of_steps").getAsInt();
+        totalSteps = tutorial.get("number_of_steps").getAsInt();
+        tutorialType = tutorial.get("type").getAsString();
 
         for (Object o : steps) {
             JsonObject step = (JsonObject) o;
@@ -51,19 +56,25 @@ public class TutorialService extends Observable {
     }
 
     public TutorialStep onNextStepSelected() {
-        //TODO tell view what to render
-        currentStep++;
+        if (currentStep < totalSteps-1) {
+            currentStep++;
+        }
         return tutorialSteps.get(currentStep);
     }
 
     public TutorialStep onPreviousStepSelected() {
-        //TODO tell view what to render
-        currentStep--;
+        if (currentStep > 0) {
+            currentStep--;
+        }
         return tutorialSteps.get(currentStep);
     }
 
     public int getCurrentStep() {
         return currentStep;
+    }
+
+    public String getTutorialType() {
+        return tutorialType;
     }
 
 }

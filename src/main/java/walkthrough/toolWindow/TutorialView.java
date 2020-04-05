@@ -1,8 +1,5 @@
 package walkthrough.toolWindow;
 
-import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.ui.content.Content;
-import com.intellij.ui.content.ContentFactory;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
 import walkthrough.toolWindow.tutorialModel.TutorialStep;
 import walkthrough.toolWindow.utils.Constants;
