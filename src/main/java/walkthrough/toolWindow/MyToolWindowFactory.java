@@ -6,6 +6,7 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
+import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import org.jetbrains.annotations.NotNull;
 import walkthrough.toolWindow.highlightingModel.HighlightingService;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
@@ -14,8 +15,10 @@ import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 /**
  * This is the entry point for the plugin.
@@ -53,11 +56,18 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
     }
 
     private void initServices() {
-        File file = new File(Constants.BASIC_TUTORIAL);
         tutorialService.addListener(this);
         try {
-            tutorialService.initTutorialFromFile(file);
-        } catch (FileNotFoundException e) {
+            InputStream inputStream = getClass().getResourceAsStream(Constants.BASIC_TUTORIAL);
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            StringBuilder stringBuilder = new StringBuilder();
+            String inputString;
+            while ((inputString = br.readLine()) != null) {
+                stringBuilder.append(inputString);
+            }
+
+            tutorialService.initTutorialFromFile(stringBuilder.toString());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

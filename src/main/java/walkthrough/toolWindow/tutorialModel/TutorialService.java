@@ -24,15 +24,15 @@ public class TutorialService extends Observable {
         return ServiceManager.getService(TutorialService.class);
     }
 
-    public void initTutorialFromFile(File file) throws FileNotFoundException {
+    public void initTutorialFromFile(String jsonString) {
         tutorialSteps = new ArrayList<TutorialStep>();
-        loadTutorialFromJSON(file);
+        loadTutorialFromJSON(jsonString);
         notifyAll(new Event(Constants.TUTORIAL_LOADED));
     }
 
-    private void loadTutorialFromJSON(File file) throws FileNotFoundException {
+    private void loadTutorialFromJSON(String jsonString) {
         JsonParser parser = new JsonParser();
-        JsonObject tutorial = (JsonObject) parser.parse(new FileReader(file));
+        JsonObject tutorial = (JsonObject) parser.parse(jsonString);
         JsonArray steps = (JsonArray) tutorial.get("steps");
 
         totalSteps = tutorial.get("number_of_steps").getAsInt();
