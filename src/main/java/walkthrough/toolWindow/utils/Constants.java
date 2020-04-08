@@ -10,7 +10,8 @@ public final class Constants {
     public static final String BASIC_TUTORIAL = "/tutorial/basic-tutorial.json";
 
     //event messages
-    public static final String TUTORIAL_LOADED = "loaded";
+    public static final String TUTORIAL_LOADED = "tutorial loaded";
+    public static final String ASSETS_LOADED = "assets loaded";
     public static final String NEXT_STEP = "next";
     public static final String PREVIOUS_STEP = "previous";
 
@@ -20,8 +21,10 @@ public final class Constants {
     public static final Color TRANSPARENT = new Color(0, 0, 0, 0);
 
     //for arrows
-    public static final String UPWARDS = "up";
-    public static final String TO_LEFT = "left";
+    public static final String UPWARDS = "UP";
+    public static final String TO_LEFT = "LEFT";
+    public static final String NO_ARROW = "NONE";
+
     public static final int ARROW_LENGTH = 40;
     public static final int ARM_WIDTH = 10;
     public static final int ARM_LENGTH = 16;

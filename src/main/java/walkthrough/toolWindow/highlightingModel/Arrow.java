@@ -4,32 +4,44 @@ import walkthrough.toolWindow.utils.Constants;
 
 import java.awt.geom.Path2D;
 
+/**
+ * Class representing an arrow
+ * depending on the section explained it points upwards or left
+ */
 public class Arrow extends Path2D.Double {
 
-    /**
-     * Class representing an arrow
-     * depending on the section explained it points upwards or left
-     */
+    public int STARTING_X;
+    public int STARTING_Y;
+    public final String DIRECTION;
 
-    public void createArrow(int startingX, int startingY, String direction) {
-        if (direction.equals(Constants.UPWARDS)) {
-            startingY += Constants.PADDING;
-
-            moveTo(startingX, startingY + Constants.ARROW_LENGTH);
-            lineTo(startingX, startingY);
-            moveTo(startingX - Constants.ARM_WIDTH, startingY + Constants.ARM_LENGTH);
-            lineTo(startingX, startingY);
-            moveTo(startingX + Constants.ARM_WIDTH, startingY + Constants.ARM_LENGTH);
-        } else {
-            startingX += Constants.PADDING;
-
-            moveTo(startingX + Constants.ARROW_LENGTH, startingY);
-            lineTo(startingX, startingY);
-            moveTo(startingX + Constants.ARM_LENGTH, startingY + Constants.ARM_WIDTH);
-            lineTo(startingX, startingY);
-            moveTo(startingX + Constants.ARM_LENGTH, startingY - Constants.ARM_WIDTH);
-        }
-        lineTo(startingX, startingY);
+    public Arrow (int startingX, int startingY, String direction) {
+        this.STARTING_X = startingX;
+        this.STARTING_Y = startingY;
+        this.DIRECTION = direction;
     }
+
+    public void constructArrow() {
+        if (DIRECTION.equals(Constants.UPWARDS)) {
+            STARTING_Y += Constants.PADDING;
+
+            moveTo(STARTING_X, STARTING_Y + Constants.ARROW_LENGTH);
+            lineTo(STARTING_X, STARTING_Y);
+            moveTo(STARTING_X - Constants.ARM_WIDTH, STARTING_Y + Constants.ARM_LENGTH);
+            lineTo(STARTING_X, STARTING_Y);
+            moveTo(STARTING_X + Constants.ARM_WIDTH, STARTING_Y + Constants.ARM_LENGTH);
+        } else if (DIRECTION.equals(Constants.TO_LEFT)){
+            STARTING_X += Constants.PADDING;
+
+            moveTo(STARTING_X + Constants.ARROW_LENGTH, STARTING_Y);
+            lineTo(STARTING_X, STARTING_Y);
+            moveTo(STARTING_X + Constants.ARM_LENGTH, STARTING_Y + Constants.ARM_WIDTH);
+            lineTo(STARTING_X, STARTING_Y);
+            moveTo(STARTING_X + Constants.ARM_LENGTH, STARTING_Y - Constants.ARM_WIDTH);
+        } else {
+            return;
+        }
+        lineTo(STARTING_X, STARTING_Y);
+    }
+
 
 }
