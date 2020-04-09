@@ -53,8 +53,8 @@ public class TutorialService extends Observable {
             TutorialStep oneStep = new TutorialStep(title, position, content, targetName, totalSteps);
             tutorialSteps.add(oneStep);
 
-            for (Object b : targetArray) {
-                JsonObject target = (JsonObject) b;
+            for (Object targetObject : targetArray) {
+                JsonObject target = (JsonObject) targetObject;
                 targetsForStep.add(target);
             }
 

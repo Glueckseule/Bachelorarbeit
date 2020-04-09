@@ -43,10 +43,9 @@ public class Canvas extends JFrame {
             for (int i = 0; i < areasToDraw.size(); i++) {
                 TargetArea singleArea = areasToDraw.get(i);
                 Arrow singleArrow = arrowsToDraw.get(i);
+                Point arrowStart = getArrowStart(singleArrow.DIRECTION, singleArea);
 
                 graphics2D.drawRect(singleArea.x, singleArea.y, singleArea.width, singleArea.height);
-
-                Point arrowStart = getArrowStart(singleArrow.DIRECTION, singleArea);
                 singleArrow.constructArrow(arrowStart.x, arrowStart.y, singleArrow.DIRECTION);
                 graphics2D.draw(singleArrow);
             }
