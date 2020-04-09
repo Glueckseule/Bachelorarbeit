@@ -4,14 +4,17 @@ import walkthrough.toolWindow.utils.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Canvas extends JFrame {
 
-    TargetArea area;
-    Arrow arrow;
+    ArrayList<TargetArea> areasToDraw;
+    ArrayList<Arrow> arrowsToDraw;
 
     public Canvas(Dimension size) {
         super("Canvas");
+        areasToDraw = new ArrayList<>();
+        arrowsToDraw = new ArrayList<>();
 
         this.setUndecorated(true);
         this.setBackground(Constants.TRANSPARENT);
@@ -19,9 +22,9 @@ public class Canvas extends JFrame {
         this.setSize(size);
     }
 
-    public void highlightElements(TargetArea area, Arrow arrow) {
-        this.area = area;
-        this.arrow = arrow;
+    public void highlightElements(ArrayList<TargetArea> area, ArrayList<Arrow> arrow) {
+        this.areasToDraw = area;
+        this.arrowsToDraw = arrow;
         repaint();
     }
 
@@ -36,26 +39,29 @@ public class Canvas extends JFrame {
         graphics2D.setStroke(new BasicStroke(Constants.STROKE_WIDTH));
         graphics2D.setColor(Constants.HIGHLIGHT_COLOR);
 
-        if (area != null) {
-            graphics2D.drawRect(area.x, area.y, area.width, area.height);
-        }
-        if (arrow != null) {
-            Point arrowStart = getArrowStart();
-            arrow.constructArrow(arrowStart.x, arrowStart.y, arrow.DIRECTION);
-            graphics2D.draw(arrow);
-        }
+        if ((areasToDraw != null) && (arrowsToDraw != null)) {
+            for (int i = 0; i < areasToDraw.size(); i++) {
+                TargetArea singleArea = areasToDraw.get(i);
+                Arrow singleArrow = arrowsToDraw.get(i);
 
+                graphics2D.drawRect(singleArea.x, singleArea.y, singleArea.width, singleArea.height);
+
+                Point arrowStart = getArrowStart(singleArrow.DIRECTION, singleArea);
+                singleArrow.constructArrow(arrowStart.x, arrowStart.y, singleArrow.DIRECTION);
+                graphics2D.draw(singleArrow);
+            }
+        }
     }
 
-    private Point getArrowStart() {
+    private Point getArrowStart(String DIRECTION, TargetArea singleArea) {
         Point startingPoint = new Point();
 
-        if (arrow.DIRECTION.equals(Constants.UPWARDS)) {
-            startingPoint.x = area.x + area.width / 2;
-            startingPoint.y = area.y + area.height;
+        if (DIRECTION.equals(Constants.UPWARDS)) {
+            startingPoint.x = singleArea.x + singleArea.width / 2;
+            startingPoint.y = singleArea.y + singleArea.height;
         } else {
-            startingPoint.x = area.x + area.width;
-            startingPoint.y = area.y + area.height / 2;
+            startingPoint.x = singleArea.x + singleArea.width;
+            startingPoint.y = singleArea.y + singleArea.height / 2;
         }
 
         return startingPoint;

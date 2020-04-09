@@ -25,7 +25,7 @@ public class Arrow extends Path2D.Double {
             startingY += Constants.PADDING;
 
             moveTo(startingX, startingY + Constants.ARROW_LENGTH);
-            lineTo(startingX, this.startingY);
+            lineTo(startingX, startingY);
             moveTo(startingX - Constants.ARM_WIDTH, startingY + Constants.ARM_LENGTH);
             lineTo(startingX, startingY);
             moveTo(startingX + Constants.ARM_WIDTH, startingY + Constants.ARM_LENGTH);

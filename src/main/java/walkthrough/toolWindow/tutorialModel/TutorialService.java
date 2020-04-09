@@ -1,7 +1,6 @@
 package walkthrough.toolWindow.tutorialModel;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.intellij.openapi.components.ServiceManager;
@@ -19,7 +18,7 @@ public class TutorialService extends Observable {
     private int totalSteps;
 
     private ArrayList<TutorialStep> tutorialSteps;
-    private ArrayList<JsonObject> targetList = new ArrayList<>();
+    private ArrayList<ArrayList<JsonObject>> targetList;
 
     public static TutorialService getInstance() {
         return ServiceManager.getService(TutorialService.class);
@@ -27,6 +26,7 @@ public class TutorialService extends Observable {
 
     public void initTutorialFromFile(String jsonString) {
         tutorialSteps = new ArrayList<>();
+        targetList = new ArrayList<>();
         loadTutorialFromJSON(jsonString);
         notifyAll(new Event(Constants.TUTORIAL_LOADED));
     }
@@ -41,16 +41,24 @@ public class TutorialService extends Observable {
 
         for (Object o : steps) {
             JsonObject step = (JsonObject) o;
-            JsonObject target = (JsonObject) step.get("target");
+            JsonArray targetArray = (JsonArray) step.get("targets");
+
+            ArrayList<JsonObject> targetsForStep = new ArrayList<>();
 
             String title = step.get("title").getAsString();
             int position = step.get("pos").getAsInt();
             String content = step.get("content").getAsString();
-            String targetName = target.get("target-name").getAsString();
+            String targetName = "Placeholder - really needed?";
 
             TutorialStep oneStep = new TutorialStep(title, position, content, targetName, totalSteps);
             tutorialSteps.add(oneStep);
-            targetList.add(target);
+
+            for (Object b : targetArray) {
+                JsonObject target = (JsonObject) b;
+                targetsForStep.add(target);
+            }
+
+            targetList.add(targetsForStep);
         }
     }
 
@@ -72,7 +80,7 @@ public class TutorialService extends Observable {
         return tutorialSteps.get(currentStep);
     }
 
-    public ArrayList<JsonObject> getTargetList() {
+    public ArrayList<ArrayList<JsonObject>> getTargetList() {
         return targetList;
     }
 

@@ -8,222 +8,264 @@
       "title": "IntelliJ für OOP",
       "content": "Schön, dass du diesen interaktiven Rundgang mitmachen möchtest. Da du aber vermutlich gerade im Einsteigerkurs für Programmieranfänger (OOP) bist, möchte ich dir gerne einige Grundlagen von IntelliJ zeigen. Sobald du den Rundgang startest, gehen wir die grundlegenden Schritte durch, die dich im OOP-Kurs ganz einfach zu dem Punkt bringen, an dem du die Übungsaufgaben bearbeiten kannst. Im Gegensatz zum klassischen Editor bietet eine integrierte Entwicklungsumgebung (IDE) viele Vorteile. Die IDE IntelliJ ist daher auch ziemlich umfangreich, schließlich soll es vor allem bei der professionellen Entwicklung von Programmen helfen. Es gibt eine Vielzahl an Features, wie du als Entwickler deine Produktivität damit steigern kannst.",
       "pos": 0,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "NONE",
-        "target-name": "INTRO_SCREEN"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "NONE",
+          "target-name": "INTRO_SCREEN"
+        }
+      ]
     },
     {
       "title": "Das Projekt",
       "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Das Projekt repräsentiert die Software, an der du arbeitest und ist dabei der äußerste Container. Das Projekt-Werkzeugfenster (project tool window) zeigt dir die Struktur des Projekts. Hier kannst du auch neue Items erstellen, die meisten Funktionen findest du über das Kontextmenü. Klicke dazu hier mit der rechten Maustaste.",
       "pos": 1,
-      "target": {
-        "target-x": 40,
-        "target-y": 30,
-        "target-width": 50,
-        "target-height": 200,
-        "arrow": "LEFT",
-        "target-name": "PROJECT_TOOLWINDOW"
-      }
+      "targets": [
+        {
+          "target-x": 40,
+          "target-y": 30,
+          "target-width": 50,
+          "target-height": 200,
+          "arrow": "LEFT",
+          "target-name": "PROJECT_TOOLWINDOW"
+        },
+        {
+          "target-x": 80,
+          "target-y": 220,
+          "target-width": 50,
+          "target-height": 200,
+          "arrow": "UP",
+          "target-name": "CODE"
+        }
+      ]
     },
     {
       "title": "Darstellung der Projektstruktur",
       "content": "Falls dir dieses Fenster zu unübersichtlich ist, kannst du hier die Ansicht anpassen. Klicke dafür auf die Schaltfläche „Project“, um ein Dropdown aufzuklappen.",
       "pos": 2,
-      "target": {
-        "target-x": 20,
-        "target-y": 400,
-        "target-width": 300,
-        "target-height": 150,
-        "arrow": "UP",
-        "target-name": "PROJECT_TOOLWINDOW"
-      }
+      "targets": [
+        {
+          "target-x": 20,
+          "target-y": 400,
+          "target-width": 300,
+          "target-height": 150,
+          "arrow": "UP",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
     },
     {
       "title": "Verschiedene Darstellungsformen",
       "content": "Wenn du zum Beispiel auf „Packages“ klickst, siehst du hier nur noch den Inhalt des src-Ordners. Du kannst dich also ganz auf die Klassen und Dateien für deine Software konzentrieren. \n\n Probiers doch mal aus, für den weiteren Rundgang bleiben wir allerdings in der Project-Ansicht.",
       "pos": 3,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "PROJECT_DROPDOWN"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "PROJECT_DROPDOWN"
+        }
+      ]
     },
     {
       "title": "Der für den OOP-Kurs relevante Ordner",
       "content": "In jedem Fall ist der erste Ordner der für uns interessante. Da wir hier in einem Einsteigerkurs sind, ist uns schon eine grobe Struktur vorgegeben und wir müssen sie uns nicht selbst aufbauen.\n In diesem Ordner befinden sich die Dateien und Unterordner, mit denen wir arbeiten wollen.",
       "pos": 4,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "LEFT",
-        "target-name": "OOP_FOLDER"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "LEFT",
+          "target-name": "OOP_FOLDER"
+        }
+      ]
     },
     {
       "title": "Öffnen der Klassen-Datei",
       "content": "Genauer gesagt: im src-Ordner. In diesem Fall sind dir hier schon zwei Klassen vorgegeben. Die Klasse mit dem Begriff „Launcher“ ist hier nur dazu da, um die Anwendung zu starten.\n Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden. Die zweite Klasse hingegen ist die Wurzel für deinen Code, die du jetzt öffnen kannst und mit der du startest.",
       "pos": 5,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "LEFT",
-        "target-name": "OOP-SRC_FOLDER"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "LEFT",
+          "target-name": "OOP_SRC_FOLDER"
+        }
+      ]
     },
     {
       "title": "Der Code-Editor",
       "content": "Hier im Editor findest du jetzt die geöffnete Klassendatei. Man könnte behaupten, der Editor ist das Herzstück der Entwicklungsumgebung, weil du hier deinen Code schreibst.\n\n            IntelliJ bietet dir dabei zahlreiche Hilfestellungen – falls du dich dafür interessierst, schau doch mal in die Doku ;)\n\n            Diese Einstiegsdatei erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Hier findest du eine init-Methode, eine draw-Methode und ein paar Konstanten vorgegeben, die du später erweitern sollst.",
       "pos": 6,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "CODE"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "CODE"
+        }
+      ]
     },
     {
       "title": "Der Run-Prozess",
       "content": "Hier oben siehst du den Run- und den Debug-Button. Über diese Schaltfläche kannst du dein Programm starten, indem du die Datei mit der Main-Methode auswählst – sofern du keine Kompilierfehler (ROT) mehr im Code hast.    \n            Sobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse: durch das Klicken wird eine sogenannte „Temporäre Run-Konfiguration“ erstellt. Da Java eine kompilierte Programmiersprache ist, hilft uns die IDE hier und baut den Code automatisch für uns, sobald wir das Programm starten wollen.",
       "pos": 7,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "RUN_BUTTON"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "RUN_BUTTON"
+        }
+      ]
     },
     {
       "title": "Beenden des Run-Prozesses",
       "content": "Die GraphicsApp-Library an sich ist eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.    \n            Im Hintergrund siehst du, dass unten ein neues Toolwindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.",
       "pos": 8,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "GRAPHICS_APP"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "GRAPHICS_APP"
+        }
+      ]
     },
     {
       "title": "Der out-Ordner",
       "content": "Außerdem wurde von der IDE das out-Directory erstellt. Dieses enthält alle von IntelliJ kompilierten Klassen.\n            Fun-Fact\n\n            Öffnet man eine der Klassen im out-Directory, findet man einen Kommentar: Source code recreated from a .class file by IntelliJ IDEA (powered by Fernflower decompiler).\n     \n            Ein Decompiler wandelt Bytecode zurück in lesbaren Code.\n            Man kann ihn also dafür nutzen, sich eine Bibliothek anzusehen, auf deren Quellcode man keinen Zugriff hat. Vor 2014 musste man sich dafür ein Plugin installieren.",
       "pos": 9,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "LEFT",
-        "target-name": "OUT_FOLDER"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "LEFT",
+          "target-name": "OUT_FOLDER"
+        }
+      ]
     },
     {
       "title": "Erstellen einer Klasse",
       "content": "Als nächstes wollen wir eine neue Klasse im src-Ordner erstellen.\nDurch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür.",
       "pos": 10,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "LEFT",
-        "target-name": "OOP_FOLDER"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "LEFT",
+          "target-name": "OOP_FOLDER"
+        }
+      ]
     },
     {
       "title": "Auswählen",
       "content": "Wenn wir eine neue Datei erstellen wollen, haben wir im New-Dialog die Auswahl aus 5 Optionen. Relevant für diesen Kurs werden die ersten drei davon: abgesehen von der Option, eine Klasse zu erstellen, können wir auch Interface oder Enum auswählen. Der Unterschied zwischen Interface und Klasse wird im Kurs behandelt.\n            Ein Enum kannst du beispielsweise dann verwenden, wenn eine Variable nur eine Ausprägung aus einer Liste an Ausprägungen annehmen kann. Das Enum dokumentiert dann, welche Werte überhaupt nutzbar sind.",
       "pos": 11,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "LEFT",
-        "target-name": "CREATE_CLASS-OPTIONS"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "LEFT",
+          "target-name": "CREATE_CLASS_OPTIONS"
+        }
+      ]
     },
     {
       "title": "Benennen der Klasse",
       "content": "Wir wollen allerdings eine Klasse erstellen. Da diese Option schon vorausgewählt ist, musst du nur noch den Namen der neuen Klasse eingeben, zum Beispiel „Lander“ und das mit Enter bestätigen.",
       "pos": 12,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "CREATE_CLASS-DIALOG"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "CREATE_CLASS_DIALOG"
+        }
+      ]
     },
     {
       "title": "Die Klassendatei",
       "content": "Die neu erstellte Klassen-Datei ist weitestgehend leer. Sie ist noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor. Nachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (bspw. das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.",
       "pos": 13,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "CLASS_FILE"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "CLASS_FILE"
+        }
+      ]
     },
     {
       "title": "Auswahl des Imports",
       "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (bspw. das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.",
       "pos": 14,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "SELECT_IMPORT"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "SELECT_IMPORT"
+        }
+      ]
     },
     {
       "title": "Das Import-Statement",
       "content": "Ein IntelliJ-Projekt besteht aus Modulen. Ein Modul kann unabhängig von anderen Modulen laufen und verschiedene Dateien enthalten: Quellcode, Skripte, Dokumentation, Ressourcen, etc. Die Dateien dieser Module, die in Packages gruppiert sind, kannst du in deinem Projekt importieren.\n            Hier oben siehst du, welche Klassen aus welchen Packages du importiert hast – in diesem Fall nur diese eine. Sobald du mehr als 5 Klassen aus einem Package importieren willst, versucht IntelliJ die Import-Ansicht übersichtlicher zu machen, indem nicht mehr die einzelnen Klassen des Packages importiert werden, sondern das gesamte Package, was dann so aussieht: de.ur.mi.oop.graphics.*",
       "pos": 15,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "UP",
-        "target-name": "IMPORT_STATEMENT"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "UP",
+          "target-name": "IMPORT_STATEMENT"
+        }
+      ]
     },
     {
       "title": "Rundgang beendet",
-      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Rundgang.\n            Gib gerne Feedback dazu, wie hilfreich die Informationen für dich waren\n            und für welche Bereiche du dir noch mehr Erklärungen wünschst.",
+      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Rundgang.\nGib gerne Feedback dazu, wie hilfreich die Informationen für dich waren\n            und für welche Bereiche du dir noch mehr Erklärungen wünschst.",
       "pos": 16,
-      "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
-        "arrow": "NONE",
-        "target-name": "NONE"
-      }
+      "targets": [
+        {
+          "target-x": 0,
+          "target-y": 0,
+          "target-width": 50,
+          "target-height": 50,
+          "arrow": "NONE",
+          "target-name": "OUTRO_SCREEN"
+        }
+      ]
     }
   ]
 }

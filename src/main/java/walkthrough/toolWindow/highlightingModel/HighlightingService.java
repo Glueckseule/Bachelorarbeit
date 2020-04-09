@@ -15,12 +15,12 @@ import java.util.Objects;
 
 public class HighlightingService extends Observable {
 
-    private ArrayList<TargetArea> targetAreas;
-    private ArrayList<Arrow> arrows;
+    private ArrayList<ArrayList<TargetArea>> targetAreas;
+    private ArrayList<ArrayList<Arrow>> arrows;
     private JFrame ideaFrame;
     private Canvas shadowFrame;
 
-    public void setupHighlighting(Project project, ArrayList<JsonObject> targets) {
+    public void setupHighlighting(Project project, ArrayList<ArrayList<JsonObject>> targets) {
         ideaFrame = (JFrame) Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane().getParent();
         shadowFrame = new Canvas(ideaFrame.getSize());
 
@@ -30,23 +30,30 @@ public class HighlightingService extends Observable {
         notifyAll(new Event(Constants.ASSETS_LOADED));
     }
 
-    // TODO: We should be able to update these targets if necessary - WHEN???
-    private void loadAssets(ArrayList<JsonObject> targets) {
+    // TODO: We should be able to update dimensions of these targets if necessary - when IDE resized
+    private void loadAssets(ArrayList<ArrayList<JsonObject>> targets) {
         targetAreas = new ArrayList<>();
         arrows = new ArrayList<>();
 
-        for (JsonObject target : targets) {
-            int x = target.get("target-x").getAsInt();
-            int y = target.get("target-y").getAsInt();
-            int width = target.get("target-width").getAsInt();
-            int height = target.get("target-height").getAsInt();
-            String arrowDirection = target.get("arrow").getAsString();
-            String name = target.get("target-name").getAsString();
+        for (ArrayList<JsonObject> targetObjects : targets) {
+            ArrayList<TargetArea> areasForStep = new ArrayList<>();
+            ArrayList<Arrow> arrowsForStep = new ArrayList<>();
 
-            TargetArea oneArea = new TargetArea(x, y, width, height, name);
-            Arrow oneArrow = new Arrow(x, y, arrowDirection);
-            targetAreas.add(oneArea);
-            arrows.add(oneArrow);
+            for (JsonObject target : targetObjects) {
+                int x = target.get("target-x").getAsInt();
+                int y = target.get("target-y").getAsInt();
+                int width = target.get("target-width").getAsInt();
+                int height = target.get("target-height").getAsInt();
+                String arrowDirection = target.get("arrow").getAsString();
+                String name = target.get("target-name").getAsString();
+
+                TargetArea oneArea = new TargetArea(x, y, width, height, name);
+                Arrow oneArrow = new Arrow(x, y, arrowDirection);
+                areasForStep.add(oneArea);
+                arrowsForStep.add(oneArrow);
+            }
+            targetAreas.add(areasForStep);
+            arrows.add(arrowsForStep);
         }
     }
 
