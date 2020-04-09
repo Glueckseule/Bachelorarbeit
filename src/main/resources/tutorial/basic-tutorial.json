@@ -22,10 +22,10 @@
       "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Das Projekt repräsentiert die Software, an der du arbeitest und ist dabei der äußerste Container. Das Projekt-Werkzeugfenster (project tool window) zeigt dir die Struktur des Projekts. Hier kannst du auch neue Items erstellen, die meisten Funktionen findest du über das Kontextmenü. Klicke dazu hier mit der rechten Maustaste.",
       "pos": 1,
       "target": {
-        "target-x": 0,
-        "target-y": 0,
+        "target-x": 40,
+        "target-y": 30,
         "target-width": 50,
-        "target-height": 50,
+        "target-height": 200,
         "arrow": "LEFT",
         "target-name": "PROJECT_TOOLWINDOW"
       }
@@ -35,10 +35,10 @@
       "content": "Falls dir dieses Fenster zu unübersichtlich ist, kannst du hier die Ansicht anpassen. Klicke dafür auf die Schaltfläche „Project“, um ein Dropdown aufzuklappen.",
       "pos": 2,
       "target": {
-        "target-x": 0,
-        "target-y": 0,
-        "target-width": 50,
-        "target-height": 50,
+        "target-x": 20,
+        "target-y": 400,
+        "target-width": 300,
+        "target-height": 150,
         "arrow": "UP",
         "target-name": "PROJECT_TOOLWINDOW"
       }

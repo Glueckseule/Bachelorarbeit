@@ -30,19 +30,7 @@ public class HighlightingService extends Observable {
         notifyAll(new Event(Constants.ASSETS_LOADED));
     }
 
-    private void setShadowBehaviour() {
-        ideaFrame.addComponentListener(new ComponentAdapter() {
-            public void componentResized(ComponentEvent e) {
-                onBasisResized();
-            }
-
-            public void componentMoved(ComponentEvent e) {
-                onBasisMoved();
-            }
-        });
-    }
-
-    // TODO: We should be able to update these targets if nesccary
+    // TODO: We should be able to update these targets if necessary - WHEN???
     private void loadAssets(ArrayList<JsonObject> targets) {
         targetAreas = new ArrayList<>();
         arrows = new ArrayList<>();
@@ -66,8 +54,21 @@ public class HighlightingService extends Observable {
         shadowFrame.highlightElements(targetAreas.get(position), arrows.get(position));
     }
 
+    //<editor-fold desc="Shadowing">
     public void startShadowing(boolean isStarted) {
         shadowFrame.setVisible(isStarted);
+    }
+
+    private void setShadowBehaviour() {
+        ideaFrame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                onBasisResized();
+            }
+
+            public void componentMoved(ComponentEvent e) {
+                onBasisMoved();
+            }
+        });
     }
 
     private void onBasisMoved() {
@@ -77,5 +78,6 @@ public class HighlightingService extends Observable {
     private void onBasisResized() {
         shadowFrame.setSize(ideaFrame.getSize());
     }
+    //</editor-fold>
 
 }
