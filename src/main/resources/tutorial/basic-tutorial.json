@@ -10,10 +10,6 @@
       "pos": 0,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "NONE",
           "target-name": "INTRO_SCREEN"
         }
@@ -25,18 +21,10 @@
       "pos": 1,
       "targets": [
         {
-          "target-x": 40,
-          "target-y": 30,
-          "target-width": 50,
-          "target-height": 200,
           "arrow": "LEFT",
           "target-name": "PROJECT_TOOLWINDOW"
         },
         {
-          "target-x": 80,
-          "target-y": 220,
-          "target-width": 50,
-          "target-height": 200,
           "arrow": "UP",
           "target-name": "CODE"
         }
@@ -48,10 +36,6 @@
       "pos": 2,
       "targets": [
         {
-          "target-x": 20,
-          "target-y": 400,
-          "target-width": 300,
-          "target-height": 150,
           "arrow": "UP",
           "target-name": "PROJECT_TOOLWINDOW"
         }
@@ -63,10 +47,6 @@
       "pos": 3,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "PROJECT_DROPDOWN"
         }
@@ -78,10 +58,6 @@
       "pos": 4,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "LEFT",
           "target-name": "OOP_FOLDER"
         }
@@ -93,10 +69,6 @@
       "pos": 5,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "LEFT",
           "target-name": "OOP_SRC_FOLDER"
         }
@@ -108,10 +80,6 @@
       "pos": 6,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "CODE"
         }
@@ -123,10 +91,6 @@
       "pos": 7,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "RUN_BUTTON"
         }
@@ -138,10 +102,6 @@
       "pos": 8,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "GRAPHICS_APP"
         }
@@ -153,10 +113,6 @@
       "pos": 9,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "LEFT",
           "target-name": "OUT_FOLDER"
         }
@@ -168,10 +124,6 @@
       "pos": 10,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "LEFT",
           "target-name": "OOP_FOLDER"
         }
@@ -183,10 +135,6 @@
       "pos": 11,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "LEFT",
           "target-name": "CREATE_CLASS_OPTIONS"
         }
@@ -198,10 +146,6 @@
       "pos": 12,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "CREATE_CLASS_DIALOG"
         }
@@ -213,10 +157,6 @@
       "pos": 13,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "CLASS_FILE"
         }
@@ -228,10 +168,6 @@
       "pos": 14,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "SELECT_IMPORT"
         }
@@ -243,10 +179,6 @@
       "pos": 15,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "UP",
           "target-name": "IMPORT_STATEMENT"
         }
@@ -258,10 +190,6 @@
       "pos": 16,
       "targets": [
         {
-          "target-x": 0,
-          "target-y": 0,
-          "target-width": 50,
-          "target-height": 50,
           "arrow": "NONE",
           "target-name": "OUTRO_SCREEN"
         }
