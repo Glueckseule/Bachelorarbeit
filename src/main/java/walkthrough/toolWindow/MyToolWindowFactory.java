@@ -27,7 +27,6 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
     private HighlightingService highlightingService = ServiceManager.getService(HighlightingService.class);
     private TutorialService tutorialService = ServiceManager.getService(TutorialService.class);
     private TutorialView tutorialView;
-    private TutorialStep step;
 
     /**
      * register toolWindow to the manager
@@ -76,6 +75,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
     private void initHighlightingService() {
         highlightingService.addListener(this);
         highlightingService.setupHighlighting(project, tutorialService.getTargetList());
+        highlightingService.startShadowing(true);
     }
 
     /**
@@ -97,10 +97,17 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
      */
     @Override
     public void onEvent(Event event) {
+        TutorialStep step;
         if (event.msg.equals(Constants.TUTORIAL_LOADED)) {
             step = tutorialService.getFirstStep();
             initHighlightingService();
             tutorialView.setContent(step);
+        }
+        if (event.msg.equals(Constants.TUTORIAL_STARTED)) {
+            highlightingService.loadAssets();
+        }
+        if (event.msg.equals(Constants.ASSETS_LOADED)) {
+            tutorialView.changeUI();
         }
         if (event.msg.equals(Constants.NEXT_STEP)) {
             step = tutorialService.onNextStepSelected();
@@ -111,9 +118,6 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
             step = tutorialService.onPreviousStepSelected();
             highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
-        }
-        if (event.msg.equals(Constants.ASSETS_LOADED)) {
-            highlightingService.startShadowing(true);
         }
     }
 

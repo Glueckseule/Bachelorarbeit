@@ -19,33 +19,36 @@ public class HighlightingService extends Observable {
     private ArrayList<ArrayList<Arrow>> arrows;
     private JFrame ideaFrame;
     private Canvas shadowFrame;
+    private PositionCalculator posCalc;
+    private ArrayList<ArrayList<JsonObject>> targetJson;
 
     public void setupHighlighting(Project project, ArrayList<ArrayList<JsonObject>> targets) {
+        posCalc = new PositionCalculator(project);
+        targetJson = targets;
         ideaFrame = (JFrame) Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane().getParent();
         shadowFrame = new Canvas(ideaFrame.getSize());
 
         setShadowBehaviour();
-        loadAssets(targets);
-
-        notifyAll(new Event(Constants.ASSETS_LOADED));
     }
 
-    // TODO: We should be able to update dimensions of these targets if necessary - when IDE resized
-    private void loadAssets(ArrayList<ArrayList<JsonObject>> targets) {
+    public void loadAssets() {
         targetAreas = new ArrayList<>();
         arrows = new ArrayList<>();
 
-        for (ArrayList<JsonObject> targetObjects : targets) {
+        for (ArrayList<JsonObject> targetObjects : targetJson) {
             ArrayList<TargetArea> areasForStep = new ArrayList<>();
             ArrayList<Arrow> arrowsForStep = new ArrayList<>();
 
             for (JsonObject target : targetObjects) {
-                int x = target.get("target-x").getAsInt();
-                int y = target.get("target-y").getAsInt();
-                int width = target.get("target-width").getAsInt();
-                int height = target.get("target-height").getAsInt();
+
                 String arrowDirection = target.get("arrow").getAsString();
                 String name = target.get("target-name").getAsString();
+                posCalc.updateDimensions(name);
+
+                int x = posCalc.getX();
+                int y = posCalc.getY();
+                int width = posCalc.getWidth();
+                int height = posCalc.getHeight();
 
                 TargetArea oneArea = new TargetArea(x, y, width, height, name);
                 Arrow oneArrow = new Arrow(x, y, arrowDirection);
@@ -55,10 +58,19 @@ public class HighlightingService extends Observable {
             targetAreas.add(areasForStep);
             arrows.add(arrowsForStep);
         }
+        notifyAll(new Event(Constants.ASSETS_LOADED));
     }
 
     public void setHighlightForArea(int position) {
         shadowFrame.highlightElements(targetAreas.get(position), arrows.get(position));
+    }
+
+    private void updateArrows() {
+        //TODO: updateDimensions via PositionCalculator for all arrows in arrows<>
+    }
+
+    private void updateTargetAreas() {
+        //TODO: updateDimensions via PositionCalculator for all areas in targetAreas<>
     }
 
     //<editor-fold desc="Shadowing">
@@ -70,6 +82,8 @@ public class HighlightingService extends Observable {
         ideaFrame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
                 onBasisResized();
+                updateTargetAreas();
+                updateArrows();
             }
 
             public void componentMoved(ComponentEvent e) {

@@ -9,16 +9,20 @@ import javax.swing.*;
 
 public class TutorialView {
 
-    private JButton back;
+    private JButton backButton;
     private JButton nextButton;
     private JPanel myToolWindowContent;
     private JLabel stepHeadline;
     private JLabel tutType;
     private JTextPane stepContent;
     private JProgressBar tutorialProgress;
+    private JButton startButton;
 
     public TutorialView(String type) {
         tutType.setText(type);
+
+        backButton.setVisible(false);
+        nextButton.setVisible(false);
     }
 
     public void setContent(TutorialStep step) {
@@ -29,7 +33,15 @@ public class TutorialView {
     }
 
     public void setListener() {
-        back.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.PREVIOUS_STEP)));
+        startButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP)));
+        startButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.TUTORIAL_STARTED)));
+    }
+
+    public void changeUI() {
+        startButton.setVisible(false);
+        nextButton.setVisible(true);
+        backButton.setVisible(true);
+        backButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.PREVIOUS_STEP)));
         nextButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP)));
     }
 

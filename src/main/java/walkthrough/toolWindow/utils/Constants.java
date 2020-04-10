@@ -12,6 +12,7 @@ public final class Constants {
     //event messages
     public static final String TUTORIAL_LOADED = "tutorial loaded";
     public static final String ASSETS_LOADED = "assets loaded";
+    public static final String TUTORIAL_STARTED = "tutorial started";
     public static final String NEXT_STEP = "next";
     public static final String PREVIOUS_STEP = "previous";
 
