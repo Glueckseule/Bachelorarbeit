@@ -37,7 +37,7 @@
       "targets": [
         {
           "arrow": "UP",
-          "target-name": "PROJECT_TOOLWINDOW"
+          "target-name": "PROJECT_DROPDOWN"
         }
       ]
     },
@@ -47,8 +47,12 @@
       "pos": 3,
       "targets": [
         {
-          "arrow": "UP",
+          "arrow": "NONE",
           "target-name": "PROJECT_DROPDOWN"
+        },
+        {
+          "arrow": "LEFT",
+          "target-name": "PROJECT_DROPDOWN_POPUP"
         }
       ]
     },
@@ -80,7 +84,7 @@
       "pos": 6,
       "targets": [
         {
-          "arrow": "UP",
+          "arrow": "NONE",
           "target-name": "CODE"
         }
       ]
@@ -102,7 +106,7 @@
       "pos": 8,
       "targets": [
         {
-          "arrow": "UP",
+          "arrow": "NONE",
           "target-name": "GRAPHICS_APP"
         }
       ]
@@ -124,8 +128,12 @@
       "pos": 10,
       "targets": [
         {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        },
+        {
           "arrow": "LEFT",
-          "target-name": "OOP_FOLDER"
+          "target-name": "OOP_SRC_FOLDER"
         }
       ]
     },

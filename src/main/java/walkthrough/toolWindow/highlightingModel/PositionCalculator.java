@@ -1,11 +1,16 @@
 package walkthrough.toolWindow.highlightingModel;
 
+import com.intellij.openapi.fileEditor.FileEditor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.content.ContentManager;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.Objects;
 
 public class PositionCalculator {
 
@@ -15,43 +20,53 @@ public class PositionCalculator {
     int width;
     int height;
 
+    //Basic values to be added
+    int basicX;
+    int basicY = 28;
+
+    //Components needed for other calculations
+    JComponent projectToolWindow;
+    JComponent walkthroughWindow;
+    JRootPane projectRoot;
+    Rectangle fullSizeMinusTopBar;
+
+
     public PositionCalculator(Project project) {
         this.project = project;
+
+        projectRoot = WindowManager.getInstance().getFrame(project).getRootPane();
+        basicX = projectRoot.getX();
     }
 
     public void updateDimensions(String name) {
         switch (name) {
             case "PROJECT_TOOLWINDOW":
-                System.out.println("Such das Projektfenster");
-                findRelevant();
+                findProjectToolWindow();
                 break;
             case "CODE":
-                System.out.println("Such den Code?");
-                setDimensions(60, 60, 250, 250);
+                findEditor();
                 break;
             case "PROJECT_DROPDOWN":
-                System.out.println("Such das Dropdown im Projektfenster");
-                setDimensions(0, 0, 0, 0);
+                findProjectDropdown();
                 break;
-            case "OOP-FOLDER":
-                System.out.println("Find raus, ob man einzelne Ordner erkennen kann");
-                setDimensions(0, 0, 0, 0);
+            case "PROJECT_DROPDOWN_POPUP":
+                System.out.println("bei Schritt 4 - evtl unnötig, dann später löschen");
+                setDimensions(0,0,0,0);
+            case "OOP_FOLDER":
+                findFolder("oop");
                 break;
             case "OOP_SRC_FOLDER":
-                System.out.println("Same problem");
-                setDimensions(0, 0, 0, 0);
+                findFolder("src");
                 break;
             case "RUN_BUTTON":
-                System.out.println("Finde den Run-Button!");
-                setDimensions(0, 0, 0, 0);
+                findRunButton();
                 break;
             case "GRAPHICS_APP":
                 System.out.println("Muss ich die Highlighten?");
                 setDimensions(0, 0, 0, 0);
                 break;
             case "OUT_FOLDER":
-                System.out.println("Wenn erkennbar, dann hier markieren");
-                setDimensions(0, 0, 0, 0);
+                findFolder("out");
                 break;
             case "CREATE_CLASS_OPTIONS":
                 System.out.println("Geht das?");
@@ -62,8 +77,7 @@ public class PositionCalculator {
                 setDimensions(0, 0, 0, 0);
                 break;
             case "CLASS_FILE":
-                System.out.println("Vermutlich den Editor markieren");
-                setDimensions(0, 0, 0, 0);
+                findEditor();
                 break;
             case "SELECT_IMPORT":
                 System.out.println("Über Mausposition das Kontextmenü bekommen");
@@ -74,27 +88,83 @@ public class PositionCalculator {
                 setDimensions(10, 20, 30, 40);
                 break;
             default:
-                System.out.println("Kein Highlighting");
-                setDimensions(0, 0, 0, 0);
+                defaultHighlighting();
                 break;
         }
     }
 
-    public void findRelevant() {
-        ToolWindowManager manager = ToolWindowManager.getInstance(project);
-        ToolWindow projectWindow = manager.getToolWindow("Project");
-        JComponent c = projectWindow.getComponent();
-        boolean visible = projectWindow.isVisible();
+    private void defaultHighlighting() {
+        //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben (28px)
+        fullSizeMinusTopBar = WindowManager.getInstance().getFrame(project).getContentPane().getComponent(2).getBounds();
 
-        int x = c.getX();
-        int y = c.getY();
-        int w = c.getWidth();
-        int h = c.getHeight();
+        setDimensions(basicX + fullSizeMinusTopBar.x, basicY + fullSizeMinusTopBar.y, fullSizeMinusTopBar.width, fullSizeMinusTopBar.height);
+    }
 
-        setDimensions(x, y, w, h);
+    private void findProjectToolWindow() {
+        System.out.println("Such das Projektfenster");
+        ToolWindow projectWindow = ToolWindowManager.getInstance(project).getToolWindow("Project");
+        walkthroughWindow  = ToolWindowManager.getInstance(project).getToolWindow("Walkthrough durch IntelliJ").getComponent();
+        if (!projectWindow.isVisible()) {
+            projectWindow.show(new Runnable() {
+                @Override
+                public void run() {
 
-        ContentManager cm = projectWindow.getContentManager();
-        JComponent dropdown = cm.getContent(0).getComponent();
+                }
+            });
+        }
+        //NonOpaquePanel
+        projectToolWindow = projectWindow.getComponent();
+        //LayeredPane
+        Container infiniteParent = projectToolWindow.getParent().getParent().getParent().getParent().getParent().getParent().getParent();
+        setDimensions(basicX + infiniteParent.getX(), 3 * basicY, projectToolWindow.getWidth(), projectToolWindow.getHeight());
+    }
+
+    private void findEditor() {
+        //mark height of projectToolWindow and full width - PTW-width - Walkthrough-width
+        int editorWidth = (int) (fullSizeMinusTopBar.getWidth() - projectToolWindow.getWidth()-walkthroughWindow.getWidth());
+        System.out.println("Vermutlich den Editor markieren");
+        System.out.println("Such den Code?");
+        FileEditor currentEditor = FileEditorManager.getInstance(project).getSelectedEditor();
+        JComponent editorSize = currentEditor.getComponent();
+        setDimensions(basicX + projectToolWindow.getWidth(), 2 * basicY, editorWidth, (int) fullSizeMinusTopBar.getHeight());
+    }
+
+    private void findRunButton() {
+        System.out.println("Finde den Run-Button!");
+        //IdeRootPane -> myToolBar -> components ist die Leiste mit dem Runbutton (9 und 10?)
+        //another hat die ToolBar an erster Stelle, aber an die komme ich noch nicht ran
+
+        //menuBar hat selbst keine Abmessungen
+        JMenuBar menuBar = projectRoot.getJMenuBar();
+
+        Container contentPane = projectRoot.getContentPane();
+        //nicht hilfreich: das hier sind die Menüpunkte in der obersten Leiste
+        MenuElement[] els = menuBar.getSubElements();
+
+        Component[] moreComps = projectRoot.getContentPane().getComponents();
+
+        setDimensions(basicX, basicY, moreComps[0].getWidth(), moreComps[0].getHeight());
+    }
+
+    private void findFolder(String folderToFind) {
+        System.out.println("Find raus, ob man einzelne Ordner erkennen kann");
+        if (folderToFind.equals("oop")) {
+            setDimensions(0, 0, 0, 0);
+        }
+        if (folderToFind.equals("out")) {
+            setDimensions(0, 0, 0, 0);
+        }
+        if (folderToFind.equals("src")) {
+            setDimensions(0, 0, 0, 0);
+        }
+    }
+
+    private void findProjectDropdown() {
+        System.out.println("Such das Dropdown im Projektfenster");
+        ContentManager cm = ToolWindowManager.getInstance(project).getToolWindow("Project").getContentManager();
+        JComponent dropdown = Objects.requireNonNull(cm.getContent(0)).getComponent();
+
+        setDimensions(basicX+projectToolWindow.getX(), projectToolWindow.getY(), projectToolWindow.getWidth()/3, 28);
     }
 
     private void setDimensions(int x, int y, int w, int h) {
