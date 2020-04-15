@@ -15,6 +15,7 @@ public final class Constants {
     public static final String TUTORIAL_STARTED = "tutorial started";
     public static final String NEXT_STEP = "next";
     public static final String PREVIOUS_STEP = "previous";
+    public static final String ADD_CODE = "add Code";
 
     //for all windows
     public static final int STROKE_WIDTH = 5;
