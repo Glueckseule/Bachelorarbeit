@@ -2,7 +2,7 @@
   "type": "Die Basics",
   "description": "Grundlagen für den OOP-Kurs",
   "author": "Daniela Krapf",
-  "number_of_steps": "17",
+  "number_of_steps": "16",
   "steps": [
     {
       "title": "IntelliJ für OOP",
@@ -47,12 +47,12 @@
       "pos": 3,
       "targets": [
         {
-          "arrow": "LEFT",
-          "target-name": "PROJECT_DROPDOWN"
-        },
-        {
           "arrow": "NONE",
           "target-name": "PROJECT_DROPDOWN_POPUP"
+        },
+        {
+          "arrow": "LEFT",
+          "target-name": "PROJECT_DROPDOWN"
         }
       ]
     },
@@ -99,14 +99,14 @@
       "pos": 7,
       "targets": [
         {
-          "arrow": "UP",
+          "arrow": "NONE",
           "target-name": "RUN_BUTTON"
         }
       ]
     },
     {
       "title": "Beenden des Run-Prozesses",
-      "content": "Die GraphicsApp-Library an sich ist eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\nIm Hintergrund siehst du, dass unten ein neues Toolwindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.",
+      "content": "Die GraphicsApp-Library an sich ist eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\n\nIm Hintergrund siehst du, dass unten ein neues ToolWindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.",
       "pos": 8,
       "targets": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "title": "Der out-Ordner",
-      "content": "Außerdem wurde von der IDE das out-Directory erstellt. Dieses enthält alle von IntelliJ kompilierten Klassen.\n\nFun-Fact:\nÖffnet man eine der Klassen im out-Directory, findet man einen Kommentar: Source code recreated from a .class file by IntelliJ IDEA (powered by Fernflower decompiler).\n\nEin Decompiler wandelt Bytecode zurück in lesbaren Code.\nMan kann ihn also dafür nutzen, sich eine Bibliothek anzusehen, auf deren Quellcode man keinen Zugriff hat. Vor 2014 musste man sich dafür ein Plugin installieren.",
+      "content": "Außerdem wurde von der IDE das out-Directory erstellt. Dieses enthält alle von IntelliJ kompilierten Klassen.\n\nFun-Fact:\nÖffnet man eine der Klassen im out-Directory, findet man einen Kommentar: Source code recreated from a .class file by IntelliJ IDEA (powered by Fernflower decompiler).\n\nEin Decompiler wandelt Bytecode zurück in lesbaren Code. Man kann ihn also dafür nutzen, sich eine Bibliothek anzusehen, auf deren Quellcode man keinen Zugriff hat. Vor 2014 musste man sich dafür ein Plugin installieren.",
       "pos": 9,
       "targets": [
         {
@@ -128,7 +128,7 @@
     },
     {
       "title": "Erstellen einer Klasse",
-      "content": "Als nächstes wollen wir eine neue Klasse im src-Ordner erstellen.\nDurch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür. Wähle hier ganz oben *new >* und klicke dort *Java Class*.",
+      "content": "Als nächstes wollen wir eine neue Klasse im src-Ordner erstellen.\n\nDurch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür. Wähle hier ganz oben *new >* und klicke dort *Java Class*.",
       "pos": 10,
       "targets": [
         {
@@ -154,18 +154,18 @@
     },
     {
       "title": "Die Klassendatei",
-      "content": "Die neu erstellte Klassen-Datei ist weitestgehend leer. Sie ist noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor. Nachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (bspw. das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.",
+      "content": "Die neu erstellte Klassen-Datei ist weitestgehend leer. Sie ist noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.",
       "pos": 12,
       "targets": [
         {
           "arrow": "NONE",
-          "target-name": "CLASS_FILE"
+          "target-name": "CODE"
         }
       ]
     },
     {
       "title": "Auswahl des Imports",
-      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (bspw. das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.",
+      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.\n\nKlicke dazu auf das rot hinterlegte wort *Ellipse*. Jetzt hast du zwei Optionen: wenn du mit der Maus über das Wort hoverst, kommt ein Dialog, in dem du *import class* wählst - oder du gehst über die Tastatur. Klicke auf das Wort und dann Alt+Enter. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe: Wähle in diesem Fall den aus dem de.ur.mi.oop-Package.",
       "pos": 13,
       "targets": [
         {
@@ -187,7 +187,7 @@
     },
     {
       "title": "Rundgang beendet",
-      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Rundgang.\nGib gerne Feedback dazu, wie hilfreich die Informationen für dich waren\n            und für welche Bereiche du dir noch mehr Erklärungen wünschst.",
+      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Rundgang.\n\nSchön, dass du dabei warst, gib gerne Feedback dazu, wie hilfreich die Informationen für dich waren und für welche Bereiche du dir noch mehr Erklärungen wünschst.",
       "pos": 15,
       "targets": [
         {
