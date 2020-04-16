@@ -19,14 +19,14 @@ public class PositionCalculator {
     private int height;
 
     //Basic values to be used
-    private Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
-    private int basicX;
     private static final int DEFAULT_HEIGHT_OF_BAR = 28;
     private static final int DEFAULT_HEIGHT_OF_SMALLER_BAR = 20;
     private static final int EDITOR_OFFSET = 55;
+    private int basicX;
 
     //Components needed for other calculations
     private static final Dimension CLASS_DIALOG = new Dimension(330, 175);
+    private Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
     private ToolWindowManager manager;
     private JComponent projectToolWindow;
     private JComponent walkthroughWindow;
