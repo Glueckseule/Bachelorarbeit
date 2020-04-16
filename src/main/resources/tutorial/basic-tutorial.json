@@ -169,7 +169,7 @@
       "pos": 13,
       "targets": [
         {
-          "arrow": "UP",
+          "arrow": "NONE",
           "target-name": "SELECT_IMPORT"
         }
       ]

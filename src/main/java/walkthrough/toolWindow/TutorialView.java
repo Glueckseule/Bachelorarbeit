@@ -45,10 +45,6 @@ public class TutorialView {
         nextButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP)));
     }
 
-    public void setCodeToEditor() {
-        System.out.println("Ellipse ellipse = new Ellipse();");
-    }
-
     public JPanel getContent() {
         return myToolWindowContent;
     }

@@ -80,6 +80,9 @@ public class TutorialService extends Observable {
         if (currentStep > 0) {
             currentStep--;
         }
+        if (currentStep == 13) {
+            notifyAll(new Event(Constants.ADD_CODE));
+        }
         return tutorialSteps.get(currentStep);
     }
 

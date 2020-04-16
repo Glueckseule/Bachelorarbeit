@@ -120,7 +120,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
             tutorialView.setContent(step);
         }
         if (event.msg.equals(Constants.ADD_CODE)) {
-            tutorialView.setCodeToEditor();
+            highlightingService.setCodeToEditor();
         }
     }
 

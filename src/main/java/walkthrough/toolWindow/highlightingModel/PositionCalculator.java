@@ -19,8 +19,11 @@ public class PositionCalculator {
 
     //Basic values to be added
     Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
-    int defaultHeightOfBar = 28;
+    private static final int DEFAULT_HEIGHT_OF_BAR = 28;
+    private static final int DEFAULT_HEIGHT_OF_SMALLER_BAR = 20;
+    private static final int EDITOR_OFFSET = 55;
     int basicX;
+    private static final Dimension CLASS_DIALOG = new Dimension(330, 175);
 
     //Components needed for other calculations
     ToolWindowManager manager;
@@ -70,16 +73,14 @@ public class PositionCalculator {
                 findFolder("out");
                 break;
             case "CREATE_CLASS_DIALOG":
-                System.out.println("Finde den Dialog über Mausposition, der nur im Kontext da ist...");
-                setDimensions(0, 0, 0, 0);
+                findDialogInMiddle();
                 break;
             case "SELECT_IMPORT":
-                System.out.println("Über Mausposition das Kontextmenü bekommen");
+                System.out.println("Soll hier was hervorgehoben werden?");
                 setDimensions(0, 0, 0, 0);
                 break;
             case "IMPORT_STATEMENT":
-                System.out.println("Kann man die Zeile im Code finden, die mit *import* beginnt?");
-                setDimensions(10, 20, 30, 40);
+                selectImportStatement();
                 break;
             default:
                 defaultHighlighting();
@@ -113,7 +114,7 @@ public class PositionCalculator {
 
         setDimensions(
                 basicX,
-                ideContentDimensions.y + (2 * defaultHeightOfBar),
+                ideContentDimensions.y + (2 * DEFAULT_HEIGHT_OF_BAR),
                 projectToolWindow.getWidth(),
                 projectToolWindow.getHeight()
         );
@@ -125,9 +126,9 @@ public class PositionCalculator {
 
         setDimensions(
                 basicX + projectToolWindow.getWidth(),
-                ideContentDimensions.y + defaultHeightOfBar,
+                ideContentDimensions.y + DEFAULT_HEIGHT_OF_BAR,
                 editorWidth,
-                projectToolWindow.getHeight() + defaultHeightOfBar
+                projectToolWindow.getHeight() + DEFAULT_HEIGHT_OF_BAR
         );
     }
 
@@ -161,9 +162,9 @@ public class PositionCalculator {
     private void findProjectDropdown() {
         setDimensions(
                 basicX + projectToolWindow.getX(),
-                ideContentDimensions.y + defaultHeightOfBar,
+                ideContentDimensions.y + DEFAULT_HEIGHT_OF_BAR,
                 projectToolWindow.getWidth() / 3,
-                defaultHeightOfBar
+                DEFAULT_HEIGHT_OF_BAR
         );
     }
 
@@ -173,11 +174,31 @@ public class PositionCalculator {
 
         setDimensions(
                 basicX + projectToolWindow.getX(),
-                ideContentDimensions.y + 2 * defaultHeightOfBar,
+                ideContentDimensions.y + 2 * DEFAULT_HEIGHT_OF_BAR,
                 projectToolWindow.getWidth() / 3,
-                x * defaultHeightOfBar
+                x * DEFAULT_HEIGHT_OF_SMALLER_BAR
         );
     }
+
+    private void findDialogInMiddle() {
+        setDimensions(
+                ideContentDimensions.width/2 - CLASS_DIALOG.width/2,
+                ideContentDimensions.height/2 - CLASS_DIALOG.height/3,
+                CLASS_DIALOG.width,
+                CLASS_DIALOG.height
+        );
+    }
+
+    //<editor-fold desc="assumption: import statement is in line one and always the same length">
+    private void selectImportStatement() {
+        setDimensions(
+                basicX + projectToolWindow.getWidth() + EDITOR_OFFSET,
+                ideContentDimensions.y + (2 * DEFAULT_HEIGHT_OF_BAR),
+                250,
+                DEFAULT_HEIGHT_OF_BAR
+        );
+    }
+    //</editor-fold>
 
     private void setDimensions(int x, int y, int w, int h) {
         this.x = x;
