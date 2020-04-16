@@ -11,33 +11,32 @@ import java.awt.*;
 
 public class PositionCalculator {
 
+    //values for getter
     private final Project project;
-    int x;
-    int y;
-    int width;
-    int height;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
 
-    //Basic values to be added
-    Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
+    //Basic values to be used
+    private Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
+    private int basicX;
     private static final int DEFAULT_HEIGHT_OF_BAR = 28;
     private static final int DEFAULT_HEIGHT_OF_SMALLER_BAR = 20;
     private static final int EDITOR_OFFSET = 55;
-    int basicX;
-    private static final Dimension CLASS_DIALOG = new Dimension(330, 175);
 
     //Components needed for other calculations
-    ToolWindowManager manager;
-    JComponent projectToolWindow;
-    JComponent walkthroughWindow;
-    JFrame fullProjectFrame;
-    JRootPane projectRoot;
+    private static final Dimension CLASS_DIALOG = new Dimension(330, 175);
+    private ToolWindowManager manager;
+    private JComponent projectToolWindow;
+    private JComponent walkthroughWindow;
+    private JRootPane projectRoot;
 
     public PositionCalculator(Project project) {
         this.project = project;
 
         manager = ToolWindowManager.getInstance(project);
-        fullProjectFrame = WindowManager.getInstance().getFrame(project);
-        projectRoot = fullProjectFrame.getRootPane();
+        projectRoot = WindowManager.getInstance().getFrame(project).getRootPane();
         basicX = projectRoot.getX();
 
         walkthroughWindow = manager.getToolWindow("Walkthrough durch IntelliJ").getComponent();
@@ -200,13 +199,6 @@ public class PositionCalculator {
     }
     //</editor-fold>
 
-    private void setDimensions(int x, int y, int w, int h) {
-        this.x = x;
-        this.y = y;
-        this.width = w;
-        this.height = h;
-    }
-
     //<editor-fold desc="Getter">
     public int getX() {
         return x;
@@ -223,6 +215,13 @@ public class PositionCalculator {
     public int getHeight() {
         return height;
     }
-    //</editor-fold>
+    //</editor-fold>K
+
+    private void setDimensions(int x, int y, int w, int h) {
+        this.x = x;
+        this.y = y;
+        this.width = w;
+        this.height = h;
+    }
 
 }
