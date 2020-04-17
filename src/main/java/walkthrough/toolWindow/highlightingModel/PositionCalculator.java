@@ -1,6 +1,13 @@
 package walkthrough.toolWindow.highlightingModel;
 
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
+import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.openapi.vfs.LocalFileSystem;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileManager;
+import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.openapi.wm.WindowManager;
@@ -25,7 +32,6 @@ public class PositionCalculator {
     private int basicX;
 
     //Components needed for other calculations
-    private static final Dimension CLASS_DIALOG = new Dimension(330, 175);
     private Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
     private ToolWindowManager manager;
     private JComponent projectToolWindow;
@@ -40,6 +46,12 @@ public class PositionCalculator {
         basicX = projectRoot.getX();
 
         walkthroughWindow = manager.getToolWindow("Walkthrough durch IntelliJ").getComponent();
+
+        VirtualFile[] myModules = ProjectRootManager.getInstance(project).getContentRootsFromAllModules();
+        VirtualFile[] childrenOfMod = myModules[0].getChildren();
+        for (VirtualFile virtualFile : childrenOfMod) {
+            virtualFile.getPath();
+        }
     }
 
     public void updateDimensions(String name) {
@@ -66,17 +78,11 @@ public class PositionCalculator {
                 findRunButton();
                 break;
             case "GRAPHICS_APP":
-                setDimensions(0, 0, 0, 0);
+            case "SELECT_IMPORT":
+                noHighlighting();
                 break;
             case "OUT_FOLDER":
                 findFolder("out");
-                break;
-            case "CREATE_CLASS_DIALOG":
-                findDialogInMiddle();
-                break;
-            case "SELECT_IMPORT":
-                System.out.println("Soll hier was hervorgehoben werden?");
-                setDimensions(0, 0, 0, 0);
                 break;
             case "IMPORT_STATEMENT":
                 selectImportStatement();
@@ -85,6 +91,10 @@ public class PositionCalculator {
                 defaultHighlighting();
                 break;
         }
+    }
+
+    private void noHighlighting() {
+        setDimensions(0, 0, 0, 0);
     }
 
     private void defaultHighlighting() {
@@ -176,15 +186,6 @@ public class PositionCalculator {
                 ideContentDimensions.y + 2 * DEFAULT_HEIGHT_OF_BAR,
                 projectToolWindow.getWidth() / 3,
                 x * DEFAULT_HEIGHT_OF_SMALLER_BAR
-        );
-    }
-
-    private void findDialogInMiddle() {
-        setDimensions(
-                ideContentDimensions.width/2 - CLASS_DIALOG.width/2,
-                ideContentDimensions.height/2 - CLASS_DIALOG.height/3,
-                CLASS_DIALOG.width,
-                CLASS_DIALOG.height
         );
     }
 
