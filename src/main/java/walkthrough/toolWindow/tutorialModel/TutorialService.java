@@ -70,7 +70,7 @@ public class TutorialService extends Observable {
         if (currentStep < totalSteps - 1) {
             currentStep++;
         }
-        if (currentStep == 13) {
+        if (currentStep == 11) {
             notifyAll(new Event(Constants.ADD_CODE));
         }
         return tutorialSteps.get(currentStep);
@@ -80,7 +80,7 @@ public class TutorialService extends Observable {
         if (currentStep > 0) {
             currentStep--;
         }
-        if (currentStep == 13) {
+        if (currentStep == 11) {
             notifyAll(new Event(Constants.ADD_CODE));
         }
         return tutorialSteps.get(currentStep);

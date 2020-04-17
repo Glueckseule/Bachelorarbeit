@@ -46,12 +46,6 @@ public class PositionCalculator {
         basicX = projectRoot.getX();
 
         walkthroughWindow = manager.getToolWindow("Walkthrough durch IntelliJ").getComponent();
-
-        VirtualFile[] myModules = ProjectRootManager.getInstance(project).getContentRootsFromAllModules();
-        VirtualFile[] childrenOfMod = myModules[0].getChildren();
-        for (VirtualFile virtualFile : childrenOfMod) {
-            virtualFile.getPath();
-        }
     }
 
     public void updateDimensions(String name) {
@@ -68,21 +62,12 @@ public class PositionCalculator {
             case "PROJECT_DROPDOWN_POPUP":
                 findProjectDropdownPopup();
                 break;
-            case "OOP_FOLDER":
-                findFolder("oop");
-                break;
-            case "OOP_SRC_FOLDER":
-                findFolder("src");
-                break;
             case "RUN_BUTTON":
                 findRunButton();
                 break;
             case "GRAPHICS_APP":
             case "SELECT_IMPORT":
                 noHighlighting();
-                break;
-            case "OUT_FOLDER":
-                findFolder("out");
                 break;
             case "IMPORT_STATEMENT":
                 selectImportStatement();
