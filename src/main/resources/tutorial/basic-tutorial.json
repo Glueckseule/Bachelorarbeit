@@ -2,7 +2,7 @@
   "type": "Die Basics",
   "description": "Grundlagen für den OOP-Kurs",
   "author": "Daniela Krapf",
-  "number_of_steps": "16",
+  "number_of_steps": "15",
   "steps": [
     {
       "title": "IntelliJ für OOP",
@@ -17,22 +17,22 @@
     },
     {
       "title": "Das Projekt",
-      "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Das Projekt repräsentiert die Software, an der du arbeitest und ist dabei der äußerste Container. Das Projekt-Werkzeugfenster (project tool window) zeigt dir die Struktur des Projekts. Hier kannst du auch neue Items erstellen, die meisten Funktionen findest du über das Kontextmenü. Klicke dazu hier mit der rechten Maustaste.",
+      "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Alles, was du in IntelliJ machst passiert im Kontext eines Projektes, dieses ist dabei der Container für den gesamten Code.\n\nJedes Projekt braucht eine SDK (für Java JDK genannt), um funktionieren zu können - damit wird definiert, wie das build-Prozess abläuft.\n\nDas Projekt-Werkzeugfenster (project tool window) hier zeigt dir die Struktur des Projekts. Dort kannst du auch neue Dateien erstellen, die meisten Funktionen findest du über das Kontextmenü. Klicke dazu an der gewünschten Stelle mit der rechten Maustaste.",
       "pos": 1,
       "targets": [
         {
-          "arrow": "LEFT",
-          "target-name": "PROJECT_TOOLWINDOW"
+          "arrow": "NONE",
+          "target-name": "INTRO_SCREEN"
         },
         {
-          "arrow": "NONE",
-          "target-name": "CODE"
+          "arrow": "LEFT",
+          "target-name": "PROJECT_TOOLWINDOW"
         }
       ]
     },
     {
       "title": "Darstellung der Projektstruktur",
-      "content": "Falls dir dieses Fenster zu unübersichtlich ist, kannst du hier die Ansicht anpassen.",
+      "content": "Falls dir dieses Projekt-Fenster zu unübersichtlich ist, kannst du hier die Ansicht anpassen.\n\nGerade befinden wir uns in der Projekt-Ansicht. Du siehst alles, was zum Projekt gehört, also auch SDKs und Librarys. Der Fokus liegt aber auf der Ordner-Struktur.",
       "pos": 2,
       "targets": [
         {
@@ -43,7 +43,7 @@
     },
     {
       "title": "Verschiedene Darstellungsformen",
-      "content": "Klicke dafür auf die Schaltfläche „Project“, um das Dropdown aufzuklappen. Wenn du dann zum Beispiel auf „Packages“ klickst, siehst du hier nur noch den Inhalt des src-Ordners. Du kannst dich also ganz auf die Klassen und Dateien für deine Software konzentrieren. \n\nProbiers doch mal aus, für den weiteren Rundgang bleiben wir allerdings in der Project-Ansicht.",
+      "content": "Um diese Ansicht zu ändern, klicke auf die Schaltfläche „Project“, um das Dropdown aufzuklappen. Wenn du dann zum Beispiel auf „Packages“ klickst, siehst du hier die Package-Struktur, Module, Libraries und SDKs werden nicht mehr angezeigt. Du kannst dich also ganz auf die Klassen und Dateien für deine Übungsaufgabe konzentrieren.\n\nProbiers doch mal aus, für den weiteren Rundgang bleiben wir allerdings in der Project-Ansicht.",
       "pos": 3,
       "targets": [
         {
@@ -58,7 +58,7 @@
     },
     {
       "title": "Der für den OOP-Kurs relevante Ordner",
-      "content": "In jedem Fall ist der erste Ordner der für uns interessante. Da wir hier in einem Einsteigerkurs sind, ist uns schon eine grobe Struktur vorgegeben und wir müssen sie uns nicht selbst aufbauen.\nIn diesem Ordner befinden sich die Dateien und Unterordner, mit denen wir arbeiten wollen.",
+      "content": "In jedem Fall ist der erste Ordner der für uns interessante. Da wir hier in einem Einsteigerkurs sind, ist schon eine grobe Struktur vorgegeben und wir müssen sie uns nicht selbst aufbauen.\n\nIn diesem Ordner befinden sich die Dateien und Unterordner, mit denen wir arbeiten wollen.",
       "pos": 4,
       "targets": [
         {
@@ -73,18 +73,22 @@
     },
     {
       "title": "Öffnen der Klassen-Datei",
-      "content": "Genauer gesagt: im src-Ordner. In diesem Fall sind dir hier schon zwei Klassen vorgegeben. Die Klasse mit dem Begriff „Launcher“ ist hier nur dazu da, um die Anwendung zu starten.\nSie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden. Die zweite Klasse hingegen ist die Wurzel für deinen Code, die du jetzt öffnen kannst und mit der du startest.",
+      "content": "Genauer gesagt: im src-Ordner. Die Klasse mit dem Begriff „Launcher“ ist hier nur dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden. Die zweite Klasse hingegen ist die Wurzel für deinen Code und der Einstieg in das Programm. Öffne sie und schau dir den Code im Editor an.",
       "pos": 5,
       "targets": [
         {
           "arrow": "LEFT",
           "target-name": "OOP_SRC_FOLDER"
+        },
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
         }
       ]
     },
     {
       "title": "Der Code-Editor",
-      "content": "Hier im Editor findest du jetzt die geöffnete Klassendatei. Man könnte behaupten, der Editor ist das Herzstück der Entwicklungsumgebung, weil du hier deinen Code schreibst.\n\nIntelliJ bietet dir dabei zahlreiche Hilfestellungen – falls du dich dafür interessierst, schau doch mal in die Doku ;)\n\nDiese Einstiegsdatei erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Hier findest du eine init-Methode, eine draw-Methode und ein paar Konstanten vorgegeben, die du später erweitern sollst.",
+      "content": "Hier im Editor findest du jetzt die geöffnete Klassendatei. Man könnte behaupten, der Editor ist das Herzstück der Entwicklungsumgebung, weil du hier deinen Code schreibst.\n\nIntelliJ bietet dir dabei zahlreiche Hilfestellungen – falls du dich dafür interessierst, schau doch mal in die Doku, da gibt es zahlreiche Tipps ;)\n\nDiese Einstiegsdatei erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Hier findest du eine init-Methode, eine draw-Methode und ein paar Konstanten vorgegeben, die du später erweitern sollst.",
       "pos": 6,
       "targets": [
         {
@@ -95,7 +99,7 @@
     },
     {
       "title": "Der Run-Prozess",
-      "content": "Hier oben siehst du den Run- und den Debug-Button. Über diese Schaltfläche kannst du dein Programm starten, indem du die Datei mit der Main-Methode auswählst – sofern du keine Kompilierfehler (ROT) mehr im Code hast.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse: durch das Klicken wird eine sogenannte „Temporäre Run-Konfiguration“ erstellt. Da Java eine kompilierte Programmiersprache ist, hilft uns die IDE hier und baut den Code automatisch für uns, sobald wir das Programm starten wollen.",
+      "content": "Um zu testen, ob deine Erweiterungen funktionieren und wo es fehler gibt, solltest du dein Programm regelmäßig starten. Hier oben siehst du den Run- und den Debug-Button. Über beide Schaltflächen kannst du dein Programm starten, wobei dir der Debug-Modus später in diesem Kurs noch erklärt wird.\n\nWenn der Run-Button hier noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode auswählst, also die Launcher-Datei, und klicke auf den kleinen Run-Button in der Editorleiste links neben dem Code.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse – sofern du keine Kompilierfehler (ROT) mehr im Code hast: Zunächst wird eine sogenannte „Temporäre Run-Konfiguration“ erstellt. Da Java eine kompilierte Programmiersprache ist, hilft uns die IDE hier und baut den Code automatisch für uns, sobald wir das Programm starten wollen.",
       "pos": 7,
       "targets": [
         {
@@ -105,8 +109,8 @@
       ]
     },
     {
-      "title": "Beenden des Run-Prozesses",
-      "content": "Die GraphicsApp-Library an sich ist eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\n\nIm Hintergrund siehst du, dass unten ein neues ToolWindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.",
+      "title": "Die Graphics-App",
+      "content": "Weil es in der Launch-Datei so definiert ist, öffnet sich bei Start des Programms die Graphics-App. Diese ist eingebunden über die GraphicsApp-Library und ist an sich eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\n\nIm Hintergrund siehst du, dass beim Starten des Run-Prozesses unten ein neues ToolWindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.\n\nZum Beenden der Anwendung, klicke auf den Stop-Button oder schließe die Graphics-App.",
       "pos": 8,
       "targets": [
         {
@@ -123,39 +127,32 @@
         {
           "arrow": "LEFT",
           "target-name": "OUT_FOLDER"
+        },
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
         }
       ]
     },
     {
       "title": "Erstellen einer Klasse",
-      "content": "Als nächstes wollen wir eine neue Klasse im src-Ordner erstellen.\n\nDurch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür. Wähle hier ganz oben *new >* und klicke dort *Java Class*.",
+      "content": "Da es unter anderem aus Gründen der Übersichtlichkeit sehr sinnvoll ist, die Funktionsweise deiner Anwendung auf verschiedene Klassen aufzuteien, wollen wir als nächstes eine neue Klasse im src-Ordner erstellen.\n\nDurch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür. Wähle hier ganz oben *new >* und klicke dort *Java Class*.\n\n\"Dadurch öffnet sich ein Dialog mit der Auswahl aus 5 Optionen. Relevant für diesen Kurs werden die ersten drei davon: abgesehen von der Option, eine Klasse zu erstellen, können wir auch Interface oder Enum auswählen. Der Unterschied zwischen Interface und Klasse wird im Kurs behandelt.\\n\\nEin Enum kannst du beispielsweise dann verwenden, wenn eine Variable nur eine Ausprägung aus einer Liste an Ausprägungen annehmen kann. Das Enum dokumentiert dann, welche Werte überhaupt nutzbar sind.\\n\\nWir wollen allerdings eine Klasse erstellen. Da diese Option schon vorausgewählt ist, musst du nur noch den Namen der neuen Klasse eingeben, zum Beispiel „Lander“ und das mit Enter bestätigen.",
       "pos": 10,
       "targets": [
         {
-          "arrow": "NONE",
-          "target-name": "PROJECT_TOOLWINDOW"
-        },
-        {
           "arrow": "LEFT",
           "target-name": "OOP_SRC_FOLDER"
-        }
-      ]
-    },
-    {
-      "title": "Möglichkeiten für Klassen",
-      "content": "Wenn wir eine neue Datei erstellen wollen, haben wir im New-Dialog die Auswahl aus 5 Optionen. Relevant für diesen Kurs werden die ersten drei davon: abgesehen von der Option, eine Klasse zu erstellen, können wir auch Interface oder Enum auswählen. Der Unterschied zwischen Interface und Klasse wird im Kurs behandelt.\n\nEin Enum kannst du beispielsweise dann verwenden, wenn eine Variable nur eine Ausprägung aus einer Liste an Ausprägungen annehmen kann. Das Enum dokumentiert dann, welche Werte überhaupt nutzbar sind.\n\nWir wollen allerdings eine Klasse erstellen. Da diese Option schon vorausgewählt ist, musst du nur noch den Namen der neuen Klasse eingeben, zum Beispiel „Lander“ und das mit Enter bestätigen.",
-      "pos": 11,
-      "targets": [
+        },
         {
-          "arrow": "LEFT",
-          "target-name": "CREATE_CLASS_DIALOG"
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
         }
       ]
     },
     {
       "title": "Die Klassendatei",
-      "content": "Die neu erstellte Klassen-Datei ist weitestgehend leer. Sie ist noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.",
-      "pos": 12,
+      "content": "Die neu erstellte Klassen-Datei öffnet sich automatisch und ist weitestgehend leer. Sie ist noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.",
+      "pos": 11,
       "targets": [
         {
           "arrow": "NONE",
@@ -165,19 +162,19 @@
     },
     {
       "title": "Auswahl des Imports",
-      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.\n\nKlicke dazu auf das rot hinterlegte wort *Ellipse*. Jetzt hast du zwei Optionen: wenn du mit der Maus über das Wort hoverst, kommt ein Dialog, in dem du *import class* wählst - oder du gehst über die Tastatur. Klicke auf das Wort und dann Alt+Enter. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe: Wähle in diesem Fall den aus dem de.ur.mi.oop-Package.",
-      "pos": 13,
+      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.\n\nBewege deine Maus dazu auf das rot hinterlegte wort *Ellipse*. Jetzt hast du zwei Optionen: wenn du mit der Maus über das Wort hoverst, kommt ein Dialog, in dem du *import class* wählst - oder du gehst über die Tastatur. Klicke dafür auf das Wort und dann Alt+Enter. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe: Wähle in diesem Fall den aus dem de.ur.mi.oop-Package (grau in Klammern).",
+      "pos": 12,
       "targets": [
         {
           "arrow": "NONE",
-          "target-name": "SELECT_IMPORT"
+          "target-name": "CODE"
         }
       ]
     },
     {
       "title": "Das Import-Statement",
-      "content": "Ein IntelliJ-Projekt besteht aus Modulen. Ein Modul kann unabhängig von anderen Modulen laufen und verschiedene Dateien enthalten: Quellcode, Skripte, Dokumentation, Ressourcen, etc. Die Dateien dieser Module, die in Packages gruppiert sind, kannst du in deinem Projekt importieren.\n\nHier oben siehst du, welche Klassen aus welchen Packages du importiert hast – in diesem Fall nur diese eine. Sobald du mehr als 5 Klassen aus einem Package importieren willst, versucht IntelliJ die Import-Ansicht übersichtlicher zu machen, indem nicht mehr die einzelnen Klassen des Packages importiert werden, sondern das gesamte Package, was dann so aussieht: de.ur.mi.oop.graphics.*",
-      "pos": 14,
+      "content": "Sobald du die Klasse importiert hast, erscheint das Statement am Anfang der Datei. Hier oben siehst du, welche Klassen aus welchen Packages du importiert hast – in diesem Fall nur diese eine. Sobald du mehr als 5 Klassen aus dem selben Package importieren willst, versucht IntelliJ die Import-Ansicht übersichtlicher zu machen, indem nicht mehr die einzelnen Klassen des Packages importiert werden, sondern das gesamte Package, was dann so aussieht: de.ur.mi.oop.graphics.*\n\nAber was bedeutet Import? Ein IntelliJ-Projekt besteht aus Modulen. Ein Modul kann unabhängig von anderen Modulen laufen und verschiedene Dateien enthalten: Quellcode, Skripte, Dokumentation, Ressourcen, etc. Die Dateien dieser Module, die in Packages gruppiert sind, kannst du dann in deinem Projekt importieren.",
+      "pos": 13,
       "targets": [
         {
           "arrow": "UP",
@@ -187,8 +184,8 @@
     },
     {
       "title": "Rundgang beendet",
-      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Rundgang.\n\nSchön, dass du dabei warst, gib gerne Feedback dazu, wie hilfreich die Informationen für dich waren und für welche Bereiche du dir noch mehr Erklärungen wünschst.",
-      "pos": 15,
+      "content": "Damit sind wir auch schon wieder durch mit diesem ersten Überblick.\n\nSchön, dass du dabei warst, gib gerne Feedback dazu, wie hilfreich die Informationen für dich waren und für welche Bereiche du dir noch mehr Erklärungen wünschst.\n\nJetzt kannst du den Rundgang beenden und mit deinem eigenen Übungsprojekt anfangen. Falls du dir den Rundgang nochmal genauer ansehen willst, kannst du ihn auch neu starten.",
+      "pos": 14,
       "targets": [
         {
           "arrow": "NONE",
