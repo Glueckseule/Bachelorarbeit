@@ -17,7 +17,7 @@
     },
     {
       "title": "Das Projekt",
-      "content": "Fast alles, was du mit der IDE machst, passiert innerhalb eines Projekts. Alles, was du in IntelliJ machst passiert im Kontext eines Projektes, dieses ist dabei der Container für den gesamten Code.\n\nJedes Projekt braucht eine SDK (für Java JDK genannt), um funktionieren zu können - damit wird definiert, wie das build-Prozess abläuft.\n\nDas Projekt-Werkzeugfenster (project tool window) hier zeigt dir die Struktur des Projekts. Dort kannst du auch neue Dateien erstellen, die meisten Funktionen findest du über das Kontextmenü, das du an der gewünschten Stelle mit der rechten Maustaste öffnen kannst.",
+      "content": "Alles, was du in IntelliJ machst, passiert im Kontext eines Projektes. Dieses ist dabei der Container für den gesamten Code und alles, was du sonst noch brauchst. Jedes Projekt braucht eine SDK (für Java JDK genannt), um funktionieren zu können - damit wird definiert, wie das build-Prozess abläuft.\n\nDas Projekt-Werkzeugfenster (project tool window) hier zeigt dir die Struktur des Projekts. Dort kannst du auch neue Dateien erstellen. Die meisten Funktionen findest du über das Kontextmenü, das du an der gewünschten Stelle mit der rechten Maustaste öffnen kannst.",
       "pos": 1,
       "targets": [
         {
@@ -43,7 +43,7 @@
     },
     {
       "title": "Verschiedene Darstellungsformen",
-      "content": "Um diese Ansicht zu ändern, klicke auf die Schaltfläche „Project“, um das Dropdown aufzuklappen. Wenn du dann zum Beispiel auf „Packages“ klickst, siehst du hier die Package-Struktur, Module, Libraries und SDKs werden nicht mehr angezeigt. Du kannst dich also ganz auf die Klassen und Dateien für deine Übungsaufgabe konzentrieren.\n\nProbiers doch mal aus, für den weiteren Rundgang bleiben wir allerdings in der Project-Ansicht.",
+      "content": "Um diese Ansicht zu ändern, klicke auf die Schaltfläche „Project“, um das Dropdown aufzuklappen. Wenn du dann zum Beispiel auf „Packages“ klickst, siehst du hier die Package-Struktur -  Module, Libraries und SDKs werden nicht mehr angezeigt. Du kannst dich also ganz auf die Klassen und Dateien für deine Übungsaufgabe konzentrieren.\n\nProbiers doch mal aus, für den weiteren Rundgang bleiben wir allerdings in der Project-Ansicht.",
       "pos": 3,
       "targets": [
         {
@@ -58,7 +58,7 @@
     },
     {
       "title": "Der für den OOP-Kurs relevante Ordner",
-      "content": "Da wir hier in einem Einsteigerkurs sind, ist schon eine grobe Projektstruktur vorgegeben und wir müssen uns die Basis nicht selbst aufbauen.\n\nHier im Projekt befinden sich also alle Dateien und Unterordner, mit denen wir arbeiten und die wir ausbauen wollen. Genauer gesagt: im src-Ordner.\n\nDie Klasse mit dem Begriff „Launcher“ im Namen ist hier nur dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden.\n\nDie zweite Klasse hingegen ist die Wurzel für deinen Code und der Einstieg in das Programm. Öffne sie und schau dir den Code im Editor an.",
+      "content": "Da wir hier in einem Einsteigerkurs sind, ist schon eine grobe Projektstruktur vorgegeben und du musst dir die Basis nicht selbst aufbauen.\n\nHier im Projekt befinden sich also alle Dateien und Unterordner, mit denen du arbeiten und auf die du aufbauen willst. Genauer gesagt: im src-Ordner.\n\nDie Klasse mit dem Begriff „Launcher“ im Namen ist hier nur dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden.\n\nDie zweite Klasse hingegen ist die Wurzel für deinen Code und der Einstieg in das Programm. Öffne sie und schau dir den Code im Editor an.",
       "pos": 4,
       "targets": [
         {
@@ -80,7 +80,7 @@
     },
     {
       "title": "Der Run-Prozess",
-      "content": "Um zu testen, ob deine Erweiterungen funktionieren und wo es fehler gibt, solltest du dein Programm regelmäßig starten. Hier oben siehst du den Run- und den Debug-Button. Über beide Schaltflächen kannst du dein Programm starten, wobei dir der Debug-Modus später in diesem Kurs noch erklärt wird.\n\nWenn der Run-Button hier noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode auswählst, also die Launcher-Datei, und klicke auf den kleinen Run-Button in der Editorleiste links neben dem Code.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse – sofern du keine Kompilierfehler (ROT) mehr im Code hast: Zunächst wird eine sogenannte „Temporäre Run-Konfiguration“ erstellt. Da Java eine kompilierte Programmiersprache ist, hilft uns die IDE hier und baut den Code automatisch für uns, sobald wir das Programm starten wollen.",
+      "content": "Um zu testen, ob dein Code funktioniert und wo es Fehler gibt, solltest du dein Programm regelmäßig starten. Hier oben findest du den Run- und den Debug-Button. Über beide Schaltflächen kannst du dein Programm starten, wobei dir der Debug-Modus in einer eigenen Lektion in diesem Kurs noch erklärt wird.\n\nWenn der Run-Button hier noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode auswählst, also die Launcher-Datei, und klicke auf den kleinen Run-Button in der Editorleiste links neben dem Code.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse – sofern du keine Kompilierfehler (ROT) mehr im Code hast: Zunächst wird eine sogenannte „Temporäre Run-Konfiguration“ erstellt. Da Java eine kompilierte Programmiersprache ist, hilft uns die IDE hier und baut den Code automatisch für uns, sobald wir das Programm starten wollen.",
       "pos": 6,
       "targets": [
         {
@@ -91,7 +91,7 @@
     },
     {
       "title": "Die Graphics-App",
-      "content": "Weil es in der Launch-Datei so definiert ist, öffnet sich bei Start des Programms die Graphics-App. Diese ist eingebunden über die GraphicsApp-Library und ist an sich eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\n\nIm Hintergrund siehst du, dass beim Starten des Run-Prozesses unten ein neues ToolWindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.\n\nZum Beenden der Anwendung, klicke auf den Stop-Button oder schließe die Instanz der Graphics-App.",
+      "content": "Weil es in der Launch-Datei so definiert ist, öffnet sich bei Start des Programms eine Instanz der Graphics-App. Diese ist eingebunden über die GraphicsApp-Library und ist an sich eine einfache 2D-Grafikumgebung zum Erstellen und Darstellen graphischer Primitive.\n\nIm Hintergrund siehst du, dass beim Starten des Run-Prozesses unten ein neues ToolWindow geöffnet wurde. Hier findest du das Ergebnis des Prozesses oder auch Hinweise zu Fehlern, die auftauchen.\n\nZum Beenden der Anwendung, klicke auf den Stop-Button in der Leiste oben oder schließe die Instanz der Graphics-App.",
       "pos": 7,
       "targets": [
         {
@@ -124,7 +124,7 @@
     },
     {
       "title": "Die Klassendatei",
-      "content": "Die neu erstellte Klassen-Datei öffnet sich automatisch im Editor und erscheint im Projekt-Baum. Sie ist weitestgehend leer und noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich noch ansprechen.",
+      "content": "Die neu erstellte Klassen-Datei öffnet sich automatisch im Editor und erscheint im Projekt-Baum. Sie ist weitestgehend leer und noch keinem Package zugeordnet, erbt nicht und implementiert noch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken um den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich im nächsten Schritt noch ansprechen.",
       "pos": 10,
       "targets": [
         {
@@ -139,7 +139,7 @@
     },
     {
       "title": "Auswahl des Imports",
-      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.\n\nBewege deine Maus dazu auf das rot hinterlegte wort *Ellipse*. Jetzt hast du zwei Optionen: wenn du mit der Maus über das Wort hoverst, kommt ein Dialog, in dem du *import class* wählst - oder du gehst über die Tastatur. Klicke dafür auf das Wort und dann Alt+Enter. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe: Wähle in diesem Fall den aus dem de.ur.mi.oop-Package (grau in Klammern).",
+      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Compiler-Error sehen. Warum? Ganz einfach: um eine externe Klasse verwenden zu können, musst du sie oder ihr zugehöriges Package zuerst importieren.\n\nBewege deine Maus dazu auf das rot hinterlegte wort *Ellipse*. Jetzt hast du zwei Optionen: wenn du mit der Maus über das Wort hoverst, kommt ein Dialog, in dem du *import class* wählst - oder du gehst über die Tastatur. Klicke dafür auf das Wort und dann Alt+Enter. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe: Wähle in diesem Fall den Import aus dem de.ur.mi.oop-Package (grau in Klammern).\n\nTipp:\nJetzt zeigt dir IntelliJ auch, welche Parameter dem Ellipsen-Konstruktor übergeben werden müssen. Klicke dafür in die rot unterringelte Klammer und drücke STRG+P, dann erfährst du, welche Parameter erwartet werden.",
       "pos": 11,
       "targets": [
         {

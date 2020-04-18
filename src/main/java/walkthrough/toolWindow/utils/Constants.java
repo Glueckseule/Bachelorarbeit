@@ -8,14 +8,19 @@ public final class Constants {
 
     //tutorial resources
     public static final String BASIC_TUTORIAL = "/tutorial/basic-tutorial.json";
+    public static final String RESTART_TUTORIAL_BUTTON = "Tutorial neu starten";
+    public static final String FINISH_TUTORIAL_BUTTON = "Tutorial beenden";
 
     //event messages
     public static final String TUTORIAL_LOADED = "tutorial loaded";
     public static final String ASSETS_LOADED = "assets loaded";
     public static final String TUTORIAL_STARTED = "tutorial started";
+    public static final String TUTORIAL_ENDING = "tutorial ended";
     public static final String NEXT_STEP = "next";
     public static final String PREVIOUS_STEP = "previous";
     public static final String ADD_CODE = "add Code";
+    public static final String RESTART = "restart";
+    public static final String FINISH = "finish and hide";
 
     //for all windows
     public static final int STROKE_WIDTH = 5;

@@ -14,7 +14,10 @@ import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observer;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -87,8 +90,6 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(tutorialView.getContent(), "", false);
         toolWindow.getContentManager().addContent(content);
-
-        tutorialView.setListener();
     }
 
     /**
@@ -107,7 +108,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
             highlightingService.loadAssets();
         }
         if (event.msg.equals(Constants.ASSETS_LOADED)) {
-            tutorialView.changeUI();
+            tutorialView.changeUI(Constants.ASSETS_LOADED);
         }
         if (event.msg.equals(Constants.NEXT_STEP)) {
             step = tutorialService.onNextStepSelected();
@@ -121,6 +122,18 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         }
         if (event.msg.equals(Constants.ADD_CODE)) {
             highlightingService.setCodeToEditor();
+        }
+        if (event.msg.equals(Constants.TUTORIAL_ENDING)) {
+            tutorialView.changeUI(Constants.TUTORIAL_ENDING);
+        }
+        if (event.msg.equals(Constants.RESTART)) {
+            step = tutorialService.onTutorialRestarted();
+            highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
+            tutorialView.setContent(step);
+            tutorialView.changeUI(Constants.RESTART);
+        }
+        if (event.msg.equals(Constants.FINISH)) {
+            toolWindow.hide(null);
         }
     }
 

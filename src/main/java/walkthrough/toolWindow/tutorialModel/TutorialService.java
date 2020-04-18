@@ -73,6 +73,9 @@ public class TutorialService extends Observable {
         if (currentStep == 11) {
             notifyAll(new Event(Constants.ADD_CODE));
         }
+        if (currentStep == totalSteps - 1) {
+            notifyAll(new Event(Constants.TUTORIAL_ENDING));
+        }
         return tutorialSteps.get(currentStep);
     }
 
@@ -83,6 +86,11 @@ public class TutorialService extends Observable {
         if (currentStep == 11) {
             notifyAll(new Event(Constants.ADD_CODE));
         }
+        return tutorialSteps.get(currentStep);
+    }
+
+    public TutorialStep onTutorialRestarted() {
+        currentStep = 0;
         return tutorialSteps.get(currentStep);
     }
 
@@ -97,5 +105,4 @@ public class TutorialService extends Observable {
     public String getTutorialType() {
         return tutorialType;
     }
-
 }
