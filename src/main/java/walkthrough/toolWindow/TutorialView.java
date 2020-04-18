@@ -20,35 +20,37 @@ public class TutorialView {
     private JProgressBar tutorialProgress;
     private JButton startButton;
 
+    private static TutorialService service = TutorialService.getInstance();
+
     private final ActionListener NEXT_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP));
+            service.notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
     private final ActionListener BACK_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            TutorialService.getInstance().notifyAll(new Event(Constants.PREVIOUS_STEP));
+            service.notifyAll(new Event(Constants.PREVIOUS_STEP));
         }
     };
     private final ActionListener RESTART_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            TutorialService.getInstance().notifyAll(new Event(Constants.RESTART));
+            service.notifyAll(new Event(Constants.RESTART));
         }
     };
     private final ActionListener FINISH_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            TutorialService.getInstance().notifyAll(new Event(Constants.FINISH));
+            service.notifyAll(new Event(Constants.FINISH));
         }
     };
     private final ActionListener START_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            TutorialService.getInstance().notifyAll(new Event(Constants.TUTORIAL_STARTED));
-            TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP));
+            service.notifyAll(new Event(Constants.TUTORIAL_STARTED));
+            service.notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
 
@@ -58,9 +60,10 @@ public class TutorialView {
         backButton.setVisible(false);
         nextButton.setVisible(false);
 
-        setInitialListener();
+        startButton.addActionListener(START_CLICKED);
     }
 
+    //Called in from MyToolWindowFactory on event - every time tutorial step changes
     public void setContent(TutorialStep step) {
         stepHeadline.setText(step.TITLE);
         stepContent.setText(step.CONTENT);
@@ -68,10 +71,7 @@ public class TutorialView {
         tutorialProgress.setValue(step.PERCENTAGE_COMPLETED);
     }
 
-    private void setInitialListener() {
-        startButton.addActionListener(START_CLICKED);
-    }
-
+    //Called in from MyToolWindowFactory on event - manages text and listeners on buttons depending on tutorial state (started/running/ended)
     public void changeUI(String type) {
         if (type.equals(Constants.ASSETS_LOADED)) {
             startButton.setVisible(false);
