@@ -50,13 +50,8 @@ public class HighlightingService extends Observable {
                 String name = target.get("target-name").getAsString();
                 posCalc.updateDimensions(name);
 
-                int x = posCalc.getX();
-                int y = posCalc.getY();
-                int width = posCalc.getWidth();
-                int height = posCalc.getHeight();
-
-                TargetArea oneArea = new TargetArea(x, y, width, height, name);
-                Arrow oneArrow = new Arrow(x, y, arrowDirection);
+                TargetArea oneArea = new TargetArea(posCalc.getX(), posCalc.getY(), posCalc.getWidth(), posCalc.getHeight(), name, arrowDirection);
+                Arrow oneArrow = new Arrow(posCalc.getX(), posCalc.getY(), arrowDirection);
                 areasForStep.add(oneArea);
                 arrowsForStep.add(oneArrow);
             }
@@ -70,14 +65,27 @@ public class HighlightingService extends Observable {
         shadowFrame.highlightElements(targetAreas.get(position), arrows.get(position));
     }
 
-    private void updateArrows() {
-        System.out.println("Resized");
-        //TODO: updateDimensions via PositionCalculator for all arrows in arrows<>
-    }
+    private void updateAssets() {
+        int index = 0;
+        for (ArrayList<TargetArea> currentAreasForStep : targetAreas) {
+            ArrayList<TargetArea> areasForStep = new ArrayList<>();
+            ArrayList<Arrow> arrowsForStep = new ArrayList<>();
+            for (TargetArea area : currentAreasForStep) {
+                posCalc.updateDimensions(area.name);
 
-    private void updateTargetAreas() {
-        System.out.println("Me too");
-        //TODO: updateDimensions via PositionCalculator for all areas in targetAreas<>
+                TargetArea oneArea = new TargetArea(posCalc.getX(), posCalc.getY(), posCalc.getWidth(), posCalc.getHeight(), area.name, area.arrow);
+                Arrow oneArrow = new Arrow(posCalc.getX(), posCalc.getY(), area.arrow);
+
+                areasForStep.add(oneArea);
+                arrowsForStep.add(oneArrow);
+            }
+            targetAreas.remove(index);
+            arrows.remove(index);
+            targetAreas.add(index, areasForStep);
+            arrows.add(index, arrowsForStep);
+
+            index++;
+        }
     }
 
     //Step 13: delete all in file and set custom
@@ -109,10 +117,7 @@ public class HighlightingService extends Observable {
         ideaFrame.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
                 onBasisResized();
-                updateTargetAreas();
-                updateArrows();
             }
-
             public void componentMoved(ComponentEvent e) {
                 onBasisMoved();
             }
