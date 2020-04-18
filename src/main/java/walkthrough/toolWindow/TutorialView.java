@@ -20,28 +20,35 @@ public class TutorialView {
     private JProgressBar tutorialProgress;
     private JButton startButton;
 
-    private ActionListener nextClicked = new ActionListener() {
+    private final ActionListener NEXT_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
-    private ActionListener backClicked = new ActionListener() {
+    private final ActionListener BACK_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             TutorialService.getInstance().notifyAll(new Event(Constants.PREVIOUS_STEP));
         }
     };
-    private ActionListener restartClicked = new ActionListener() {
+    private final ActionListener RESTART_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             TutorialService.getInstance().notifyAll(new Event(Constants.RESTART));
         }
     };
-    private ActionListener finishClicked = new ActionListener() {
+    private final ActionListener FINISH_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             TutorialService.getInstance().notifyAll(new Event(Constants.FINISH));
+        }
+    };
+    private final ActionListener START_CLICKED = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            TutorialService.getInstance().notifyAll(new Event(Constants.TUTORIAL_STARTED));
+            TutorialService.getInstance().notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
 
@@ -62,8 +69,7 @@ public class TutorialView {
     }
 
     private void setInitialListener() {
-        startButton.addActionListener(nextClicked);
-        startButton.addActionListener(e -> TutorialService.getInstance().notifyAll(new Event(Constants.TUTORIAL_STARTED)));
+        startButton.addActionListener(START_CLICKED);
     }
 
     public void changeUI(String type) {
@@ -74,8 +80,8 @@ public class TutorialView {
             manageListeners(true);
         }
         if (type.equals(Constants.RESTART)) {
-            nextButton.setText("WEITER");
-            backButton.setText("ZURÜCK");
+            nextButton.setText(Constants.NEXT_BUTTON);
+            backButton.setText(Constants.BACK_BUTTON);
             manageListeners(true);
         }
         if (type.equals(Constants.TUTORIAL_ENDING)) {
@@ -87,15 +93,15 @@ public class TutorialView {
 
     private void manageListeners(boolean isRunning) {
         if (isRunning) {
-            backButton.addActionListener(backClicked);
-            nextButton.addActionListener(nextClicked);
-            backButton.removeActionListener(restartClicked);
-            nextButton.removeActionListener(finishClicked);
+            backButton.addActionListener(BACK_CLICKED);
+            nextButton.addActionListener(NEXT_CLICKED);
+            backButton.removeActionListener(RESTART_CLICKED);
+            nextButton.removeActionListener(FINISH_CLICKED);
         } else {
-            backButton.removeActionListener(backClicked);
-            nextButton.removeActionListener(nextClicked);
-            backButton.addActionListener(restartClicked);
-            nextButton.addActionListener(finishClicked);
+            backButton.removeActionListener(BACK_CLICKED);
+            nextButton.removeActionListener(NEXT_CLICKED);
+            backButton.addActionListener(RESTART_CLICKED);
+            nextButton.addActionListener(FINISH_CLICKED);
         }
     }
 

@@ -10,6 +10,8 @@ public final class Constants {
     public static final String BASIC_TUTORIAL = "/tutorial/basic-tutorial.json";
     public static final String RESTART_TUTORIAL_BUTTON = "Tutorial neu starten";
     public static final String FINISH_TUTORIAL_BUTTON = "Tutorial beenden";
+    public static final String BACK_BUTTON = "Zur\u00fcck";
+    public static final String NEXT_BUTTON = "Weiter";
 
     //event messages
     public static final String TUTORIAL_LOADED = "tutorial loaded";
