@@ -65,8 +65,11 @@ public class HighlightingService extends Observable {
         shadowFrame.highlightElements(targetAreas.get(position), arrows.get(position));
     }
 
-    private void updateAssets() {
-        int index = 0;
+    // Method can be used for updating the assets - currently only used when tutorial is restarted
+    // Unfortunately not usable for case when IDE Dimensions are changed as change event is fired too often
+    public void updateAssets() {
+        ArrayList<ArrayList<TargetArea>> temporaryAreasForUpdate = new ArrayList<>();
+        ArrayList<ArrayList<Arrow>> temporaryArrowsForUpdate = new ArrayList<>();
         for (ArrayList<TargetArea> currentAreasForStep : targetAreas) {
             ArrayList<TargetArea> areasForStep = new ArrayList<>();
             ArrayList<Arrow> arrowsForStep = new ArrayList<>();
@@ -79,18 +82,16 @@ public class HighlightingService extends Observable {
                 areasForStep.add(oneArea);
                 arrowsForStep.add(oneArrow);
             }
-            targetAreas.remove(index);
-            arrows.remove(index);
-            targetAreas.add(index, areasForStep);
-            arrows.add(index, arrowsForStep);
-
-            index++;
+            temporaryAreasForUpdate.add(areasForStep);
+            temporaryArrowsForUpdate.add(arrowsForStep);
         }
+        targetAreas = temporaryAreasForUpdate;
+        arrows = temporaryArrowsForUpdate;
     }
 
     //Step 13: delete all in file and set custom
     public void setCodeToEditor() {
-        Document documentOpened = FileEditorManager.getInstance(project).getSelectedTextEditor().getDocument();
+        Document documentOpened = Objects.requireNonNull(FileEditorManager.getInstance(project).getSelectedTextEditor()).getDocument();
         int availableLines = documentOpened.getLineCount();
         int offset;
         if (availableLines != 0) {
@@ -99,12 +100,9 @@ public class HighlightingService extends Observable {
             offset = 0;
         }
 
-        WriteCommandAction.runWriteCommandAction(project, new Runnable() {
-            @Override
-            public void run() {
-                documentOpened.deleteString(0, offset);
-                documentOpened.setText(Constants.CODE_FOR_TUTORIAL);
-            }
+        WriteCommandAction.runWriteCommandAction(project, () -> {
+            documentOpened.deleteString(0, offset);
+            documentOpened.setText(Constants.CODE_FOR_TUTORIAL);
         });
     }
 
