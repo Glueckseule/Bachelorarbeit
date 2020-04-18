@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class Canvas extends JFrame {
 
-    ArrayList<TargetArea> areasToDraw;
-    ArrayList<Arrow> arrowsToDraw;
+    private ArrayList<TargetArea> areasToDraw;
+    private ArrayList<Arrow> arrowsToDraw;
 
     public Canvas(Dimension size) {
-        super("Canvas");
+        super(Constants.CANVAS_TITLE);
         areasToDraw = new ArrayList<>();
         arrowsToDraw = new ArrayList<>();
 

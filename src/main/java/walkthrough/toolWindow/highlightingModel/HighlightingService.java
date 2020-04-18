@@ -1,7 +1,6 @@
 package walkthrough.toolWindow.highlightingModel;
 
 import com.google.gson.JsonObject;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileEditorManager;
@@ -19,7 +18,7 @@ import java.util.Objects;
 
 public class HighlightingService extends Observable {
 
-    Project project;
+    private Project project;
     private ArrayList<ArrayList<TargetArea>> targetAreas;
     private ArrayList<ArrayList<Arrow>> arrows;
     private JFrame ideaFrame;
@@ -72,10 +71,12 @@ public class HighlightingService extends Observable {
     }
 
     private void updateArrows() {
+        System.out.println("Resized");
         //TODO: updateDimensions via PositionCalculator for all arrows in arrows<>
     }
 
     private void updateTargetAreas() {
+        System.out.println("Me too");
         //TODO: updateDimensions via PositionCalculator for all areas in targetAreas<>
     }
 
@@ -85,7 +86,7 @@ public class HighlightingService extends Observable {
         int availableLines = documentOpened.getLineCount();
         int offset;
         if (availableLines != 0) {
-            offset = documentOpened.getLineEndOffset(documentOpened.getLineCount()-1);
+            offset = documentOpened.getLineEndOffset(documentOpened.getLineCount() - 1);
         } else {
             offset = 0;
         }
@@ -94,7 +95,7 @@ public class HighlightingService extends Observable {
             @Override
             public void run() {
                 documentOpened.deleteString(0, offset);
-                documentOpened.setText("public class Lander {\n    Ellipse ellipse = new Ellipse();\n}");
+                documentOpened.setText(Constants.CODE_FOR_TUTORIAL);
             }
         });
     }

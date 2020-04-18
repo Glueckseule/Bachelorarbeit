@@ -39,8 +39,8 @@ public class TutorialService extends Observable {
         totalSteps = tutorial.get("number_of_steps").getAsInt();
         tutorialType = tutorial.get("type").getAsString();
 
-        for (Object o : steps) {
-            JsonObject step = (JsonObject) o;
+        for (Object singleStep : steps) {
+            JsonObject step = (JsonObject) singleStep;
             JsonArray targetArray = (JsonArray) step.get("targets");
 
             ArrayList<JsonObject> targetsForStep = new ArrayList<>();
@@ -48,9 +48,8 @@ public class TutorialService extends Observable {
             String title = step.get("title").getAsString();
             int position = step.get("pos").getAsInt();
             String content = step.get("content").getAsString();
-            String targetName = "Placeholder - really needed?";
 
-            TutorialStep oneStep = new TutorialStep(title, position, content, targetName, totalSteps);
+            TutorialStep oneStep = new TutorialStep(title, position, content, totalSteps);
             tutorialSteps.add(oneStep);
 
             for (Object targetObject : targetArray) {

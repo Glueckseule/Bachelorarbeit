@@ -2,11 +2,11 @@
   "type": "Die Basics",
   "description": "Grundlagen für den OOP-Kurs",
   "author": "Daniela Krapf",
-  "number_of_steps": "14",
+  "number_of_steps": 14,
   "steps": [
     {
       "title": "IntelliJ für OOP",
-      "content": "Schön, dass du diesen interaktiven Rundgang mitmachen möchtest. Da du aber vermutlich gerade im Einsteigerkurs für Programmieranfänger (OOP) bist, möchte ich dir gerne einige Grundlagen von IntelliJ zeigen. Sobald du den Rundgang startest, gehen wir die grundlegenden Schritte durch, die dich im OOP-Kurs ganz einfach zu dem Punkt bringen, an dem du die Übungsaufgaben bearbeiten kannst. Im Gegensatz zum klassischen Editor bietet eine integrierte Entwicklungsumgebung (IDE) viele Vorteile. Die IDE IntelliJ ist daher auch ziemlich umfangreich, schließlich soll es vor allem bei der professionellen Entwicklung von Programmen helfen. Es gibt eine Vielzahl an Features, wie du als Entwickler deine Produktivität damit steigern kannst.\n\nStell vor dem Start bitte sicher, dass die Projekt-SDK definiert ist.",
+      "content": "Schön, dass du diesen interaktiven Rundgang mitmachen möchtest. Da du aber vermutlich gerade im Einsteigerkurs für Programmieranfänger (OOP) bist, möchte ich dir gerne einige Grundlagen von IntelliJ zeigen. Sobald du den Rundgang startest, gehen wir die grundlegenden Schritte durch, die dich im OOP-Kurs ganz einfach zu dem Punkt bringen, an dem du die Übungsaufgaben bearbeiten kannst. Im Gegensatz zum klassischen Editor bietet eine integrierte Entwicklungsumgebung (IDE) viele Vorteile. Die IDE IntelliJ ist daher auch ziemlich umfangreich, schließlich soll es vor allem bei der professionellen Entwicklung von Programmen helfen. Es gibt eine Vielzahl an Features, wie du als Entwickler deine Produktivität damit steigern kannst.\n\nStell vor dem Start bitte sicher, dass die Projekt-SDK definiert ist. Außerdem hast du vielleicht festgestellt, dass sich ein zweites IntelliJ-Fenster geöffnet hat - das wird für dieses Plugin gebraucht - nicht schließen!",
       "pos": 0,
       "targets": [
         {

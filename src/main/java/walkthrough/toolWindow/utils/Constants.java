@@ -14,6 +14,8 @@ public final class Constants {
     public static final String BACK_BUTTON = "Zur\u00fcck";
     public static final String NEXT_BUTTON = "Weiter";
 
+    public static final String CANVAS_TITLE = "Plugin IntelliJ Walkthrough";
+
     //event messages
     public static final String TUTORIAL_LOADED = "tutorial loaded";
     public static final String ASSETS_LOADED = "assets loaded";

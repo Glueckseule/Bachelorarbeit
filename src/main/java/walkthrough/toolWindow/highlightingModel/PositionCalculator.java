@@ -8,6 +8,7 @@ import com.intellij.ui.content.ContentManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class PositionCalculator {
 
@@ -25,7 +26,7 @@ public class PositionCalculator {
     private int basicX;
 
     //Components needed for other calculations
-    private Rectangle ideContentDimensions; //ToolWindowsPane: Breit und hoch wie IntelliJ, minus die Leiste ganz oben - 0,30,1258,625
+    private Rectangle ideContentDimensions;
     private ToolWindowManager manager;
     private JComponent projectToolWindow;
     private JComponent walkthroughWindow;
@@ -35,12 +36,13 @@ public class PositionCalculator {
         this.project = project;
 
         manager = ToolWindowManager.getInstance(project);
-        projectRoot = WindowManager.getInstance().getFrame(project).getRootPane();
+        projectRoot = Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getRootPane();
         basicX = projectRoot.getX();
 
         walkthroughWindow = manager.getToolWindow("Walkthrough durch IntelliJ").getComponent();
     }
 
+    //a switch-case for all possible values currently used in the JSON - highlighting areas can be expanded here
     public void updateDimensions(String name) {
         switch (name) {
             case "PROJECT_TOOLWINDOW":
@@ -76,7 +78,7 @@ public class PositionCalculator {
     }
 
     private void defaultHighlighting() {
-        ideContentDimensions = WindowManager.getInstance().getFrame(project).getContentPane().getBounds();
+        ideContentDimensions = Objects.requireNonNull(WindowManager.getInstance().getFrame(project)).getContentPane().getBounds();
 
         setDimensions(
                 basicX + ideContentDimensions.x,
@@ -92,11 +94,7 @@ public class PositionCalculator {
 
         //check if ProjectToolWindow is visible - if not: make visible
         if (!projectWindow.isVisible()) {
-            projectWindow.show(new Runnable() {
-                @Override
-                public void run() {
-                }
-            });
+            projectWindow.show(null);
         }
 
         setDimensions(
@@ -132,18 +130,6 @@ public class PositionCalculator {
                 secondNavBarComp.getWidth(),
                 secondNavBarComp.getHeight()
         );
-    }
-
-    private void findFolder(String folderToFind) {
-        if (folderToFind.equals("oop")) {
-            setDimensions(0, 0, 0, 0);
-        }
-        if (folderToFind.equals("out")) {
-            setDimensions(0, 0, 0, 0);
-        }
-        if (folderToFind.equals("src")) {
-            setDimensions(0, 0, 0, 0);
-        }
     }
 
     private void findProjectDropdown() {
