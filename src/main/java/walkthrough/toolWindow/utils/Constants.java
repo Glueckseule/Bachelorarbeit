@@ -8,7 +8,7 @@ public final class Constants {
 
     //tutorial resources
     public static final String BASIC_TUTORIAL = "/tutorial/basic-tutorial.json";
-    public static final String CODE_FOR_TUTORIAL = "public class Lander {\\n    Ellipse ellipse = new Ellipse();\\n}";
+    public static final String CODE_FOR_TUTORIAL = "public class Lander {\n    Ellipse ellipse = new Ellipse();\n}";
     public static final String RESTART_TUTORIAL_BUTTON = "Tutorial neu starten";
     public static final String FINISH_TUTORIAL_BUTTON = "Tutorial beenden";
     public static final String BACK_BUTTON = "Zur\u00fcck";
