@@ -1,11 +1,13 @@
 package walkthrough.toolWindow;
 
+import junit.awtui.ProgressBar;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
 import walkthrough.toolWindow.tutorialModel.TutorialStep;
 import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,31 +24,31 @@ public class TutorialView {
 
     private static TutorialService service = TutorialService.getInstance();
 
-    private final ActionListener NEXT_CLICKED = new ActionListener() {
+    private static final ActionListener NEXT_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
-    private final ActionListener BACK_CLICKED = new ActionListener() {
+    private static final ActionListener BACK_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.PREVIOUS_STEP));
         }
     };
-    private final ActionListener RESTART_CLICKED = new ActionListener() {
+    private static final ActionListener RESTART_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.RESTART));
         }
     };
-    private final ActionListener FINISH_CLICKED = new ActionListener() {
+    private static final ActionListener FINISH_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.FINISH));
         }
     };
-    private final ActionListener START_CLICKED = new ActionListener() {
+    private static final ActionListener START_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.TUTORIAL_STARTED));
