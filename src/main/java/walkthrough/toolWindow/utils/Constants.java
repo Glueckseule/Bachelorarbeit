@@ -29,7 +29,7 @@ public final class Constants {
 
     //for all windows
     public static final int STROKE_WIDTH = 5;
-    public static final Color HIGHLIGHT_COLOR = JBColor.RED;
+    public static final Color HIGHLIGHT_COLOR = new JBColor(new Color(236, 123, 69), new Color(249,168,87));
     public static final Color TRANSPARENT = new Color(0, 0, 0, 0);
 
     //for arrows

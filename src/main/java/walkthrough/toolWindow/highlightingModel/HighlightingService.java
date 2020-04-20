@@ -67,26 +67,30 @@ public class HighlightingService extends Observable {
 
     // Method can be used for updating the assets - currently only used when tutorial is restarted
     // Unfortunately not usable for case when IDE Dimensions are changed as change event is fired too often
-    public void updateAssets() {
-        ArrayList<ArrayList<TargetArea>> temporaryAreasForUpdate = new ArrayList<>();
-        ArrayList<ArrayList<Arrow>> temporaryArrowsForUpdate = new ArrayList<>();
-        for (ArrayList<TargetArea> currentAreasForStep : targetAreas) {
-            ArrayList<TargetArea> areasForStep = new ArrayList<>();
-            ArrayList<Arrow> arrowsForStep = new ArrayList<>();
-            for (TargetArea area : currentAreasForStep) {
-                posCalc.updateDimensions(area.name);
+    public void updateAssets(boolean isRestarted) {
+        if (isRestarted) {
+            ArrayList<ArrayList<TargetArea>> temporaryAreasForUpdate = new ArrayList<>();
+            ArrayList<ArrayList<Arrow>> temporaryArrowsForUpdate = new ArrayList<>();
+            for (ArrayList<TargetArea> currentAreasForStep : targetAreas) {
+                ArrayList<TargetArea> areasForStep = new ArrayList<>();
+                ArrayList<Arrow> arrowsForStep = new ArrayList<>();
+                for (TargetArea area : currentAreasForStep) {
+                    posCalc.updateDimensions(area.name);
 
-                TargetArea oneArea = new TargetArea(posCalc.getX(), posCalc.getY(), posCalc.getWidth(), posCalc.getHeight(), area.name, area.arrow);
-                Arrow oneArrow = new Arrow(posCalc.getX(), posCalc.getY(), area.arrow);
+                    TargetArea oneArea = new TargetArea(posCalc.getX(), posCalc.getY(), posCalc.getWidth(), posCalc.getHeight(), area.name, area.arrow);
+                    Arrow oneArrow = new Arrow(posCalc.getX(), posCalc.getY(), area.arrow);
 
-                areasForStep.add(oneArea);
-                arrowsForStep.add(oneArrow);
+                    areasForStep.add(oneArea);
+                    arrowsForStep.add(oneArrow);
+                }
+                temporaryAreasForUpdate.add(areasForStep);
+                temporaryArrowsForUpdate.add(arrowsForStep);
             }
-            temporaryAreasForUpdate.add(areasForStep);
-            temporaryArrowsForUpdate.add(arrowsForStep);
+            targetAreas = temporaryAreasForUpdate;
+            arrows = temporaryArrowsForUpdate;
+        } else {
+            shadowFrame.clearCanvas();
         }
-        targetAreas = temporaryAreasForUpdate;
-        arrows = temporaryArrowsForUpdate;
     }
 
     //Step 13: delete all in file and set custom
@@ -116,6 +120,7 @@ public class HighlightingService extends Observable {
             public void componentResized(ComponentEvent e) {
                 onBasisResized();
             }
+
             public void componentMoved(ComponentEvent e) {
                 onBasisMoved();
             }

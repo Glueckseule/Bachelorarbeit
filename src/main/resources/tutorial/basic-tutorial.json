@@ -21,10 +21,6 @@
       "pos": 1,
       "targets": [
         {
-          "arrow": "NONE",
-          "target-name": "INTRO_SCREEN"
-        },
-        {
           "arrow": "LEFT",
           "target-name": "PROJECT_TOOLWINDOW"
         }

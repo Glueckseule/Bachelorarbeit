@@ -28,6 +28,12 @@ public class Canvas extends JFrame {
         repaint();
     }
 
+    public void clearCanvas() {
+        this.areasToDraw = null;
+        this.arrowsToDraw = null;
+        repaint();
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);

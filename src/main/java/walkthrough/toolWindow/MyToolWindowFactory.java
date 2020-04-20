@@ -127,7 +127,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
             tutorialView.changeUI(Constants.TUTORIAL_ENDING);
         }
         if (event.msg.equals(Constants.RESTART)) {
-            highlightingService.updateAssets();
+            highlightingService.updateAssets(true);
             step = tutorialService.onTutorialRestarted();
             highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
@@ -135,6 +135,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         }
         if (event.msg.equals(Constants.FINISH)) {
             toolWindow.hide(null);
+            highlightingService.updateAssets(false);
         }
     }
 
