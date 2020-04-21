@@ -1,5 +1,6 @@
 package walkthrough.toolWindow;
 
+import com.intellij.openapi.ui.MultiLineLabelUI;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
 import walkthrough.toolWindow.tutorialModel.TutorialStep;
 import walkthrough.toolWindow.utils.Constants;
@@ -55,9 +56,7 @@ public class TutorialView {
     };
     //</editor-fold>
 
-    public TutorialView(String type) {
-        tutType.setText(type);
-
+    public TutorialView() {
         backButton.setVisible(false);
         nextButton.setVisible(false);
 
@@ -121,5 +120,9 @@ public class TutorialView {
 
     public JPanel getContent() {
         return myToolWindowContent;
+    }
+
+    public void setInfo(String[] tutorialType) {
+        tutType.setText("<html><body>"+tutorialType[0]+"<br>"+tutorialType[1]+"</body></html>");
     }
 }

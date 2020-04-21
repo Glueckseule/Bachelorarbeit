@@ -8,14 +8,16 @@ import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observable;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class TutorialService extends Observable {
 
     private int currentStep;
 
-    private String tutorialType;
     private int totalSteps;
+    private String tutorialType;
+    private String tutorialAuthor;
 
     private ArrayList<TutorialStep> tutorialSteps;
     private ArrayList<ArrayList<JsonObject>> targetList;
@@ -38,6 +40,7 @@ public class TutorialService extends Observable {
 
         totalSteps = tutorial.get("number_of_steps").getAsInt();
         tutorialType = tutorial.get("type").getAsString();
+        tutorialAuthor = tutorial.get("author").getAsString();
 
         for (Object singleStep : steps) {
             JsonObject step = (JsonObject) singleStep;
@@ -107,7 +110,10 @@ public class TutorialService extends Observable {
         return currentStep;
     }
 
-    public String getTutorialType() {
-        return tutorialType;
+    public String[] getTutorialInfo() {
+        String[] tutorialInfo = new String[2];
+        tutorialInfo[0] = "Paket: "+tutorialType;
+        tutorialInfo[1] = "Author: "+tutorialAuthor;
+        return tutorialInfo;
     }
 }

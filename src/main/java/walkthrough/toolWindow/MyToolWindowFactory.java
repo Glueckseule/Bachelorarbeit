@@ -84,7 +84,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
      * TutorialView is initialised
      */
     private void initView() {
-        tutorialView = new TutorialView(tutorialService.getTutorialType());
+        tutorialView = new TutorialView();
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(tutorialView.getContent(), "", false);
         toolWindow.getContentManager().addContent(content);
@@ -99,6 +99,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         if (event.msg.equals(Constants.TUTORIAL_LOADED)) {
             step = tutorialService.getIntroScreen();
             tutorialView.setContent(step);
+            tutorialView.setInfo(tutorialService.getTutorialInfo());
         }
         if (event.msg.equals(Constants.TUTORIAL_STARTED)) {
             initHighlightingService();

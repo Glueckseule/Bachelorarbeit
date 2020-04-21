@@ -1,12 +1,12 @@
 {
-  "type": "Die Basics",
+  "type": "A-Christmas-Game-starter",
   "description": "Grundlagen für den OOP-Kurs",
   "author": "Daniela Krapf",
   "number_of_steps": 14,
   "steps": [
     {
       "title": "IntelliJ für OOP",
-      "content": "Schön, dass du diesen interaktiven Rundgang durch IntelliJ mitmachen möchtest.\n\nIntelliJ bietet als integrierte Entwicklungsumgebung (IDE) viele Vorteile und nützliche Funktionen gegenüber einem klassischen Texteditor. Dadurch ist IntelliJ aber auch viel umfangreicher als diese Texteditoren. Schließlich soll die professionelle Entwicklung von Programmen damit so angenehm gestaltet werden wie möglich. Es gibt eine Vielzahl an Features, mit denen du als Entwickler deine Produktivität steigern kannst.\n\nDie Erklärungen in diesem Tutorial orientieren sich an den Inhalten des OOP-Kurses. Sie sollen dir dabei helfen, die Abläufe in IntelliJ besser zu verstehen, wenn du es für deine OOP-Übungsaufgaben verwendest.\n\nBlende vor dem Start bitte alle ablenkenden Leisten über den Button ganz unten links im Eck aus.\nAußerdem hast du vielleicht festgestellt, dass sich ein zweites IntelliJ-Fenster geöffnet hat: das wird für dieses Plugin gebraucht.\n\nWenn du soweit bist, starte das Tutorial.",
+      "content": "Schön, dass du diesen interaktiven Rundgang durch IntelliJ mitmachen möchtest.\n\nIntelliJ bietet als integrierte Entwicklungsumgebung (IDE) viele Vorteile und nützliche Funktionen gegenüber einem klassischen Texteditor. Dadurch ist IntelliJ aber auch viel umfangreicher als diese Texteditoren. Schließlich soll die professionelle Entwicklung von Programmen damit so angenehm gestaltet werden wie möglich. Es gibt eine Vielzahl an Features, mit denen du als Entwickler deine Produktivität steigern kannst.\n\nDie Erklärungen in diesem Tutorial orientieren sich an den Inhalten des OOP-Kurses. Sie sollen dir dabei helfen, die Abläufe in IntelliJ besser zu verstehen, wenn du es für deine OOP-Übungsaufgaben verwendest.\n\nBlende vor dem Start bitte alle ablenkenden Leisten über den Button ganz unten links im Eck aus.\nAußerdem wird sich beim Starten ein zweites IntelliJ-Fenster öffnen. Das wird für dieses Tutorial gebraucht.\n\nWenn du soweit bist, starte das Tutorial.",
       "pos": 0,
       "targets": [
         {
