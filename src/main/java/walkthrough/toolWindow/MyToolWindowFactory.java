@@ -132,7 +132,6 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
             highlightingService.updateAssets(true);
 
             step = tutorialService.onTutorialRestarted();
-            highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
             tutorialView.changeUI(Constants.RESTART);
         }

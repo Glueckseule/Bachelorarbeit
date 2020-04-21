@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class TutorialService extends Observable {
 
-    private int currentStep = 0;
+    private int currentStep;
 
     private String tutorialType;
     private int totalSteps;
@@ -62,6 +62,7 @@ public class TutorialService extends Observable {
     }
 
     public TutorialStep getIntroScreen() {
+        currentStep = 0;
         return tutorialSteps.get(currentStep);
     }
 

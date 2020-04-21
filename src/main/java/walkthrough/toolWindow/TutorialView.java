@@ -102,11 +102,7 @@ public class TutorialView {
     }
 
     private void manageListeners(boolean isRunning) {
-        backButton.removeActionListener(RESTART_CLICKED);
-        backButton.removeActionListener(BACK_CLICKED);
-        nextButton.removeActionListener(FINISH_CLICKED);
-        nextButton.removeActionListener(NEXT_CLICKED);
-
+        removeAllListeners();
         if (isRunning) {
             backButton.addActionListener(BACK_CLICKED);
             nextButton.addActionListener(NEXT_CLICKED);
@@ -114,6 +110,13 @@ public class TutorialView {
             backButton.addActionListener(RESTART_CLICKED);
             nextButton.addActionListener(FINISH_CLICKED);
         }
+    }
+
+    private void removeAllListeners() {
+        backButton.removeActionListener(RESTART_CLICKED);
+        backButton.removeActionListener(BACK_CLICKED);
+        nextButton.removeActionListener(FINISH_CLICKED);
+        nextButton.removeActionListener(NEXT_CLICKED);
     }
 
     public JPanel getContent() {
