@@ -1,13 +1,11 @@
 package walkthrough.toolWindow;
 
-import junit.awtui.ProgressBar;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
 import walkthrough.toolWindow.tutorialModel.TutorialStep;
 import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +22,7 @@ public class TutorialView {
 
     private static TutorialService service = TutorialService.getInstance();
 
+    //<editor-fold desc="ActionListeners">
     private static final ActionListener NEXT_CLICKED = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
@@ -55,6 +54,7 @@ public class TutorialView {
             service.notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
+    //</editor-fold>
 
     public TutorialView(String type) {
         tutType.setText(type);
@@ -71,6 +71,8 @@ public class TutorialView {
         stepContent.setText(step.CONTENT);
         tutorialProgress.setString(step.POSITION);
         tutorialProgress.setValue(step.PERCENTAGE_COMPLETED);
+
+        stepContent.setCaretPosition(0);
     }
 
     //Called in from MyToolWindowFactory on event - manages text and listeners on buttons depending on tutorial state (started/running/ended)
