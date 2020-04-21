@@ -52,7 +52,6 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
     /**
      * Start observing TutorialService
      * Read tutorial JSON - location defined in Constants
-     * Init tutorial - if done event is fired and first step displayed
      */
     private void initTutorialServices() {
         tutorialService.addListener(this);
@@ -72,18 +71,17 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
     }
 
     /**
-     * Called when tutorial is loaded
-     * No highlighting needed for start screen
+     * Called when start button is clicked - shadowFrame is created and shown
      */
     private void initHighlightingService() {
         highlightingService.addListener(this);
         highlightingService.setupHighlighting(project, tutorialService.getTargetList());
-        highlightingService.startShadowing(true);
+        highlightingService.isShadowingRunning(true);
+        highlightingService.loadAssets();
     }
 
     /**
      * TutorialView is initialised
-     * Listeners for buttons are set
      */
     private void initView() {
         tutorialView = new TutorialView(tutorialService.getTutorialType());
@@ -94,29 +92,33 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
 
     /**
      * Event management from observed classes
-     * Values for event defined in Constants
      */
     @Override
     public void onEvent(Event event) {
         TutorialStep step;
         if (event.msg.equals(Constants.TUTORIAL_LOADED)) {
-            step = tutorialService.getFirstStep();
-            initHighlightingService();
+            step = tutorialService.getIntroScreen();
             tutorialView.setContent(step);
         }
         if (event.msg.equals(Constants.TUTORIAL_STARTED)) {
-            highlightingService.loadAssets();
+            initHighlightingService();
         }
         if (event.msg.equals(Constants.ASSETS_LOADED)) {
             tutorialView.changeUI(Constants.ASSETS_LOADED);
+            step = tutorialService.getFirstStep();
+
+            highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
+            tutorialView.setContent(step);
         }
         if (event.msg.equals(Constants.NEXT_STEP)) {
             step = tutorialService.onNextStepSelected();
+
             highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
         }
         if (event.msg.equals(Constants.PREVIOUS_STEP)) {
             step = tutorialService.onPreviousStepSelected();
+
             highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
         }
@@ -128,6 +130,7 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         }
         if (event.msg.equals(Constants.RESTART)) {
             highlightingService.updateAssets(true);
+
             step = tutorialService.onTutorialRestarted();
             highlightingService.setHighlightForArea(tutorialService.getCurrentStep());
             tutorialView.setContent(step);
@@ -135,7 +138,11 @@ public class MyToolWindowFactory implements ToolWindowFactory, Observer {
         }
         if (event.msg.equals(Constants.FINISH)) {
             toolWindow.hide(null);
-            highlightingService.updateAssets(false);
+            highlightingService.isShadowingRunning(false);
+
+            step = tutorialService.onTutorialRestarted();
+            tutorialView.setContent(step);
+            tutorialView.changeUI(Constants.FINISH);
         }
     }
 

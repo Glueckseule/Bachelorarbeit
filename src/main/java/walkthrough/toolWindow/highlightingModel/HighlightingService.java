@@ -34,6 +34,7 @@ public class HighlightingService extends Observable {
         shadowFrame = new Canvas(ideaFrame.getSize());
 
         setShadowBehaviour();
+        onBasisMoved();
     }
 
     public void loadAssets() {
@@ -111,8 +112,8 @@ public class HighlightingService extends Observable {
     }
 
     //<editor-fold desc="Shadowing">
-    public void startShadowing(boolean isStarted) {
-        shadowFrame.setVisible(isStarted);
+    public void isShadowingRunning(boolean isRunning) {
+        shadowFrame.setVisible(isRunning);
     }
 
     private void setShadowBehaviour() {

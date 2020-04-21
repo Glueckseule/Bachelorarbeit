@@ -51,7 +51,6 @@ public class TutorialView {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             service.notifyAll(new Event(Constants.TUTORIAL_STARTED));
-            service.notifyAll(new Event(Constants.NEXT_STEP));
         }
     };
     //</editor-fold>
@@ -83,27 +82,35 @@ public class TutorialView {
             backButton.setVisible(true);
             manageListeners(true);
         }
-        if (type.equals(Constants.RESTART)) {
-            nextButton.setText(Constants.NEXT_BUTTON);
-            backButton.setText(Constants.BACK_BUTTON);
-            manageListeners(true);
-        }
         if (type.equals(Constants.TUTORIAL_ENDING)) {
             nextButton.setText(Constants.FINISH_TUTORIAL_BUTTON);
             backButton.setText(Constants.RESTART_TUTORIAL_BUTTON);
             manageListeners(false);
         }
+        if (type.equals(Constants.RESTART)) {
+            nextButton.setText(Constants.NEXT_BUTTON);
+            backButton.setText(Constants.BACK_BUTTON);
+            manageListeners(true);
+        }
+        if (type.equals(Constants.FINISH)) {
+            nextButton.setText(Constants.NEXT_BUTTON);
+            nextButton.setVisible(false);
+            backButton.setText(Constants.BACK_BUTTON);
+            backButton.setVisible(false);
+            startButton.setVisible(true);
+        }
     }
 
     private void manageListeners(boolean isRunning) {
+        backButton.removeActionListener(RESTART_CLICKED);
+        backButton.removeActionListener(BACK_CLICKED);
+        nextButton.removeActionListener(FINISH_CLICKED);
+        nextButton.removeActionListener(NEXT_CLICKED);
+
         if (isRunning) {
             backButton.addActionListener(BACK_CLICKED);
             nextButton.addActionListener(NEXT_CLICKED);
-            backButton.removeActionListener(RESTART_CLICKED);
-            nextButton.removeActionListener(FINISH_CLICKED);
         } else {
-            backButton.removeActionListener(BACK_CLICKED);
-            nextButton.removeActionListener(NEXT_CLICKED);
             backButton.addActionListener(RESTART_CLICKED);
             nextButton.addActionListener(FINISH_CLICKED);
         }

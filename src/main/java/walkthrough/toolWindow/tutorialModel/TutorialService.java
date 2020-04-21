@@ -61,7 +61,12 @@ public class TutorialService extends Observable {
         }
     }
 
+    public TutorialStep getIntroScreen() {
+        return tutorialSteps.get(currentStep);
+    }
+
     public TutorialStep getFirstStep() {
+        currentStep = 1;
         return tutorialSteps.get(currentStep);
     }
 
