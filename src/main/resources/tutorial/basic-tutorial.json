@@ -6,7 +6,7 @@
   "steps": [
     {
       "title": "IntelliJ für OOP",
-      "content": "Schön, dass du diesen interaktiven Rundgang durch IntelliJ mitmachen möchtest.\n\nIntelliJ bietet als integrierte Entwicklungsumgebung (IDE) viele Vorteile und nützliche Funktionen gegenüber einem klassischen Texteditor. Dadurch ist IntelliJ aber auch viel umfangreicher als diese Texteditoren. Schließlich soll die professionelle Entwicklung von Programmen damit so angenehm gestaltet werden wie möglich. Es gibt eine Vielzahl an Features, mit denen du als Entwickler deine Produktivität steigern kannst.\n\nDie Erklärungen in diesem Tutorial orientieren sich an den Inhalten des OOP-Kurses. Sie sollen dir dabei helfen, die Abläufe in IntelliJ besser zu verstehen, wenn du es für deine OOP-Übungsaufgaben verwendest.\n\nBlende vor dem Start bitte alle ablenkenden Leisten über den Button ganz unten links im Eck aus.\nAußerdem wird sich beim Starten ein zweites IntelliJ-Fenster öffnen. Das wird für dieses Tutorial gebraucht.\n\nWenn du soweit bist, starte das Tutorial.",
+      "content": "Schön, dass du diesen interaktiven Rundgang durch IntelliJ mitmachen möchtest.\n\nIntelliJ bietet als integrierte Entwicklungsumgebung (IDE) viele Vorteile und nützliche Funktionen zur Entwicklung von Software. Durch diesen großen Funktionsumfang ist der Einstieg in die Verwendung oft nicht immer leicht. Es gibt eine Vielzahl an Funktionen, die dir als EntwicklerIn das Programmieren erleichtern sollen. In diesem Tutorial zeigen wir dir die wichtigsten Features, die du für die Bearbeitung der Aufgaben im OOP-Kurs benötigst. Sie sollen dir dabei helfen, die Abläufe in IntelliJ besser zu verstehen.\n\nBlende vor dem Start bitte alle ablenkenden Leisten über den Button ganz unten links im Eck aus.\nAußerdem wird sich beim Starten ein zweites IntelliJ-Fenster öffnen. Das wird für dieses Tutorial gebraucht.\n\nWenn du soweit bist, starte das Tutorial.",
       "pos": 0,
       "targets": [
         {
@@ -17,7 +17,7 @@
     },
     {
       "title": "Das Projekt",
-      "content": "Das erste, das du in IntelliJ machst, ist, ein Projekt zu erstellen oder zu öffnen. Das Projekt ist dabei der Container für deinen gesamten Code und alles, was du sonst noch brauchst. Jedes Projekt braucht eine SDK (für Java JDK genannt), um zu funktionieren.\n\nDas Project-ToolWindow, das gerade orange umrandet ist, zeigt dir die Baumstruktur des Projekts. In dieser Struktur kannst du auch neue Dateien erstellen. Diese und weitere Funktionen findest du über ein Kontextmenü.\n\nKlicke dafür mit der rechten Maustaste auf einen beliebigen Ordner im Project-ToolWindow und schau dir an, was alles möglich ist. Beispielsweise kannst du hier eine Datei sicher und einfach umbenennen über Refactor > Rename.",
+      "content": "Das erste, das du in IntelliJ machst, ist, ein Projekt zu erstellen oder zu öffnen. Das Projekt ist dabei der Container für deinen gesamten Code und alles, was du sonst noch brauchst. Neben den Java-Dateien können das z.B. Bilder, Texte oder andere Medien sein, die du in deinem Programm verwenden möchtest. Auch Libraries, wie z.B. die GraphicsApp, werden hier als Datei auftauchen. \n\nDas Project-ToolWindow, das gerade orange umrandet ist, zeigt dir die Baumstruktur des Projekts. In dieser Struktur kannst du auch neue Dateien erstellen. Diese und weitere Funktionen findest du über ein Kontextmenü.\n\nKlicke dafür mit der rechten Maustaste auf einen beliebigen Ordner im Project-ToolWindow und schau dir an, was alles möglich ist. Beispielsweise kannst du hier eine Datei sicher und einfach umbenennen über Refactor > Rename. Dadurch wird der Name der Datei im Projektordner und an allen Stellen im Code, in der die Datei verwendet wird, angepasst.",
       "pos": 1,
       "targets": [
         {
@@ -54,7 +54,7 @@
     },
     {
       "title": "Der src-Ordner",
-      "content": "Da der OOP-Kurs an Programmiereinsteiger gerichtet ist, ist für die Übungen schon eine grobe Projektstruktur vorgegeben. Du musst dir die Basis also nicht selbst aufbauen.\n\nIm Projekt befinden sich einige Dateien und Unterordner, mit denen du arbeiten kannst und auf die du aufbauen willst.\n\nKlapp die Baumstruktur aus, bis du beim src-Ordner bist (src für source). In diesem Ordner ist eine Datei mit dem Begriff ‚Launcher‘ im Namen (hier: GameLauncher). Diese ist dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden.\n\nDie zweite Datei im src-Ordner (hier: SnowballFight) ist für dich interessant, denn diese ist der Einstieg in deinen eigenen Code.\n\nÖffne sie und schau dir an, was sie schon enthält.",
+      "content": "Da der OOP-Kurs an Programmiereinsteiger gerichtet ist, ist für die Übungen meist schon eine grobe Projektstruktur vorgegeben. Du musst dir die Basis also nicht selbst aufbauen.\n\nIm Projekt befinden sich einige Dateien und Unterordner, mit denen du arbeiten kannst und auf die du aufbauen willst.\n\nKlapp die Baumstruktur aus, bis du beim src-Ordner bist (src für source). In diesem Ordner ist eine Datei mit dem Begriff ‚Launcher‘ im Namen (hier: GameLauncher). Diese ist dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden.\n\nDie zweite Datei im src-Ordner (hier: SnowballFight) ist für dich interessant, denn diese ist der Einstieg in deinen eigenen Code.\n\nÖffne sie und schau dir an, was sie schon enthält.",
       "pos": 4,
       "targets": [
         {
@@ -65,7 +65,7 @@
     },
     {
       "title": "Der Code-Editor",
-      "content": "Im Editor siehst du die gerade geöffnete Klassendatei. Wenn du mehrere Dateien geöffnet hast, kannst du über Tabs oben am Editor zwischen ihnen wechseln.\n\nDiese Einstiegsklasse erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Es gibt eine initialize-Methode, eine draw-Methode und eine Methode zum Abfangen von Key-Events. Den Code sollst du später für diese Übungsaufgabe erweitern.\n\nTipp:\nIntelliJ bietet zahlreiche Hilfestellungen beim Programmieren. Falls du schon etwas Programmiererfahrung hast und dich dafür interessierst, schau doch später mal in die Doku: https://www.jetbrains.com/help/idea/using-code-editor.html.\n\nDas ist allerdings nicht Teil von diesem Tutorial. Im nächsten Schritt schauen wir uns an, wie wir deinen Code zum Laufen bringen.",
+      "content": "Im Editor siehst du die gerade geöffnete Klassendatei. Wenn du mehrere Dateien geöffnet hast, kannst du über Tabs oben am Editor zwischen ihnen wechseln.\n\nDiese Einstiegsklasse erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Es gibt eine initialize-Methode, eine draw-Methode und eine Callback-Methode zum Abfangen von Key-Events. Den Code sollst du später für diese Übungsaufgabe erweitern.\n\nTipp:\nIntelliJ bietet zahlreiche Hilfestellungen beim Programmieren. Falls du schon etwas Programmiererfahrung hast und dich dafür interessierst, schau doch später mal in die Doku: https://www.jetbrains.com/help/idea/using-code-editor.html.\n\nDas ist allerdings nicht Teil von diesem Tutorial. Im nächsten Schritt schauen wir uns an, wie wir deinen Code zum Laufen bringen.",
       "pos": 5,
       "targets": [
         {
@@ -76,7 +76,7 @@
     },
     {
       "title": "Der Run-Prozess",
-      "content": "Um zu testen, ob dein Code funktioniert, solltest du dein Programm regelmäßig starten. Dafür gibt es zwei Optionen: run oder debug. Hier oben findest du die Buttons für beide Prozesse. Zur genauen Verwendung des Debug-Modus gibt es im Kurs noch eine eigene Lektion.\n\nWenn der Run-Button noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode (also die Launcher-Datei) auswählst. Klicke dort entweder links neben der main-Methode im Editor auf den grünen Run-Button oder wähle ‚Run‘ über Rechtsklick im Kontextmenü.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse.\n\nJava ist eine kompilierte Programmiersprache. Das heißt, dein Programm in der menschenlesbaren Sprache Java wird in eine maschinenlesbare Sprache (Bytecode) übersetzt und ausgeführt. Das ist Teil des Build-Prozesses, der von IntelliJ automatisch angestoßen wird.\n\nWenn du danach etwas an deinem Code änderst, muss IntelliJ ihn beim Starten erst wieder neu übersetzen, bevor die Änderungen sichtbar werden.",
+      "content": "Um zu testen, ob dein Code funktioniert, solltest du dein Programm regelmäßig starten. Dafür gibt es zwei Optionen: run oder debug. Hier oben findest du die Buttons für beide Prozesse. Zur genauen Verwendung des Debug-Modus gibt es im Kurs noch eine eigene Lektion.\n\nWenn der Run-Button noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode (also die Launcher-Datei) auswählst. Klicke dort entweder links neben der main-Methode im Editor auf den grünen Run-Button oder wähle ‚Run‘ über Rechtsklick im Kontextmenü.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse.\n\nJava ist eine kompilierte Programmiersprache. Das heißt, dein Programm in der menschenlesbaren Sprache Java wird in eine maschinenlesbare Sprache (Bytecode) übersetzt und ausgeführt. Das ist Teil des Build-Prozesses, der von IntelliJ automatisch für dich übernommen wird.\n\nWenn du danach etwas an deinem Code änderst, übersetzt IntelliJ diesen beim Starten  wieder neu, bevor die Anwendung startet.",
       "pos": 6,
       "targets": [
         {
@@ -87,7 +87,7 @@
     },
     {
       "title": "Die Graphics-App",
-      "content": "Weil es in der Launch-Datei so definiert ist, öffnet sich bei Start des Programms eine Instanz der GraphicsApp. Solange du den Code nicht änderst, öffnet sich nur ein kleines Fenster mit weißem Hintergrund und dem Titel ‚SnowballFight‘.\n\nDie GraphicsApp ist an sich eine einfache 2D-Grafikumgebung, eingebunden über die GraphicsApp-Library. Mit ihr kann man grafische Primitive wie Rechtecke und Kreise erstellen und zeichnen.\n\nZum Beenden der Anwendung klicke auf den Stop-Button in der Leiste oben oder schließe die Instanz der Graphics-App.\n\nBeim Starten des Run-Prozesses wurde am unteren Rand ein neues ToolWindow geöffnet. Hier findest du das Ergebnis des Prozesses und Hinweise zu Fehlern, die auftauchen. Das kannst du wieder minimieren, bevor du zum nächsten Schritt gehst.",
+      "content": "Beim Ausführen des Programms öffnet sich das Fenster der GraphicsApps. Das funktioniert, da in der Launcher-Klasse die passende Graphics-App Klasse ausgewählt und initalisiert wird. Solange du den Code nicht änderst, siehst du erst einmal nur einen  weißen Hintergrund und den Titel ‚SnowballFight‘.\n\nDie GraphicsApp ist an sich eine einfache 2D-Grafikumgebung, eingebunden über die entsprechende Library. Mit ihr kann man grafische Primitive wie Rechtecke und Kreise erstellen und zeichnen.\n\nZum Beenden der Anwendung klicke auf den Stop-Button in der Leiste oben oder schließe die Instanz der Graphics-App.\n\nBeim Starten des Run-Prozesses wurde am unteren Rand ein neues ToolWindow geöffnet. Hier findest du das Ergebnis des Prozesses und Hinweise zu Fehlern, die auftauchen. Das kannst du wieder minimieren, bevor du zum nächsten Schritt gehst.",
       "pos": 7,
       "targets": [
         {
@@ -98,7 +98,7 @@
     },
     {
       "title": "Der out-Ordner",
-      "content": "Außerdem wurde von der IDE der out-Ordner erstellt - hier orange markiert.\n\nDu erinnerst dich vielleicht, dass beim Starten des Run-Prozesses der Code kompiliert wird.\n\nDer Bytecode, der dabei entsteht, wird von einem Java-Interpreter ausgeführt und als Datei mit der Endung .class wieder lesbar im out-Ordner gespeichert.\n\nWenn du den out-Ordner ausklappst, siehst du dort die gleichen Dateien wie in deinem src-Ordner, nur mit der anderen Dateiendung.\n\nWofür ist das wichtig?\nDie .class-Dateien, die du siehst, wurden beim Start nach dem Kompilieren von einem in IntelliJ integrierten Decompiler wieder zurück in lesbares Java umgewandelt. Man hat hier also Einblick in den Code von allen Dateien, die ausgeführt wurden.\n\nFür dich ist das im Moment uninteressant. Spannend wird es dann, wenn du ein fremdes Projekt mit Libraries hast, die du dir eigentlich nicht anschauen kannst. Auf diesem Weg kannst du trotzdem einen Blick in deren Code werfen.",
+      "content": "Außerdem wurde von der IDE der out-Ordner erstellt - hier orange markiert.\n\nDu erinnerst dich vielleicht, dass beim Starten des Run-Prozesses der Code kompiliert wird.\n\nDer Bytecode, der dabei entsteht, wird in Dateien mit der Endung .class abgespeichert. \n\nWenn du den out-Ordner ausklappst, siehst du dort die gleichen Dateien wie in deinem src-Ordner, nur mit der anderen Dateiendung. Beim Starten der Anwendung werden diese von der Java-Runtime verwendet. \n\n Du kannst die .class-Dateien auch in IntelliJ öffnen. Dabei wird der Bytecode im Hintergrund wieder in lesbaren Quellcode umgewandelt. \n\nFür dich ist das im Moment uninteressant. Spannend wird es dann, wenn du ein fremdes Projekt mit Libraries hast, die du dir eigentlich nicht anschauen kannst. Auf diesem Weg kannst du trotzdem einen Blick in deren Code werfen. Da bei der Transformation manche Informationen und Formatierungen verloren gehen können, kann es dabei zu leichten Unterschieden zwischen ursprünglichem Quellcode und dekompilierten Bytecode kommen.",
       "pos": 8,
       "targets": [
         {
@@ -120,7 +120,7 @@
     },
     {
       "title": "Die Klassendatei",
-      "content": "Die neu erstellte Klassendatei öffnet sich automatisch im Editor und erscheint im Project-ToolWindow im Strukturbaum. Sie ist weitestgehend leer, erbt von keiner Klasse und implementiert auch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken über den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, möchte ich im nächsten Schritt noch ansprechen.",
+      "content": "Die neu erstellte Klassendatei öffnet sich automatisch im Editor und erscheint im Project-ToolWindow im Strukturbaum. Sie ist weitestgehend leer, erbt von keiner Klasse und implementiert auch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken über den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, schauen wir uns im nächsten Schritt an.",
       "pos": 10,
       "targets": [
         {
@@ -157,7 +157,7 @@
     },
     {
       "title": "Rundgang beendet",
-      "content": "Damit ist der Rundgang beendet.\n\nSchön, dass du dich bis zum Ende durchgeklickt hast. Hoffentlich hat es dir geholfen. Gib gerne Feedback, zu welchen Bereichen du dir noch mehr Erklärungen wünschst.\n\nJetzt kannst du den Rundgang schließen und mit deinem eigenen Übungsprojekt anfangen. Falls du dir den Rundgang nochmal genauer ansehen willst, kannst du ihn auch neu starten.",
+      "content": "Damit ist der Rundgang beendet.\n\nSchön, dass du bis zum Ende mitgemacht hast. Hoffentlich hat es dir geholfen. Gib gerne Feedback, zu welchen Bereichen du dir noch mehr Erklärungen wünschst.\n\nJetzt kannst du den Rundgang schließen und mit deinem eigenen Übungsprojekt anfangen. Falls du dir den Rundgang nochmal genauer ansehen willst, kannst du ihn auch neu starten.",
       "pos": 13,
       "targets": [
         {
