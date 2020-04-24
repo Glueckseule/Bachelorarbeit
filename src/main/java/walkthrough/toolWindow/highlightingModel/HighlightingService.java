@@ -3,6 +3,7 @@ package walkthrough.toolWindow.highlightingModel;
 import com.google.gson.JsonObject;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.WindowManager;
@@ -95,21 +96,24 @@ public class HighlightingService extends Observable {
         }
     }
 
-    //Step 13: delete all in file and set custom
+    //Step 13: if file opened, delete all in file and set custom
     public void setCodeToEditor() {
-        Document documentOpened = Objects.requireNonNull(FileEditorManager.getInstance(project).getSelectedTextEditor()).getDocument();
-        int availableLines = documentOpened.getLineCount();
-        int offset;
-        if (availableLines != 0) {
-            offset = documentOpened.getLineEndOffset(documentOpened.getLineCount() - 1);
-        } else {
-            offset = 0;
-        }
+        Editor selectedEditor = FileEditorManager.getInstance(project).getSelectedTextEditor();
+        if (selectedEditor != null) {
+            Document documentOpened = selectedEditor.getDocument();
+            int availableLines = documentOpened.getLineCount();
+            int offset;
+            if (availableLines != 0) {
+                offset = documentOpened.getLineEndOffset(documentOpened.getLineCount() - 1);
+            } else {
+                offset = 0;
+            }
 
-        WriteCommandAction.runWriteCommandAction(project, () -> {
-            documentOpened.deleteString(0, offset);
-            documentOpened.setText(Constants.CODE_FOR_TUTORIAL);
-        });
+            WriteCommandAction.runWriteCommandAction(project, () -> {
+                documentOpened.deleteString(0, offset);
+                documentOpened.setText(Constants.CODE_FOR_TUTORIAL);
+            });
+        }
     }
 
     //<editor-fold desc="Shadowing">
