@@ -1,6 +1,5 @@
 package walkthrough.toolWindow;
 
-import com.intellij.openapi.ui.MultiLineLabelUI;
 import walkthrough.toolWindow.tutorialModel.TutorialService;
 import walkthrough.toolWindow.tutorialModel.TutorialStep;
 import walkthrough.toolWindow.utils.Constants;
@@ -123,6 +122,6 @@ public class TutorialView {
     }
 
     public void setInfo(String[] tutorialType) {
-        tutType.setText("<html><body>"+tutorialType[0]+"<br>"+tutorialType[1]+"</body></html>");
+        tutType.setText("<html><body>" + tutorialType[0] + "<br>" + tutorialType[1] + "</body></html>");
     }
 }
