@@ -9,6 +9,7 @@ import com.intellij.openapi.wm.WindowManager;
 import walkthrough.toolWindow.utils.Constants;
 import walkthrough.toolWindow.utils.Event;
 import walkthrough.toolWindow.utils.Observable;
+import walkthrough.toolWindow.utils.PositionCalculator;
 
 import javax.swing.*;
 import java.awt.event.ComponentAdapter;

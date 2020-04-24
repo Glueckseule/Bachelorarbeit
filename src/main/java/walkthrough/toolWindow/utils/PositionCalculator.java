@@ -1,4 +1,4 @@
-package walkthrough.toolWindow.highlightingModel;
+package walkthrough.toolWindow.utils;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
