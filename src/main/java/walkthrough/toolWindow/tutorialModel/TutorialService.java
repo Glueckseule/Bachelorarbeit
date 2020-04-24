@@ -112,8 +112,8 @@ public class TutorialService extends Observable {
 
     public String[] getTutorialInfo() {
         String[] tutorialInfo = new String[2];
-        tutorialInfo[0] = "Paket: "+tutorialType;
-        tutorialInfo[1] = "Author: "+tutorialAuthor;
+        tutorialInfo[0] = "Autor: "+tutorialAuthor;
+        tutorialInfo[1] = "Starterpaket: "+tutorialType;
         return tutorialInfo;
     }
 }
