@@ -1,0 +1,170 @@
+{
+  "type": "A-Christmas-Game-starter",
+  "description": "Grundlagen für den OOP-Kurs",
+  "author": "Daniela Krapf",
+  "number_of_steps": 14,
+  "steps": [
+    {
+      "title": "IntelliJ für OOP",
+      "content": "Schön, dass du diesen interaktiven Rundgang durch IntelliJ mitmachen möchtest.\n\nIntelliJ bietet als integrierte Entwicklungsumgebung (IDE) viele Vorteile und nützliche Funktionen zur Entwicklung von Software. Durch diesen großen Funktionsumfang ist der Einstieg in die Verwendung oft nicht immer leicht. Es gibt eine Vielzahl an Funktionen, die dir als EntwicklerIn das Programmieren erleichtern sollen. In diesem Tutorial zeigen wir dir die wichtigsten Features, die du für die Bearbeitung der Aufgaben im OOP-Kurs benötigst. Sie sollen dir dabei helfen, die Abläufe in IntelliJ besser zu verstehen.\n\nFalls noch sichtbar, blende vor dem Start bitte alle Randleisten über den Button ganz unten links im Eck aus.\nAußerdem wird sich beim Starten ein zweites IntelliJ-Fenster öffnen. Das wird für dieses Tutorial gebraucht.\n\nWenn du soweit bist, starte das Tutorial.",
+      "pos": 0,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "INTRO_SCREEN"
+        }
+      ]
+    },
+    {
+      "title": "Das Projekt",
+      "content": "Das erste, das du in IntelliJ machst, ist, ein Projekt zu erstellen oder zu öffnen. Das Projekt ist dabei der Container für deinen gesamten Code und alles, was du sonst noch brauchst. Neben den Java-Dateien können das z.B. Bilder, Texte oder andere Medien sein, die du in deinem Programm verwenden möchtest. Auch Libraries, wie z.B. die GraphicsApp, werden hier als Datei auftauchen. \n\nDas Project-ToolWindow, das gerade orange umrandet ist, zeigt dir die Baumstruktur des Projekts. In dieser Struktur kannst du auch neue Dateien erstellen. Diese und weitere Funktionen findest du über ein Kontextmenü.\n\nKlicke dafür mit der rechten Maustaste auf einen beliebigen Ordner im Project-ToolWindow und schau dir an, was alles möglich ist. Beispielsweise kannst du hier eine Datei sicher und einfach umbenennen über Refactor > Rename. Dadurch wird der Name der Datei im Projektordner und an allen Stellen im Code, in der die Datei verwendet wird, angepasst.",
+      "pos": 1,
+      "targets": [
+        {
+          "arrow": "LEFT",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Projektstruktur",
+      "content": "Falls dir das Project-ToolWindow zu unübersichtlich ist, kannst du die Ansicht auch anpassen.\n\nGerade befinden wir uns in der Project-Ansicht. Du siehst in der Baumstruktur alles, was zum Projekt gehört, also auch SDKs und externe Libraries. Welche Möglichkeiten es noch gibt, erfährst du im nächsten Schritt.",
+      "pos": 2,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Verschiedene Darstellungsformen",
+      "content": "Um diese Ansicht zu ändern, klicke auf die Schaltfläche „Project“, um ein Dropdownmenü aufzuklappen.\n\nWenn du dann zum Beispiel auf „Packages“ klickst, siehst du hier die Package-Struktur. Module, externe Libraries und SDKs werden nicht mehr angezeigt. Du kannst dich also ganz auf die Klassen und Dateien für deine Übungsaufgabe konzentrieren. Probier‘s doch mal aus!\n\nFür den weiteren Rundgang wechsle bitte wieder in die Project-Ansicht.",
+      "pos": 3,
+      "targets": [
+        {
+          "arrow": "LEFT",
+          "target-name": "PROJECT_DROPDOWN_POPUP"
+        },
+        {
+          "arrow": "LEFT",
+          "target-name": "PROJECT_DROPDOWN"
+        }
+      ]
+    },
+    {
+      "title": "Der src-Ordner",
+      "content": "Da der OOP-Kurs an Programmiereinsteiger gerichtet ist, ist für die Übungen meist schon eine grobe Projektstruktur vorgegeben. Du musst dir die Basis also nicht selbst aufbauen.\n\nIm Projekt befinden sich einige Dateien und Unterordner, mit denen du arbeiten kannst und auf die du aufbauen willst.\n\nKlapp die Baumstruktur aus, bis du beim src-Ordner bist (src für source). In diesem Ordner ist eine Datei mit dem Begriff ‚Launcher‘ im Namen (hier: GameLauncher). Diese ist dazu da, um die Anwendung zu starten. Sie enthält die Main-Methode und muss von dir nicht weiter ergänzt werden.\n\nDie zweite Datei im src-Ordner (hier: SnowballFight) ist für dich interessant, denn diese ist der Einstieg in deinen eigenen Code.\n\nÖffne sie und schau dir an, was sie schon enthält.",
+      "pos": 4,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Der Code-Editor",
+      "content": "Im Editor siehst du die gerade geöffnete Klassendatei. Wenn du mehrere Dateien geöffnet hast, kannst du über Tabs oben am Editor zwischen ihnen wechseln.\n\nDiese Einstiegsklasse erbt von der GraphicsApp, damit du alle ihre Funktionen verwenden kannst. Es gibt eine initialize-Methode, eine draw-Methode und eine Callback-Methode zum Abfangen von Key-Events. Den Code sollst du später für diese Übungsaufgabe erweitern.\n\nTipp:\nIntelliJ bietet zahlreiche Hilfestellungen beim Programmieren. Falls du schon etwas Programmiererfahrung hast und dich dafür interessierst, schau doch später mal in die Doku: https://www.jetbrains.com/help/idea/using-code-editor.html.\n\nDas ist allerdings nicht Teil von diesem Tutorial. Im nächsten Schritt schauen wir uns an, wie wir deinen Code zum Laufen bringen.",
+      "pos": 5,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "CODE"
+        }
+      ]
+    },
+    {
+      "title": "Der Run-Prozess",
+      "content": "Um zu testen, ob dein Code funktioniert, solltest du dein Programm regelmäßig starten. Dafür gibt es zwei Optionen: run oder debug. Hier oben findest du die Buttons für beide Prozesse. Zur genauen Verwendung des Debug-Modus gibt es im Kurs noch eine eigene Lektion.\n\nWenn der Run-Button noch ausgegraut ist, starte dein Programm erstmalig, indem du die Datei mit der Main-Methode (also die Launcher-Datei) auswählst. Klicke dort entweder links neben der main-Methode im Editor auf den grünen Run-Button oder wähle ‚Run‘ über Rechtsklick im Kontextmenü.\n\nSobald du auf den Run-Button klickst, starten im Hintergrund der IDE einige Prozesse.\n\nJava ist eine kompilierte Programmiersprache. Das heißt, dein Programm in der menschenlesbaren Sprache Java wird in eine maschinenlesbare Sprache (Bytecode) übersetzt und ausgeführt. Das ist Teil des Build-Prozesses, der von IntelliJ automatisch für dich übernommen wird.\n\nWenn du danach etwas an deinem Code änderst, übersetzt IntelliJ diesen beim Starten  wieder neu, bevor die Anwendung startet.",
+      "pos": 6,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "RUN_BUTTON"
+        }
+      ]
+    },
+    {
+      "title": "Die Graphics-App",
+      "content": "Beim Ausführen des Programms öffnet sich das Fenster der GraphicsApps. Das funktioniert, da in der Launcher-Klasse die passende Graphics-App Klasse ausgewählt und initalisiert wird. Solange du den Code nicht änderst, siehst du erst einmal nur einen  weißen Hintergrund und den Titel ‚SnowballFight‘.\n\nDie GraphicsApp ist an sich eine einfache 2D-Grafikumgebung, eingebunden über die entsprechende Library. Mit ihr kann man grafische Primitive wie Rechtecke und Kreise erstellen und zeichnen.\n\nZum Beenden der Anwendung klicke auf den Stop-Button in der Leiste oben oder schließe die Instanz der Graphics-App.\n\nBeim Starten des Run-Prozesses wurde am unteren Rand ein neues ToolWindow geöffnet. Hier findest du das Ergebnis des Prozesses und Hinweise zu Fehlern, die auftauchen. Das kannst du wieder minimieren, bevor du zum nächsten Schritt gehst.",
+      "pos": 7,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "GRAPHICS_APP"
+        }
+      ]
+    },
+    {
+      "title": "Der out-Ordner",
+      "content": "Außerdem wurde von der IDE der out-Ordner erstellt - hier orange markiert.\n\nDu erinnerst dich vielleicht, dass beim Starten des Run-Prozesses der Code kompiliert wird.\n\nDer Bytecode, der dabei entsteht, wird in Dateien mit der Endung .class abgespeichert. \n\nWenn du den out-Ordner ausklappst, siehst du dort die gleichen Dateien wie in deinem src-Ordner, nur mit der anderen Dateiendung. Beim Starten der Anwendung werden diese von der Java-Runtime verwendet. \n\nDu kannst die .class-Dateien auch in IntelliJ öffnen. Dabei wird der Bytecode im Hintergrund wieder in lesbaren Quellcode umgewandelt.\n\nFür dich ist das im Moment uninteressant. Spannend wird es dann, wenn du ein fremdes Projekt mit Libraries hast, die du dir eigentlich nicht anschauen kannst. Auf diesem Weg kannst du trotzdem einen Blick in deren Code werfen. Da bei der Transformation manche Informationen und Formatierungen verloren gehen können, kann es dabei zu leichten Unterschieden zwischen ursprünglichem Quellcode und dekompilierten Bytecode kommen.",
+      "pos": 8,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Erstellen einer Klasse",
+      "content": "Um dein Programm übersichtlich zu gestalten, ist es wichtig, die Funktionen deiner Anwendung sinnvoll auf mehrere Klassen aufzuteilen.\n\nErstelle als nächstes eine neue Klasse im src-Ordner. Durch Rechtsklick auf den src-Ordner öffnest du das Kontextmenü dafür. Wähle hier ganz oben *new >* und klicke dort *Java Class*.\n\nDadurch öffnet sich ein Dialog mit 5 Optionen. Relevant für den OOP-Kurs werden die ersten drei davon: Class, Interface und Enum. Was wofür verwendet wird, wird auch im Kurs behandelt. Wir wollen in diesem Fall eine neue Klasse erstellen. Da diese Option schon vorausgewählt ist, musst du nur noch den Namen der neuen Klasse eingeben.\n\nTippe zum Beispiel „Lander“ in das Eingabefeld und bestätige mit Enter. Wie es weitergeht erfährst du im nächsten Schritt.",
+      "pos": 9,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Die Klassendatei",
+      "content": "Die neu erstellte Klassendatei öffnet sich automatisch im Editor und erscheint im Project-ToolWindow im Strukturbaum. Sie ist weitestgehend leer, erbt von keiner Klasse und implementiert auch kein Interface. Außerdem hat sie noch keinen Konstruktor.\n\nNachdem du dir Gedanken über den Aufbau deines Codes gemacht hast, kannt du hier anfangen, ihn zu implementieren. Ein Problem, auf das du dabei stoßen könntest, schauen wir uns im nächsten Schritt an.",
+      "pos": 10,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "CODE"
+        },
+        {
+          "arrow": "NONE",
+          "target-name": "PROJECT_TOOLWINDOW"
+        }
+      ]
+    },
+    {
+      "title": "Auswahl des Imports",
+      "content": "Wenn du eine Instanz einer Klasse erstellen willst, die du nicht selbst geschrieben hast (hier das Ellipsen-Objekt der GraphicsApp), wirst du zunächst einen Fehler sehen (ROT).\n\nWarum? Ganz einfach: Um eine externe Klasse verwenden zu können, musst du sie zuerst importieren.\n\nKlicke mit deiner Maus dazu auf das rot hinterlegte Wort *Ellipse* und dann Alt+Enter auf der Tastatur. Unter *import class* bekommst du dann eine Auswahl aller möglichen Importe. Wähle in diesem Fall den Import aus dem de.ur.mi.oop-Package (grau in Klammern).\n\nTipp:\nJetzt zeigt dir IntelliJ auch, welche Parameter dem Ellipsen-Konstruktor übergeben werden müssen. Klicke dafür in die rot unterringelte Klammer und drücke STRG+P, dann erfährst du, welche Parameter erwartet werden.",
+      "pos": 11,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "CODE"
+        }
+      ]
+    },
+    {
+      "title": "Das Import-Statement",
+      "content": "Sobald du die Klasse importiert hast, erscheint das Import-Statement am Anfang der Datei.\n\nAber was bedeutet import? Ein IntelliJ-Projekt besteht aus Modulen. Ein Modul kann unabhängig von anderen Modulen laufen und verschiedene Dateien enthalten: Quellcode, Skripte, Dokumentation, Ressourcen, etc.\n\nDie Dateien dieser Module werden zu Packages gruppiert. Mehrere Klassen können zum gleichen Package gehören.\n\nIntelliJ macht die Import-Statements automatisch übersichtlicher, sobald du mehr als fünf Klassen aus demselben Package importierst. Es werden dann nicht mehr die einzelnen Klassen als Import aufgelistet, sondern das gesamte Package, was in diesem Fall so aussehen würde:\nimport de.ur.mi.oop.graphics.*",
+      "pos": 12,
+      "targets": [
+        {
+          "arrow": "UP",
+          "target-name": "IMPORT_STATEMENT"
+        }
+      ]
+    },
+    {
+      "title": "Rundgang beendet",
+      "content": "Damit ist der Rundgang beendet.\n\nSchön, dass du bis zum Ende mitgemacht hast. Hoffentlich hat es dir geholfen. Gib gerne Feedback, zu welchen Bereichen du dir noch mehr Erklärungen wünschst.\n\nJetzt kannst du den Rundgang schließen und mit deinem eigenen Übungsprojekt anfangen. Falls du dir den Rundgang nochmal genauer ansehen willst, kannst du ihn auch neu starten.",
+      "pos": 13,
+      "targets": [
+        {
+          "arrow": "NONE",
+          "target-name": "OUTRO_SCREEN"
+        }
+      ]
+    }
+  ]
+}
